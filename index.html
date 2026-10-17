@@ -406,9 +406,55 @@ img{max-width:100%}
 @keyframes intro-progress{from{transform:translateX(-110%)}to{transform:translateX(350%)}}
 @media(prefers-reduced-motion:reduce){#introLoader,.intro-inner,.intro-mark,.intro-mark:after,.intro-track:after{animation:none!important;transition:none!important}}
 
+
+/* ===== Publicité animée des articles au premier chargement ===== */
+#shopAd{position:fixed;inset:0;z-index:10001;display:grid;place-items:center;padding:18px;background:rgba(4,15,30,.82);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+#shopAd.ad-visible{opacity:1;visibility:visible}
+.shop-ad-panel{position:relative;overflow:hidden;width:min(900px,100%);min-height:390px;display:grid;grid-template-columns:1fr 1fr;border:1px solid #ffffff35;border-radius:26px;background:linear-gradient(135deg,#143A66,#0b203a);color:#fff;box-shadow:0 25px 90px #0008;transform:translateY(18px) scale(.98);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+#shopAd.ad-visible .shop-ad-panel{transform:none}
+.shop-ad-visual{position:relative;display:grid;place-items:center;min-height:390px;overflow:hidden;background:radial-gradient(circle at 50% 45%,#4c91dc,#143A66 68%)}
+.shop-ad-visual:before,.shop-ad-visual:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffffff2e;border-radius:50%;animation:ad-orbit 12s linear infinite}
+.shop-ad-visual:after{width:330px;height:330px;animation-direction:reverse}
+.shop-ad-img{position:relative;z-index:1;width:76%;height:270px;object-fit:contain;border-radius:18px;filter:drop-shadow(0 18px 24px #07152b66);animation:ad-product-in .55s cubic-bezier(.2,.8,.2,1) both}
+.shop-ad-icon{position:relative;z-index:1;font-size:6rem;filter:drop-shadow(0 15px 20px #07152b55);animation:ad-product-in .55s cubic-bezier(.2,.8,.2,1) both}
+.shop-ad-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:14px;padding:clamp(24px,5vw,48px)}
+.shop-ad-kicker{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid #8fc2ff80;border-radius:99px;background:#ffffff12;color:#bcdcff;font-size:.74rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.shop-ad-kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:#65dcaa;box-shadow:0 0 12px #65dcaa}
+.shop-ad-title{font:800 clamp(1.8rem,4vw,3rem)/1.04 var(--d);letter-spacing:-.04em}
+.shop-ad-title span{color:#8fc2ff}
+.shop-ad-desc{color:#d9e8fa;line-height:1.55;max-width:34ch}
+.shop-ad-price{font:800 1.45rem/1.2 var(--d);color:#9cc9ff}
+.shop-ad-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.shop-ad-actions .btn{min-height:46px}
+.shop-ad-close{position:absolute;z-index:5;top:12px;right:12px;width:42px;height:42px;border:1px solid #ffffff55;border-radius:50%;background:#071a30a8;color:#fff;font-size:1.5rem;cursor:pointer}
+.shop-ad-progress{position:absolute;z-index:4;left:0;right:0;bottom:0;height:4px;background:#ffffff25}
+.shop-ad-progress span{display:block;width:0;height:100%;background:#8fc2ff}
+#shopAd.ad-visible .shop-ad-progress span{animation:ad-timer 12s linear forwards}
+.shop-ad-count{font-size:.78rem;color:#bcdcff}
+@keyframes ad-orbit{to{transform:rotate(360deg)}}
+@keyframes ad-product-in{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes ad-timer{to{width:100%}}
+@media(max-width:650px){#shopAd{padding:12px}.shop-ad-panel{grid-template-columns:1fr;min-height:0;max-height:92dvh;overflow:auto}.shop-ad-visual{min-height:215px;height:215px}.shop-ad-visual:before{width:170px;height:170px}.shop-ad-visual:after{width:215px;height:215px}.shop-ad-img{height:180px;width:70%}.shop-ad-icon{font-size:4rem}.shop-ad-copy{padding:22px;gap:10px}.shop-ad-title{font-size:2rem}.shop-ad-desc{font-size:.92rem}.shop-ad-close{top:9px;right:9px}}
+@media(prefers-reduced-motion:reduce){#shopAd,.shop-ad-panel,.shop-ad-img,.shop-ad-icon,.shop-ad-visual:before,.shop-ad-visual:after,#shopAd.ad-visible .shop-ad-progress span{animation:none!important;transition:none!important}}
+
 </style>
 </head>
 <body>
+<div id="shopAd" aria-hidden="true">
+  <section class="shop-ad-panel" role="dialog" aria-modal="true" aria-label="Publicité Bénie Boutique">
+    <button class="shop-ad-close" id="shopAdClose" type="button" aria-label="Fermer la publicité">×</button>
+    <div class="shop-ad-visual" id="shopAdVisual"><span class="shop-ad-icon" aria-hidden="true">✦</span></div>
+    <div class="shop-ad-copy">
+      <span class="shop-ad-kicker" id="shopAdKicker">À découvrir chez nous</span>
+      <h2 class="shop-ad-title" id="shopAdTitle">Bénie <span>Boutique</span></h2>
+      <p class="shop-ad-desc" id="shopAdDesc">Mode, kits Arduino, ESP32 et composants électroniques : trouvez votre prochain coup de cœur.</p>
+      <strong class="shop-ad-price" id="shopAdPrice">Tout ce qu’il vous faut au même endroit.</strong>
+      <div class="shop-ad-actions"><a class="btn btn-gold" id="shopAdGo" href="#catalogue">Découvrir la boutique ↗</a><button class="btn btn-line" id="shopAdSkip" type="button">Passer la publicité</button></div>
+      <span class="shop-ad-count" id="shopAdCount">Sélection Bénie Boutique</span>
+    </div>
+    <div class="shop-ad-progress" aria-hidden="true"><span id="shopAdProgress"></span></div>
+  </section>
+</div>
 <div id="introLoader" role="status" aria-live="polite" aria-label="Chargement de Bénie Boutique">
   <div class="intro-inner">
     <div class="intro-mark" aria-hidden="true">B</div>
@@ -1016,6 +1062,54 @@ status(); setInterval(status, 60000);
 // Le bouton « Gérer la boutique » n’apparaît que sur l’adresse …/#admin (invisible pour les clients)
 const showMng = () => $("#manage").hidden = location.hash !== "#admin"; showMng(); addEventListener("hashchange", showMng);
 
+
+let shopAdTimer = null, shopAdAutoClose = null, shopAdProducts = [], shopAdIndex = 0;
+function closeShopAd(){
+  const ad = $("#shopAd"); if(!ad) return;
+  ad.classList.remove("ad-visible"); ad.setAttribute("aria-hidden","true");
+  if(shopAdTimer) clearInterval(shopAdTimer); if(shopAdAutoClose) clearTimeout(shopAdAutoClose);
+}
+function paintShopAd(){
+  const p = shopAdProducts[shopAdIndex] || null;
+  const visual = $("#shopAdVisual");
+  if(p){
+    const pics = Array.isArray(p.imgs) && p.imgs.length ? p.imgs : (p.img ? [p.img] : []);
+    visual.innerHTML = pics.length
+      ? '<img class="shop-ad-img" src="' + esc(pics[0]) + '" alt="' + esc(p.name) + '">'
+      : '<span class="shop-ad-icon" aria-hidden="true">✦</span>';
+    $("#shopAdKicker").textContent = p.tag === "Promo" ? "Offre à découvrir" : p.tag === "Nouveau" ? "Nouvel arrivage" : p.tag === "Best-seller" ? "Article populaire" : (CATS[p.cat] || "Sélection boutique");
+    $("#shopAdTitle").textContent = p.name || "Un article pour vous";
+    $("#shopAdDesc").textContent = p.desc || "Découvrez cet article dans notre catalogue et contactez-nous pour commander.";
+    $("#shopAdPrice").textContent = fmt(Number(p.price) || 0);
+    $("#shopAdCount").textContent = "Article " + (shopAdIndex + 1) + " sur " + shopAdProducts.length + " · Bénie Boutique";
+    $("#shopAdGo").textContent = "Voir cet article ↗";
+    $("#shopAdGo").onclick = e => { e.preventDefault(); closeShopAd(); setTimeout(() => { const target = $("#grid [data-id='" + CSS.escape(String(p.id)) + "']"); if(target) target.scrollIntoView({behavior:"smooth",block:"center"}); else $("#catalogue").scrollIntoView({behavior:"smooth"}); }, 100); };
+  }else{
+    visual.innerHTML = '<span class="shop-ad-icon" aria-hidden="true">✦</span>';
+    $("#shopAdKicker").textContent = "Mode & technologie";
+    $("#shopAdTitle").innerHTML = 'Bénie <span>Boutique</span>';
+    $("#shopAdDesc").textContent = "Des vêtements pour toute la famille et du matériel électronique pour vos projets : explorez notre sélection.";
+    $("#shopAdPrice").textContent = "Votre prochain coup de cœur vous attend.";
+    $("#shopAdCount").textContent = "Femme · Homme · Enfant · Arduino · ESP32 · Raspberry Pi";
+    $("#shopAdGo").textContent = "Explorer les catégories ↗";
+    $("#shopAdGo").onclick = e => { e.preventDefault(); closeShopAd(); $("#catalogue").scrollIntoView({behavior:"smooth"}); };
+  }
+  const progress = $("#shopAdProgress");
+  if(progress){ progress.style.animation="none"; void progress.offsetWidth; progress.style.animation=""; }
+}
+function showShopAd(products){
+  const ad = $("#shopAd"); if(!ad) return;
+  shopAdProducts = (Array.isArray(products) ? products : []).filter(p => p && p.stock !== "out").slice(0,4);
+  shopAdIndex = 0; paintShopAd();
+  ad.classList.add("ad-visible"); ad.setAttribute("aria-hidden","false");
+  if(shopAdTimer) clearInterval(shopAdTimer);
+  if(shopAdProducts.length > 1) shopAdTimer = setInterval(() => { shopAdIndex = (shopAdIndex + 1) % shopAdProducts.length; paintShopAd(); }, 3000);
+  shopAdAutoClose = setTimeout(closeShopAd, 12000);
+}
+$("#shopAdClose").addEventListener("click", closeShopAd);
+$("#shopAdSkip").addEventListener("click", closeShopAd);
+$("#shopAd").addEventListener("click", e => { if(e.target === $("#shopAd")) closeShopAd(); });
+
 const hideIntro = () => { const intro = document.getElementById("introLoader"); if (intro && !intro.classList.contains("is-hidden")) { intro.classList.add("is-hidden"); setTimeout(() => intro.remove(), 500); } };
 setTimeout(hideIntro, 5500); // filet de sécurité : l'écran d'accueil ne reste jamais bloqué
 (async function init(){
@@ -1027,7 +1121,7 @@ setTimeout(hideIntro, 5500); // filet de sécurité : l'écran d'accueil ne rest
   }catch(e){}
   // Aucun catalogue de démonstration ni fichier de secours : seuls les produits gérés dans Supabase sont affichés.
   items = Array.isArray(s) ? s.filter(p => !DEMO_PRODUCT_NAMES.has(String(p?.name || "").trim().toLocaleLowerCase("fr"))) : [];
-  render(); hideIntro(); $("#stA").dataset.n = items.length; $$(".stats b[data-n]").forEach(countUp); cartN();
+  render(); hideIntro(); setTimeout(() => showShopAd(items), 350); $("#stA").dataset.n = items.length; $$(".stats b[data-n]").forEach(countUp); cartN();
 })();
 </script>
 </body>
