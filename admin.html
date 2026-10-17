@@ -451,7 +451,23 @@ function stockName(s){return s==="out"?"Rupture":s==="low"?"Stock limité":"Disp
 function stockBadge(s){return '<span class="badge '+(s==="out"?"out":s==="low"?"low":"")+'">'+stockName(s)+'</span>';}
 function openView(v){currentView=v;qsa(".view").forEach(x=>x.classList.toggle("active",x.id==="view-"+v));qsa("[data-view]").forEach(x=>x.classList.toggle("active",x.dataset.view===v));const titles={dashboard:"Vue d'ensemble",products:"Gestion des produits",orders:"Commandes clients",customers:"Clients inscrits",settings:"Paramètres"};$("#pageTitle").textContent=titles[v];$("#crumb").textContent=titles[v];$("#topAdd").style.display=v==="products"?"inline-flex":"none";if(v==="products")renderProducts();if(v==="orders")loadOrders().catch(e=>notify("Chargement des commandes : "+e.message));if(v==="customers")loadCustomers().catch(e=>notify("Chargement des clients : "+e.message));}
 function showApp(){ $("#loginScreen").style.display="none";$("#app").hidden=false;$("#profileEmail").textContent=user?.email||"Administrateur";$("#avatar").textContent=(user?.email||"BB").slice(0,2).toUpperCase();loadProducts().then(()=>loadOrders().catch(()=>{})).catch(e=>notify("Connexion établie, mais lecture impossible : "+e.message));}
-async function login(email,password){const r=await fetch(CFG.url+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:CFG.key,"Content-Type":"application/json"},body:JSON.stringify({email,password})});const d=await r.json();if(!r.ok)throw new Error(d.msg||d.message||"E-mail ou mot de passe incorrect.");accessToken=d.access_token;user=d.user;}
+async function login(email,password){
+ if(!email||!password) throw new Error("Saisissez votre e-mail et votre mot de passe.");
+ let r,d;
+ try{
+  r=await fetch(CFG.url+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:CFG.key,"Content-Type":"application/json"},body:JSON.stringify({email,password})});
+ }catch(e){throw new Error("Impossible de joindre Supabase. Vérifiez votre connexion Internet et la configuration de la base de données.");}
+ try{d=await r.json();}catch{d={};}
+ if(!r.ok){
+  const code=d.error_code||d.code||"";
+  if(r.status===400 && /invalid_credentials|invalid_grant/i.test(code+" "+(d.msg||d.message||d.error_description||""))) throw new Error("E-mail ou mot de passe incorrect. Vérifiez aussi que cet utilisateur existe dans Supabase > Authentication > Users.");
+  if(r.status===429) throw new Error("Trop de tentatives de connexion. Attendez quelques minutes puis réessayez.");
+  if(r.status>=500) throw new Error("Le service de connexion Supabase rencontre un problème temporaire. Réessayez plus tard.");
+  throw new Error(d.msg||d.message||d.error_description||("Connexion refusée (HTTP "+r.status+"). Vérifiez le compte dans Supabase Authentication."));
+ }
+ if(!d.access_token||!d.user?.id) throw new Error("Supabase n'a pas renvoyé de session valide. Vérifiez l'utilisateur et la configuration Auth.");
+ accessToken=d.access_token;user=d.user;
+}
 async function loadProducts(){const rows=await api("/rest/v1/products?select=id,data&order=created_at.desc");products=(rows||[]).map(r=>({...r.data,id:r.id||r.data?.id}));$("#statProducts").textContent=products.length;$("#activityProducts").textContent=products.length+" produit(s) chargés";renderProducts();renderRecent();updateStats();}
 async function loadOrders(){try{orders=await api("/rest/v1/orders?select=*&order=created_at.desc");}catch(e){if(String(e.message).includes("404"))orders=[];else throw e;}renderOrders();updateStats();}
 async function loadCustomers(){
