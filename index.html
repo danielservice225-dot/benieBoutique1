@@ -1579,5 +1579,43 @@ header.top .shop-nav a.active,header.top .shop-nav a:hover{color:#ff8c38!importa
 .hero-banner:before{z-index:0}
 .hero-banner .hero-copy{z-index:2}
 </style>
+
+<style id="benie-coherent-color-system">
+/* Palette officielle Bénie Boutique : ivoire, graphite, orange électronique et vert réservé à WhatsApp */
+:root,[data-theme="light"]{
+ --bg:#F7F7F5!important;--sf:#FFFFFF!important;--fg:#17191C!important;--mu:#626970!important;
+ --ln:#E2E4E6!important;--pl:#191C1F!important;--pf:#FFFFFF!important;--pm:#E9EAEC!important;
+ --go:#F04A24!important;--gi:#FFFFFF!important;--wa:#16834A!important;--wi:#FFFFFF!important;--rd:#B42318!important;
+ --tc:#191C1F!important;--market-accent:#F04A24!important;--market-blue:#191C1F!important;color-scheme:light
+}
+:root[data-theme="dark"]{
+ --bg:#17191C!important;--sf:#22262A!important;--fg:#F5F6F7!important;--mu:#B8BEC4!important;
+ --ln:#3A4046!important;--pl:#111315!important;--pf:#F5F6F7!important;--pm:#D4D8DC!important;
+ --go:#FF6847!important;--gi:#FFFFFF!important;--wa:#16834A!important;--wi:#FFFFFF!important;--rd:#FF7770!important;
+ --tc:#17191C!important;--market-accent:#FF6847!important;--market-blue:#22262A!important;color-scheme:dark
+}
+body{background:var(--bg)!important;color:var(--fg)!important}
+header.top{background:var(--sf)!important;color:var(--fg)!important;border-color:var(--ln)!important}
+header.top .brand,header.top .head-link,header.top .cartbtn{color:var(--fg)!important}
+header.top .brand-copy em{color:var(--go)!important}
+.shop-nav{background:var(--pl)!important;color:#fff!important}
+.shop-nav a,.shop-nav a:visited{color:#fff!important}
+.shop-nav a.active,.shop-nav a:hover{color:#FF8A58!important}
+.hero-banner{background-color:#F0EFEC!important;border:1px solid var(--ln)!important}
+.hero-banner:before{background:linear-gradient(90deg,#F7F7F5 0%,#F7F7F5F5 36%,#F7F7F5A8 58%,transparent 100%)!important}
+.hero-copy h1,.hero-copy p,.hero-points{color:#191C1F!important}
+.hero-copy h1 em,.hero-benefits strong,.hero-benefits b{color:var(--go)!important}
+.hero-benefits{background:linear-gradient(135deg,#191C1F,#292D31)!important;color:#fff!important}
+.category-strip button{background:#fff!important;border-color:#E2E4E6!important;color:#191C1F!important}
+.category-strip button:hover{border-color:var(--go)!important}
+#catalogue .sec-head h2,#catalogue h2,#grid .card h3{color:var(--fg)!important}
+#grid .card{background:var(--sf)!important;border-color:var(--ln)!important;color:var(--fg)!important}
+#grid .card .price{color:var(--fg)!important}
+#grid .card .buy{background:var(--pl)!important;color:#fff!important}
+.btn-gold,.hero-copy .btn{background:var(--go)!important;color:#fff!important}
+.btn-wa{background:var(--wa)!important;color:#fff!important}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--go)!important;outline-offset:3px}
+@media(max-width:760px){.hero-banner:before{background:linear-gradient(90deg,#F7F7F5F5 0%,#F7F7F5E8 52%,#F7F7F5A0 78%,transparent 100%)!important}}
+</style>
 </body>
 </html>
