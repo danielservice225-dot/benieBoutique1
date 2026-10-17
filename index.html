@@ -448,23 +448,23 @@ img{max-width:100%}
 @media(prefers-reduced-motion:reduce){#shopAd,.shop-ad-panel,.shop-ad-img,.shop-ad-icon,.shop-ad-visual:before,.shop-ad-visual:after,#shopAd.ad-visible .shop-ad-progress span{animation:none!important;transition:none!important}}
 
 
-/* ===== Palette demandée : bleu Alice et blanc, interface toujours claire ===== */
+/* ===== Palette douce : bleu Alice pastel, blanc et transparence ===== */
 :root[data-theme="light"]{
  color-scheme:light;
- --bg:#F0F8FF; --sf:#FFFFFF; --fg:#17324D; --mu:#5F748A; --ln:#D5E8F7;
- --pl:#1E90FF; --pf:#FFFFFF; --pm:#EAF5FF; --go:#1E90FF; --gi:#FFFFFF;
- --wa:#168653; --wi:#FFFFFF; --rd:#C43D4B;
+ --bg:#F4F9FD; --sf:rgba(255,255,255,.88); --fg:#29445C; --mu:#71869A; --ln:rgba(151,190,220,.30);
+ --pl:#79ADD4; --pf:#FFFFFF; --pm:#EAF4FB; --go:#78A9CF; --gi:#FFFFFF;
+ --wa:#4C9878; --wi:#FFFFFF; --rd:#C66D78;
 }
 .theme{display:none!important}
-body{background:#F0F8FF;color:#17324D}
-header.top{background:rgba(240,248,255,.97)}
-.hero{background:linear-gradient(135deg,#1E90FF,#4CA8FF);color:#fff}
-.hero p{color:#F2F9FF}
-.spotlight{background:#FFFFFF}
-.tab[aria-pressed=true],.chip[aria-pressed=true]{background:#1E90FF;color:#fff;border-color:#1E90FF}
-.btn-gold{background:#1E90FF;color:#fff}
-footer{background:#EAF5FF;color:#34536F;border-top:1px solid #D5E8F7}
-footer strong{color:#1E90FF}
+body{background:linear-gradient(135deg,#F5FAFE 0%,#EAF4FB 100%);color:#29445C}
+header.top{background:rgba(248,252,255,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(151,190,220,.22)}
+.hero{background:linear-gradient(135deg,rgba(132,181,216,.88),rgba(181,213,236,.82));color:#fff;backdrop-filter:blur(8px)}
+.hero p{color:#F8FCFF}
+.spotlight{background:rgba(255,255,255,.76);border:1px solid rgba(151,190,220,.22);backdrop-filter:blur(10px)}
+.tab[aria-pressed=true],.chip[aria-pressed=true]{background:#DCECF8;color:#315B7B;border-color:#BBD7EB}
+.btn-gold{background:#8DB9D9;color:#fff}
+footer{background:rgba(232,243,251,.76);color:#58728A;border-top:1px solid rgba(151,190,220,.28);backdrop-filter:blur(10px)}
+footer strong{color:#669BC4}
 </style>
 </head>
 <body>
