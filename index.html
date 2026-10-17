@@ -1679,5 +1679,31 @@ header.top #accountOpen:hover{background:#B42318!important;color:#FFFFFF!importa
 #accountModal .account-close{color:#20252A!important;background:#FFFFFF!important;border-color:#D5D9DD!important}
 @media(max-width:760px){header.top #accountOpen,.head-actions #accountOpen{font-size:.76rem!important;padding:8px 9px!important;max-width:none!important}header.top .head-link:after{content:none!important}}
 </style>
+
+<style id="benie-account-red-readable">
+/* Connexion/inscription : bouton rouge avec libellé toujours lisible */
+header.top #accountOpen,header.top .head-actions #accountOpen{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ gap:6px!important;max-width:none!important;white-space:nowrap!important;
+ padding:10px 14px!important;border:1px solid #B42318!important;border-radius:7px!important;
+ background:#C62828!important;color:#FFFFFF!important;
+ font-size:.82rem!important;font-weight:700!important;line-height:1.35!important;
+ opacity:1!important;text-indent:0!important;visibility:visible!important;
+}
+header.top #accountOpen:hover,header.top #accountOpen:focus-visible{
+ background:#A61B1B!important;color:#FFFFFF!important;border-color:#A61B1B!important;
+}
+header.top #accountOpen:after{content:none!important;display:none!important}
+#accountModal .account-card{background:#FFFFFF!important;color:#20252A!important}
+#accountModal .account-head h2,#accountModal .account-form label{color:#20252A!important}
+#accountModal .account-small{color:#5E6670!important}
+#accountModal .account-tabs button{background:#F3F4F5!important;color:#343A40!important}
+#accountModal .account-tabs button.active{background:#FCE8E8!important;color:#B42318!important;border-color:#C62828!important}
+#accountModal .account-form input{background:#FFFFFF!important;color:#20252A!important;border:1px solid #C9CED3!important}
+#accountModal .account-form input::placeholder{color:#727982!important;opacity:1!important}
+#accountModal .account-form .btn{background:#C62828!important;color:#FFFFFF!important}
+#accountModal .account-message{color:#20252A!important}
+@media(max-width:760px){header.top #accountOpen,header.top .head-actions #accountOpen{font-size:.72rem!important;padding:8px 9px!important;max-width:none!important}header.top .head-link:after{content:none!important}}
+</style>
 </body>
 </html>
