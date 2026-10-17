@@ -7,7 +7,8 @@
     "price": 6500,
     "stock": "ok",
     "icon": "arduino",
-    "tag": "Best-seller"
+    "tag": "Best-seller",
+    "img": "https://placehold.co/600x450.png?text=Arduino%20Uno%20R3%20compatible"
   },
   {
     "id": "bb-elec-102",
@@ -17,7 +18,8 @@
     "price": 3500,
     "stock": "ok",
     "icon": "arduino",
-    "tag": "Nouveau"
+    "tag": "Nouveau",
+    "img": "https://placehold.co/600x450.png?text=Arduino%20Nano%20CH340"
   },
   {
     "id": "bb-elec-103",
@@ -26,7 +28,8 @@
     "desc": "Carte avec nombreuses entrées/sorties pour projets avancés et robotique.",
     "price": 12000,
     "stock": "ok",
-    "icon": "arduino"
+    "icon": "arduino",
+    "img": "https://placehold.co/600x450.png?text=Arduino%20Mega%202560%20compatible"
   },
   {
     "id": "bb-elec-104",
@@ -36,7 +39,8 @@
     "price": 18000,
     "stock": "ok",
     "icon": "box",
-    "tag": "Best-seller"
+    "tag": "Best-seller",
+    "img": "https://placehold.co/600x450.png?text=Kit%20d%C3%A9butant%20Arduino%20%20starter"
   },
   {
     "id": "bb-elec-105",
@@ -46,7 +50,8 @@
     "price": 12000,
     "stock": "low",
     "icon": "box",
-    "tag": "Nouveau"
+    "tag": "Nouveau",
+    "img": "https://placehold.co/600x450.png?text=Kit%20robot%202%20roues%20avec%20ch%C3%A2ssis"
   },
   {
     "id": "bb-elec-106",
@@ -56,7 +61,8 @@
     "price": 15000,
     "stock": "ok",
     "icon": "box",
-    "tag": "Promo"
+    "tag": "Promo",
+    "img": "https://placehold.co/600x450.png?text=Kit%2037%20capteurs%20pour%20Arduino"
   },
   {
     "id": "bb-elec-107",
@@ -65,7 +71,8 @@
     "desc": "LED de plusieurs couleurs et résistances pour apprendre les circuits.",
     "price": 2500,
     "stock": "ok",
-    "icon": "bulb"
+    "icon": "bulb",
+    "img": "https://placehold.co/600x450.png?text=Kit%20LED%20et%20r%C3%A9sistances"
   },
   {
     "id": "bb-elec-108",
@@ -74,7 +81,8 @@
     "desc": "Plaque d’essai sans soudure pour prototyper rapidement vos circuits.",
     "price": 2500,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Breadboard%20830%20points"
   },
   {
     "id": "bb-elec-109",
@@ -83,7 +91,8 @@
     "desc": "Jeu de câbles de connexion pour breadboard et cartes de développement.",
     "price": 1500,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Fils%20Dupont%20m%C3%A2le-m%C3%A2le"
   },
   {
     "id": "bb-elec-110",
@@ -92,7 +101,8 @@
     "desc": "Câbles de prototypage pour connecter capteurs et modules.",
     "price": 1500,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Fils%20Dupont%20m%C3%A2le-femelle"
   },
   {
     "id": "bb-elec-111",
@@ -102,7 +112,8 @@
     "price": 2000,
     "stock": "ok",
     "icon": "box",
-    "tag": "Best-seller"
+    "tag": "Best-seller",
+    "img": "https://placehold.co/600x450.png?text=Capteur%20ultrason%20HC-SR04"
   },
   {
     "id": "bb-elec-112",
@@ -111,7 +122,8 @@
     "desc": "Mesure la température et l’humidité pour projets météo et domotique.",
     "price": 3500,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Capteur%20temp%C3%A9rature%20DHT22"
   },
   {
     "id": "bb-elec-113",
@@ -120,7 +132,8 @@
     "desc": "Commande de charges via microcontrôleur. Respecter les consignes de sécurité électrique.",
     "price": 2500,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Module%20relais%202%20canaux%205%20V"
   },
   {
     "id": "bb-elec-114",
@@ -130,7 +143,8 @@
     "price": 3000,
     "stock": "ok",
     "icon": "box",
-    "tag": "Best-seller"
+    "tag": "Best-seller",
+    "img": "https://placehold.co/600x450.png?text=Driver%20moteur%20L298N"
   },
   {
     "id": "bb-elec-115",
@@ -139,7 +153,8 @@
     "desc": "Petit servomoteur pour bras robotisés, mécanismes et maquettes.",
     "price": 2500,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Servomoteur%20SG90"
   },
   {
     "id": "bb-elec-116",
@@ -148,7 +163,8 @@
     "desc": "Affiche du texte avec seulement quelques broches de commande.",
     "price": 4500,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=%C3%89cran%20LCD%201602%20avec%20I2C"
   },
   {
     "id": "bb-elec-117",
@@ -157,7 +173,8 @@
     "desc": "Lecteur RFID pour prototypes de contrôle d’accès et identification.",
     "price": 3000,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Module%20RFID%20RC522"
   },
   {
     "id": "bb-elec-118",
@@ -167,7 +184,8 @@
     "price": 6500,
     "stock": "ok",
     "icon": "cpu",
-    "tag": "Best-seller"
+    "tag": "Best-seller",
+    "img": "https://placehold.co/600x450.png?text=ESP32%20DevKit%20V1%20Wi-Fi%20Bluetooth"
   },
   {
     "id": "bb-elec-119",
@@ -177,7 +195,8 @@
     "price": 8500,
     "stock": "ok",
     "icon": "cpu",
-    "tag": "Nouveau"
+    "tag": "Nouveau",
+    "img": "https://placehold.co/600x450.png?text=ESP32-CAM%20avec%20cam%C3%A9ra"
   },
   {
     "id": "bb-elec-120",
@@ -186,7 +205,8 @@
     "desc": "Carte Wi-Fi pour objets connectés et automatisation.",
     "price": 4500,
     "stock": "ok",
-    "icon": "cpu"
+    "icon": "cpu",
+    "img": "https://placehold.co/600x450.png?text=ESP8266%20NodeMCU%20Wi-Fi"
   },
   {
     "id": "bb-elec-121",
@@ -196,7 +216,8 @@
     "price": 65000,
     "stock": "low",
     "icon": "cpu",
-    "tag": "Nouveau"
+    "tag": "Nouveau",
+    "img": "https://placehold.co/600x450.png?text=Raspberry%20Pi%204%20Model%20B%204%20Go"
   },
   {
     "id": "bb-elec-122",
@@ -205,7 +226,8 @@
     "desc": "Mini-ordinateur compact avec connectivité sans fil pour projets embarqués.",
     "price": 28000,
     "stock": "low",
-    "icon": "cpu"
+    "icon": "cpu",
+    "img": "https://placehold.co/600x450.png?text=Raspberry%20Pi%20Zero%202%20W"
   },
   {
     "id": "bb-elec-123",
@@ -214,7 +236,8 @@
     "desc": "Stockage pour systèmes embarqués et mini-ordinateurs. Vitesse selon modèle disponible.",
     "price": 5000,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Carte%20microSD%2032%20Go"
   },
   {
     "id": "bb-elec-124",
@@ -224,7 +247,8 @@
     "price": 12000,
     "stock": "ok",
     "icon": "box",
-    "tag": "Promo"
+    "tag": "Promo",
+    "img": "https://placehold.co/600x450.png?text=Fer%20%C3%A0%20souder%20r%C3%A9glable"
   },
   {
     "id": "bb-elec-125",
@@ -233,7 +257,8 @@
     "desc": "Mesure tension, courant et résistance pour les travaux électroniques.",
     "price": 7500,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Multim%C3%A8tre%20num%C3%A9rique"
   },
   {
     "id": "bb-elec-126",
@@ -242,7 +267,8 @@
     "desc": "Module d’alimentation pour breadboard, avec sorties de tension sélectionnables.",
     "price": 2000,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Alimentation%20breadboard%20MB102"
   },
   {
     "id": "bb-elec-127",
@@ -251,7 +277,8 @@
     "desc": "Avertisseur sonore pour alarmes et projets à microcontrôleur.",
     "price": 1000,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Buzzer%20actif%205%20V"
   },
   {
     "id": "bb-elec-128",
@@ -260,7 +287,8 @@
     "desc": "Composant variable pour réglages analogiques et expériences électroniques.",
     "price": 500,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Potentiom%C3%A8tre%2010%20k%CE%A9"
   },
   {
     "id": "bb-elec-129",
@@ -270,7 +298,8 @@
     "price": 6000,
     "stock": "ok",
     "icon": "box",
-    "tag": "Best-seller"
+    "tag": "Best-seller",
+    "img": "https://placehold.co/600x450.png?text=Module%20Bluetooth%20HC-05"
   },
   {
     "id": "bb-elec-130",
@@ -279,6 +308,213 @@
     "desc": "Cellule rechargeable pour projets portables. Chargeur et protection adaptés requis.",
     "price": 3500,
     "stock": "ok",
-    "icon": "box"
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Batterie%2018650%20rechargeable"
+  },
+  {
+    "id": "bb-elec-131",
+    "name": "Arduino Uno R4 WiFi",
+    "cat": "arduino",
+    "desc": "Carte plus puissante avec connectivité Wi-Fi pour prototypes connectés.",
+    "price": 18000,
+    "stock": "ok",
+    "icon": "cpu",
+    "tag": "Nouveau",
+    "img": "https://placehold.co/600x450.png?text=Arduino%20Uno%20R4%20WiFi"
+  },
+  {
+    "id": "bb-elec-132",
+    "name": "Arduino Leonardo compatible",
+    "cat": "arduino",
+    "desc": "Carte adaptée aux projets USB HID et interfaces de contrôle.",
+    "price": 7000,
+    "stock": "ok",
+    "icon": "arduino",
+    "img": "https://placehold.co/600x450.png?text=Arduino%20Leonardo%20compatible"
+  },
+  {
+    "id": "bb-elec-133",
+    "name": "Arduino Pro Mini 5 V",
+    "cat": "arduino",
+    "desc": "Carte compacte pour projets embarqués nécessitant peu d’espace.",
+    "price": 3000,
+    "stock": "ok",
+    "icon": "arduino",
+    "img": "https://placehold.co/600x450.png?text=Arduino%20Pro%20Mini%205%20V"
+  },
+  {
+    "id": "bb-elec-134",
+    "name": "Kit Arduino avec écran LCD",
+    "cat": "kits",
+    "desc": "Ensemble éducatif pour apprendre l’affichage et les entrées/sorties.",
+    "price": 12000,
+    "stock": "ok",
+    "icon": "box",
+    "tag": "Nouveau",
+    "img": "https://placehold.co/600x450.png?text=Kit%20Arduino%20avec%20%C3%A9cran%20LCD"
+  },
+  {
+    "id": "bb-elec-135",
+    "name": "Kit bras robotique 4 axes",
+    "cat": "kits",
+    "desc": "Kit de robotique éducative à assembler et programmer.",
+    "price": 25000,
+    "stock": "ok",
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Kit%20bras%20robotique%204%20axes"
+  },
+  {
+    "id": "bb-elec-136",
+    "name": "Kit voiture robot Bluetooth",
+    "cat": "kits",
+    "desc": "Châssis motorisé pour apprendre la commande à distance.",
+    "price": 18000,
+    "stock": "ok",
+    "icon": "box",
+    "tag": "Best-seller",
+    "img": "https://placehold.co/600x450.png?text=Kit%20voiture%20robot%20Bluetooth"
+  },
+  {
+    "id": "bb-elec-137",
+    "name": "Kit alimentation et câbles",
+    "cat": "kits",
+    "desc": "Accessoires utiles pour alimenter et câbler les prototypes électroniques.",
+    "price": 5000,
+    "stock": "ok",
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Kit%20alimentation%20et%20c%C3%A2bles"
+  },
+  {
+    "id": "bb-elec-138",
+    "name": "Raspberry Pi 5 4 Go",
+    "cat": "rpi",
+    "desc": "Mini-ordinateur puissant pour programmation et projets multimédias.",
+    "price": 95000,
+    "stock": "ok",
+    "icon": "cpu",
+    "tag": "Nouveau",
+    "img": "https://placehold.co/600x450.png?text=Raspberry%20Pi%205%204%20Go"
+  },
+  {
+    "id": "bb-elec-139",
+    "name": "Raspberry Pi Pico W",
+    "cat": "rpi",
+    "desc": "Microcontrôleur compact avec Wi-Fi intégré pour projets IoT.",
+    "price": 9000,
+    "stock": "ok",
+    "icon": "cpu",
+    "img": "https://placehold.co/600x450.png?text=Raspberry%20Pi%20Pico%20W"
+  },
+  {
+    "id": "bb-elec-140",
+    "name": "Boîtier pour Raspberry Pi 4",
+    "cat": "rpi",
+    "desc": "Boîtier de protection pour Raspberry Pi 4, modèle selon disponibilité.",
+    "price": 6000,
+    "stock": "ok",
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Bo%C3%AEtier%20pour%20Raspberry%20Pi%204"
+  },
+  {
+    "id": "bb-elec-141",
+    "name": "ESP32-S3 DevKit",
+    "cat": "esp32",
+    "desc": "Carte ESP32-S3 pour projets IoT, USB et traitement embarqué.",
+    "price": 9500,
+    "stock": "ok",
+    "icon": "cpu",
+    "tag": "Nouveau",
+    "img": "https://placehold.co/600x450.png?text=ESP32-S3%20DevKit"
+  },
+  {
+    "id": "bb-elec-142",
+    "name": "Module ESP32 avec écran OLED",
+    "cat": "esp32",
+    "desc": "Carte de développement avec petit écran pour interfaces connectées.",
+    "price": 12000,
+    "stock": "ok",
+    "icon": "cpu",
+    "img": "https://placehold.co/600x450.png?text=Module%20ESP32%20avec%20%C3%A9cran%20OLED"
+  },
+  {
+    "id": "bb-elec-143",
+    "name": "Capteur infrarouge obstacle",
+    "cat": "compo",
+    "desc": "Détecte les obstacles pour robots mobiles et systèmes automatisés.",
+    "price": 1500,
+    "stock": "ok",
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Capteur%20infrarouge%20obstacle"
+  },
+  {
+    "id": "bb-elec-144",
+    "name": "Capteur de flamme",
+    "cat": "compo",
+    "desc": "Module de détection infrarouge de flamme pour prototypes éducatifs.",
+    "price": 1500,
+    "stock": "ok",
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Capteur%20de%20flamme"
+  },
+  {
+    "id": "bb-elec-145",
+    "name": "Capteur de gaz MQ-2",
+    "cat": "compo",
+    "desc": "Capteur de gaz et fumée pour montages de démonstration.",
+    "price": 2500,
+    "stock": "ok",
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Capteur%20de%20gaz%20MQ-2"
+  },
+  {
+    "id": "bb-elec-146",
+    "name": "Capteur de luminosité LDR",
+    "cat": "compo",
+    "desc": "Résistance photosensible pour détecter les variations de lumière.",
+    "price": 500,
+    "stock": "ok",
+    "icon": "bulb",
+    "img": "https://placehold.co/600x450.png?text=Capteur%20de%20luminosit%C3%A9%20LDR"
+  },
+  {
+    "id": "bb-elec-147",
+    "name": "Module joystick XY",
+    "cat": "compo",
+    "desc": "Commande analogique pour robots, menus et projets interactifs.",
+    "price": 2000,
+    "stock": "ok",
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Module%20joystick%20XY"
+  },
+  {
+    "id": "bb-elec-148",
+    "name": "Matrice LED 8×8",
+    "cat": "compo",
+    "desc": "Afficheur matriciel pour textes, symboles et animations simples.",
+    "price": 2500,
+    "stock": "ok",
+    "icon": "bulb",
+    "img": "https://placehold.co/600x450.png?text=Matrice%20LED%208%C3%978"
+  },
+  {
+    "id": "bb-elec-149",
+    "name": "Convertisseur USB-série CP2102",
+    "cat": "compo",
+    "desc": "Adaptateur USB-UART pour programmer et diagnostiquer certaines cartes.",
+    "price": 3500,
+    "stock": "ok",
+    "icon": "box",
+    "img": "https://placehold.co/600x450.png?text=Convertisseur%20USB-s%C3%A9rie%20CP2102"
+  },
+  {
+    "id": "bb-elec-150",
+    "name": "Paire de moteurs DC avec roues",
+    "cat": "compo",
+    "desc": "Deux moteurs à courant continu avec roues pour robot éducatif.",
+    "price": 5000,
+    "stock": "ok",
+    "icon": "box",
+    "tag": "Best-seller",
+    "img": "https://placehold.co/600x450.png?text=Paire%20de%20moteurs%20DC%20avec%20roues"
   }
 ]
