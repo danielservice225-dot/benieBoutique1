@@ -1135,14 +1135,24 @@ const hideIntro = () => {
 setTimeout(hideIntro, 8000); // filet de sécurité si le chargement du catalogue est lent
 (async function init(){
   $("#grid").innerHTML = '<div class="sk"></div>'.repeat(8);    // chargement (skeleton)
-  let s = null;
-  if(dbOn()) try{                                                  // 1. base de données Supabase (lecture publique)
+  let s = null, localCatalog = [];
+  // Catalogue initial versionné sur GitHub : les images distantes sont demandées au format PNG.
+  try{
+    const localResponse = await fetch("./products.json?v=20261017", {cache:"no-cache"});
+    if(localResponse.ok){
+      const parsed = await localResponse.json();
+      if(Array.isArray(parsed)) localCatalog = parsed;
+    }
+  }catch(e){}
+  if(dbOn()) try{                                                  // Produits personnalisés depuis Supabase
     const r = await fetch(`${CFG.supabaseUrl}/rest/v1/products?select=data&order=created_at.desc,id.asc`, {headers: dbH()});
     if(r.ok) s = (await r.json()).map(x => x.data);
   }catch(e){}
-  // Aucun catalogue de démonstration ni fichier de secours : seuls les produits gérés dans Supabase sont affichés.
-  items = Array.isArray(s) ? s.filter(p => !DEMO_PRODUCT_NAMES.has(String(p?.name || "").trim().toLocaleLowerCase("fr"))) : [];
-  render(); hideIntro(); $("#stA").dataset.n = items.length; $$(".stats b[data-n]").forEach(countUp); cartN();
+  // Fusionner le catalogue de départ et les produits gérés : Supabase remplace un article ayant le même ID.
+  const merged = new Map(localCatalog.filter(p => !DEMO_PRODUCT_NAMES.has(String(p?.name || "").trim().toLocaleLowerCase("fr"))).map(p => [String(p.id), p]));
+  if(Array.isArray(s)) s.filter(p => !DEMO_PRODUCT_NAMES.has(String(p?.name || "").trim().toLocaleLowerCase("fr"))).forEach(p => merged.set(String(p.id), p));
+  items = [...merged.values()];
+  render(); hideIntro(); $("#stA").dataset.n = items.length; $(".stats b[data-n]").forEach(countUp); cartN();
 })();
 </script>
 </body>
