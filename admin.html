@@ -151,6 +151,78 @@ tr:hover td{background:rgba(231,243,251,.42)}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 
+
+/* ===== REFONTE VISUELLE ADMIN — identité exacte de la page d'accueil ===== */
+:root{--bg:#F5F8FC!important;--panel:rgba(255,255,255,.78)!important;--ink:#10233F!important;--muted:#5B6B82!important;--line:rgba(143,177,204,.30)!important;--purple:#143A66!important;--gold:#2878D0!important;--green:#0E7A40!important;--red:#B3261E!important;--shadow:0 14px 36px rgba(20,58,102,.09)!important}
+html,body{font-family:"Figtree",system-ui,sans-serif!important;background:#F5F8FC!important;color:#10233F!important}
+body{background:radial-gradient(ellipse at 12% 0%,rgba(190,220,245,.65),transparent 40%),radial-gradient(ellipse at 92% 15%,rgba(215,232,248,.58),transparent 36%),linear-gradient(135deg,#F7FAFD,#EEF5FB)!important}
+h1,h2,h3,.brand,.stat strong{font-family:"Bricolage Grotesque",system-ui,sans-serif!important}
+#loginScreen{background:radial-gradient(ellipse at 15% 15%,rgba(60,141,250,.32),transparent 38%),radial-gradient(ellipse at 88% 82%,rgba(117,169,214,.26),transparent 40%),linear-gradient(125deg,#143A66 0%,#1C4C82 58%,#102B4C 100%)!important;overflow:hidden}
+#loginScreen:before{content:"";position:absolute;inset:-30%;pointer-events:none;background:radial-gradient(40% 40% at 25% 30%,rgba(45,125,230,.42),transparent),radial-gradient(35% 35% at 78% 62%,rgba(40,120,208,.30),transparent);filter:blur(30px);animation:adminAurora 14s ease-in-out infinite alternate}
+#loginScreen:after{content:"";position:absolute;width:420px;height:420px;right:-140px;bottom:-210px;border:1px solid rgba(255,255,255,.16);border-radius:50%;box-shadow:0 0 0 45px rgba(255,255,255,.035),0 0 0 90px rgba(255,255,255,.025);pointer-events:none}
+.login-card{position:relative;z-index:1;background:rgba(255,255,255,.88)!important;border:1px solid rgba(255,255,255,.7)!important;border-radius:28px!important;padding:clamp(25px,5vw,40px)!important;box-shadow:0 28px 90px rgba(4,20,42,.3)!important;backdrop-filter:blur(28px) saturate(155%)!important;-webkit-backdrop-filter:blur(28px) saturate(155%)!important;animation:adminEnter .7s cubic-bezier(.2,.7,.2,1) both!important}
+.login-card .brand{font-size:19px!important;color:#10233F!important;gap:13px!important}
+.login-card .brand small{color:#5B6B82!important;letter-spacing:1.7px!important}
+.login-card .logo,.logo{display:inline-grid;place-items:center;background:linear-gradient(145deg,#DCECF8,#AFCFE6)!important;color:#143A66!important;border-radius:15px!important;box-shadow:0 7px 20px rgba(40,120,208,.18)!important}
+.login-card h1{font-size:clamp(26px,4vw,32px)!important;letter-spacing:-.7px!important;color:#10233F!important}
+.login-card>p{color:#5B6B82!important;line-height:1.65!important}
+.login-card .field label{color:#29465F!important}
+.login-card input{min-height:47px!important;background:rgba(245,249,253,.92)!important;border:1px solid #DCE6F2!important;border-radius:13px!important;padding:12px 14px!important}
+.login-card .btn-primary{min-height:49px!important;margin-top:14px!important;border-radius:999px!important;background:linear-gradient(105deg,#2878D0,#75A9D6)!important;color:white!important;box-shadow:0 9px 24px rgba(40,120,208,.25)!important}
+.login-card .btn-primary:hover{transform:translateY(-2px)!important;box-shadow:0 13px 28px rgba(40,120,208,.3)!important}
+.login-note{color:#71869A!important}
+#app[hidden]{display:none!important}
+#app .shell{background:transparent!important}
+#app aside{background:rgba(255,255,255,.74)!important;color:#29465F!important;border-right:1px solid rgba(143,177,204,.3)!important;box-shadow:8px 0 30px rgba(20,58,102,.05)!important;backdrop-filter:blur(24px) saturate(155%)!important;-webkit-backdrop-filter:blur(24px) saturate(155%)!important}
+#app aside .brand{color:#102F50!important}
+#app aside .brand small,#app aside .profile small{color:#71869A!important}
+#app aside .nav-label{color:#8AA0B3!important}
+#app aside .nav button{color:#617D94!important;border-radius:13px!important;transition:all .25s ease!important}
+#app aside .nav button:hover,#app aside .nav button.active{background:rgba(190,220,241,.55)!important;color:#143A66!important}
+#app aside .nav button.active{box-shadow:inset 3px 0 #2878D0!important}
+#app aside .side-link{color:#617D94!important}
+#app aside .side-link:hover{background:rgba(190,220,241,.35)!important}
+#app aside .profile{border-color:rgba(143,177,204,.3)!important}
+#app aside .avatar{background:#DCECF7!important;color:#315873!important}
+#app .topbar{position:sticky!important;top:0!important;z-index:20!important;margin:-28px calc(clamp(16px,3vw,42px)*-1) 28px!important;padding:16px clamp(16px,3vw,42px)!important;background:rgba(245,249,253,.84)!important;border-bottom:1px solid rgba(143,177,204,.25)!important;backdrop-filter:blur(22px) saturate(160%)!important;-webkit-backdrop-filter:blur(22px) saturate(160%)!important}
+#app .topbar h1{color:#102F50!important}
+#app .eyebrow{color:#71869A!important}
+#app .pill{background:rgba(255,255,255,.7)!important;border-color:rgba(143,177,204,.3)!important;color:#617D94!important}
+#app .btn{border-radius:999px!important}
+#app .btn-primary{background:linear-gradient(105deg,#2878D0,#75A9D6)!important;color:#fff!important;box-shadow:0 7px 20px rgba(40,120,208,.2)!important}
+#app .btn-primary:hover{transform:translateY(-2px)!important;box-shadow:0 12px 26px rgba(40,120,208,.24)!important}
+#app .btn-light{background:rgba(219,236,248,.8)!important;color:#315873!important;border:1px solid rgba(143,177,204,.3)!important}
+#app .btn-danger{background:rgba(255,235,238,.85)!important;color:#B3261E!important}
+#app .welcome{background:radial-gradient(ellipse at 83% 22%,rgba(40,120,208,.24),transparent 36%),linear-gradient(115deg,#143A66 0%,#1C4C82 58%,#102B4C 100%)!important;color:#fff!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:22px!important;box-shadow:0 18px 40px rgba(20,58,102,.16)!important;animation:adminWelcome 12s ease infinite,adminEnter .55s both!important}
+#app .welcome p{color:#D7E5F8!important}
+#app .welcome .tag{background:rgba(255,255,255,.13)!important;color:#fff!important;border:1px solid rgba(255,255,255,.22)!important;backdrop-filter:blur(10px)!important}
+#app .stat,#app .card,#app .table-wrap{background:rgba(255,255,255,.8)!important;border:1px solid rgba(143,177,204,.3)!important;border-radius:19px!important;box-shadow:0 10px 30px rgba(20,58,102,.055)!important;backdrop-filter:blur(18px) saturate(140%)!important;-webkit-backdrop-filter:blur(18px) saturate(140%)!important;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease!important;animation:adminEnter .55s both}
+#app .stat:hover,#app .card:hover{transform:translateY(-3px)!important;box-shadow:0 17px 38px rgba(20,58,102,.1)!important;border-color:rgba(40,120,208,.3)!important}
+#app .stat-icon,#app .activity-dot{background:rgba(215,232,248,.85)!important;color:#2878D0!important}
+#app .stat strong{background:linear-gradient(100deg,#10233F,#2878D0)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+#app .quick button{background:rgba(245,250,254,.85)!important;border:1px solid rgba(143,177,204,.3)!important;border-radius:15px!important;color:#10233F!important}
+#app .quick button:hover{background:rgba(225,240,250,.95)!important;transform:translateY(-3px)!important;box-shadow:0 12px 25px rgba(20,58,102,.08)!important}
+#app input,#app select,#app textarea{background:rgba(255,255,255,.9)!important;border-color:rgba(143,177,204,.42)!important;color:#10233F!important;border-radius:12px!important}
+#app input:focus,#app select:focus,#app textarea:focus{border-color:#75A9D6!important;box-shadow:0 0 0 4px rgba(40,120,208,.12)!important}
+#app th{background:rgba(232,243,251,.75)!important;color:#5B6B82!important}
+#app td{border-color:rgba(143,177,204,.22)!important}
+#app tbody tr:hover td{background:rgba(231,243,251,.45)!important}
+#productModal{background:rgba(16,35,63,.42)!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important}
+#productModal .modal{border:1px solid rgba(255,255,255,.7)!important;border-radius:23px!important;box-shadow:0 28px 85px rgba(16,35,63,.24)!important}
+#productModal .modal-head,#productModal .modal-foot{background:rgba(245,249,253,.9)!important;border-color:rgba(143,177,204,.25)!important}
+#toast{background:#143A66!important;border:1px solid rgba(255,255,255,.15)!important;border-radius:14px!important;box-shadow:0 14px 35px rgba(20,58,102,.22)!important}
+@keyframes adminEnter{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes adminAurora{to{transform:translate(6%,-5%) rotate(12deg) scale(1.1)}}
+@keyframes adminWelcome{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@media(max-width:700px){
+ #app aside{position:sticky!important;top:0!important;background:rgba(248,252,255,.93)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important}
+ #app aside .nav button{border-radius:999px!important}
+ #app aside .nav button.active{box-shadow:inset 0 -2px #2878D0!important}
+ #app .topbar{top:0!important;margin:-18px -13px 18px!important;padding:13px!important}
+ #app .welcome{padding:20px!important;border-radius:18px!important}
+}
+@media(prefers-reduced-motion:reduce){#loginScreen:before{animation:none!important}#app *,#loginScreen *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
 </style>
 </head>
 <body>
