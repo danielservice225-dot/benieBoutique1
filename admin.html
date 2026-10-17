@@ -343,6 +343,9 @@ html,body{max-width:100%;overflow-x:hidden}
  #app .top-actions{flex-wrap:wrap}
 }
 
+
+/* Sécurité d'affichage : l'espace administrateur reste caché avant connexion */
+#app[hidden],#app.shell[hidden]{display:none!important}
 </style>
 </head>
 <body>
