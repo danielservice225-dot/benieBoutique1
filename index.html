@@ -1345,7 +1345,9 @@ setTimeout(hideIntro, 8000); // filet de sécurité si le chargement du catalogu
 (()=>{
  const cfg={url:CFG.supabaseUrl,key:CFG.supabaseKey};
  const $c=id=>document.getElementById(id);
- let mode="login",customer=null,customerToken="";
+ let mode="login",customer=null,customerToken="",customerRefreshToken="";
+ function saveCustomerSession(){try{sessionStorage.setItem("bb_customer_session",JSON.stringify({user:customer,refresh_token:customerRefreshToken}));}catch{}}
+ async function restoreCustomerSession(){try{const saved=JSON.parse(sessionStorage.getItem("bb_customer_session")||"null");if(!saved?.refresh_token)return;const d=await request("/auth/v1/token?grant_type=refresh_token",{refresh_token:saved.refresh_token});customerToken=d.access_token;customerRefreshToken=d.refresh_token;customer=d.user||saved.user;saveCustomerSession();await loadProfile();renderCustomer();}catch{try{sessionStorage.removeItem("bb_customer_session")}catch{}}}
  const modal=$c("accountModal"),form=$c("customerAuthForm"),message=$c("customerAuthMessage"),tabs=$c("accountTabs"),account=$c("customerAccount");
  const showMessage=(s)=>{message.textContent=s||"";};
  function renderMode(next){
@@ -1362,7 +1364,7 @@ setTimeout(hideIntro, 8000); // filet de sécurité si le chargement du catalogu
   form.hidden=true;tabs.hidden=true;account.hidden=false;
   $c("accountTitle").textContent="Mon compte";
   account.innerHTML='<div class="account-user"><p><strong>Connecté(e)</strong></p><p>'+escapeHTML(customer?.full_name||customer?.email||"Client")+'</p><p class="account-small">'+escapeHTML(customer?.email||"")+'</p><p class="account-small">'+escapeHTML(customer?.phone||"")+'</p></div><button type="button" class="btn btn-line" id="customerSignOut" style="width:100%;justify-content:center">Se déconnecter</button>';
-  $c("customerSignOut").onclick=async()=>{try{await fetch(cfg.url+"/auth/v1/logout",{method:"POST",headers:{apikey:cfg.key,Authorization:"Bearer "+customerToken}});}catch{}customer=null;customerToken="";renderMode("login");showMessage("Vous êtes déconnecté(e).");};
+  $c("customerSignOut").onclick=async()=>{try{await fetch(cfg.url+"/auth/v1/logout",{method:"POST",headers:{apikey:cfg.key,Authorization:"Bearer "+customerToken}});}catch{}customer=null;customerToken="";customerRefreshToken="";try{sessionStorage.removeItem("bb_customer_session")}catch{}renderMode("login");showMessage("Vous êtes déconnecté(e).");};
  }
  function escapeHTML(v){return String(v||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
  async function request(path,body){
@@ -1377,6 +1379,7 @@ setTimeout(hideIntro, 8000); // filet de sécurité si le chargement du catalogu
    if(r.ok){const rows=await r.json();if(rows[0])customer={...customer,...rows[0]};}
   }catch{}
  }
+ restoreCustomerSession();
  $c("accountOpen").addEventListener("click",openAccount);
  $c("accountClose").addEventListener("click",closeAccount);
  modal.addEventListener("click",e=>{if(e.target===modal)closeAccount()});
@@ -1390,11 +1393,11 @@ setTimeout(hideIntro, 8000); // filet de sécurité si le chargement du catalogu
     const name=$c("customerName").value.trim(),phone=$c("customerPhone").value.trim();
     if(name.length<2)throw new Error("Saisissez votre nom complet.");
     const d=await request("/auth/v1/signup",{email,password,data:{full_name:name,phone}});
-    if(d.access_token){customerToken=d.access_token;customer=d.user;await loadProfile();renderCustomer();showMessage("Compte créé avec succès.");}
+    if(d.access_token){customerToken=d.access_token;customerRefreshToken=d.refresh_token||"";customer=d.user;saveCustomerSession();await loadProfile();saveCustomerSession();renderCustomer();showMessage("Compte créé avec succès.");}
     else{form.reset();showMessage("Compte créé. Vérifiez votre boîte e-mail pour confirmer l'adresse avant de vous connecter.");}
    }else{
     const d=await request("/auth/v1/token?grant_type=password",{email,password});
-    customerToken=d.access_token;customer=d.user;await loadProfile();renderCustomer();showMessage("Connexion réussie.");
+    customerToken=d.access_token;customerRefreshToken=d.refresh_token||"";customer=d.user;saveCustomerSession();await loadProfile();saveCustomerSession();renderCustomer();showMessage("Connexion réussie.");
    }
   }catch(err){showMessage(err.message||"Impossible de continuer.");}
   finally{btn.disabled=false;btn.textContent=mode==="signup"?"Créer mon compte":"Se connecter";}
