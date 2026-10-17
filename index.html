@@ -51,6 +51,25 @@ nav.links{display:none;gap:1.3rem;font-weight:500}nav.links a{text-decoration:no
 .hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.5rem}
 .hero>.wrap>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) backwards}.hero>.wrap>:nth-child(2){animation-delay:.1s}.hero>.wrap>:nth-child(3){animation-delay:.2s}
 
+/* ===== Promotions et articles mis en avant ===== */
+.spotlight{background:linear-gradient(125deg,color-mix(in srgb,var(--go) 14%,var(--sf)),var(--sf) 55%,color-mix(in srgb,#8b65c5 9%,var(--sf)));border-block:1px solid var(--ln)}
+.spotlight-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.25rem}
+.spotlight-head .sec-head{margin:0}
+.spotlight-kicker{font:700 .74rem/1.2 var(--b);letter-spacing:.13em;color:var(--mu)}
+.spotlight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.spotlight-item{display:grid;grid-template-columns:100px minmax(0,1fr);gap:.9rem;align-items:center;padding:.8rem;border:1px solid var(--ln);border-radius:16px;background:var(--sf);box-shadow:0 5px 18px rgba(42,23,80,.045);min-width:0;transition:transform .2s,box-shadow .2s,border-color .2s}
+.spotlight-item:hover{transform:translateY(-3px);border-color:var(--go);box-shadow:0 12px 28px rgba(42,23,80,.1)}
+.spotlight-photo{width:100px;aspect-ratio:1;overflow:hidden;border-radius:11px;background:var(--bg);display:grid;place-items:center;color:var(--pl);font-size:2rem}
+.spotlight-photo img{width:100%;height:100%;object-fit:cover}
+.spotlight-info{display:grid;gap:.35rem;min-width:0}
+.spotlight-tag{justify-self:start;border-radius:6px;padding:.25rem .45rem;background:color-mix(in srgb,var(--go) 28%,var(--sf));color:var(--fg);font-size:.7rem;font-weight:700}
+.spotlight-info h3{font-size:1rem;line-height:1.25;overflow-wrap:anywhere}
+.spotlight-price{font:800 1.05rem/1.2 var(--d);color:var(--pl)}
+:root[data-theme=dark] .spotlight-price{color:var(--go)}
+.spotlight-open{justify-self:start;border:0;background:none;padding:.25rem 0;color:var(--mu);font:600 .82rem var(--b);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+@media(max-width:900px){.spotlight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.spotlight-head{align-items:flex-start;flex-direction:column}.spotlight-grid{grid-template-columns:1fr}.spotlight-item{grid-template-columns:88px minmax(0,1fr)}.spotlight-photo{width:88px}.spotlight-head .btn{width:100%}}
+
 /* ===== Sections ===== */
 section.block{padding-block:3rem}
 .sec-head{margin-bottom:1.4rem;display:grid;gap:.4rem}.sec-head h2{font-size:clamp(1.9rem,7vw,2.8rem);font-weight:800;letter-spacing:-.02em}.sec-head p{color:var(--mu);max-width:56ch}
@@ -391,6 +410,16 @@ img{max-width:100%}
 
 <div class="market-trust"><div class="wrap"><div class="trust-item"><span class="trust-icon">✓</span><div><strong>Commande simple</strong><small>Finalisez sur WhatsApp</small></div></div><div class="trust-item"><span class="trust-icon">↗</span><div><strong>Livraison à Abidjan</strong><small>Tarif confirmé avant envoi</small></div></div><div class="trust-item"><span class="trust-icon">CFA</span><div><strong>Prix en FCFA</strong><small>Clairs et faciles à comparer</small></div></div></div></div>
 
+  <section class="block spotlight" id="a-la-une" aria-labelledby="h-spotlight" hidden>
+    <div class="wrap">
+      <div class="spotlight-head">
+        <div class="sec-head"><span class="spotlight-kicker">✦ SÉLECTION BÉNIE BOUTIQUE</span><h2 id="h-spotlight">Promotions & articles à la une</h2><p>Découvrez les offres et nouveautés actuellement mises en avant dans notre catalogue.</p></div>
+        <a class="btn btn-gold sm" href="#catalogue">Voir tous les articles ↗</a>
+      </div>
+      <div class="spotlight-grid" id="spotlightGrid"></div>
+    </div>
+  </section>
+
   <section class="block" id="catalogue" aria-labelledby="h-cat"><div class="wrap">
     <div class="sec-head"><h2 id="h-cat">Le catalogue</h2><p>Prix en FCFA. Choisissez la taille ou la variante, ajoutez au panier, puis envoyez votre commande en un message WhatsApp déjà écrit.</p></div>
     <div class="tools">
@@ -550,7 +579,30 @@ function card(p, i){
   ${CLOTH.includes(p.cat) ? '<button type="button" class="link sg">Trouver ma taille</button>' : ""}<button type="button" class="btn btn-wa sm buy" ${st === "out" ? "disabled" : ""}>${st === "out" ? "Indisponible" : "Ajouter au panier"}</button>
   <div class="ctl"><button type="button" class="mini edit">Modifier</button><button type="button" class="mini danger del">Supprimer</button></div></div></article>`;
 }
+function renderSpotlights(){
+  const root = $("#a-la-une"), grid = $("#spotlightGrid");
+  if(!root || !grid) return;
+  const featured = items.filter(p => ["Promo","Nouveau","Best-seller"].includes(String(p.tag || ""))).slice(0,6);
+  root.hidden = featured.length === 0;
+  if(!featured.length){ grid.innerHTML = ""; return; }
+  grid.innerHTML = featured.map(p => {
+    const photo = (Array.isArray(p.imgs) && p.imgs.length ? p.imgs[0] : p.img)
+      ? '<img src="' + esc((Array.isArray(p.imgs) && p.imgs.length ? p.imgs[0] : p.img)) + '" alt="' + esc(p.name) + '" loading="lazy">'
+      : '<span aria-hidden="true">✦</span>';
+    const tag = String(p.tag || "");
+    return '<article class="spotlight-item"><div class="spotlight-photo">' + photo + '</div><div class="spotlight-info"><span class="spotlight-tag">' + esc(tag === "Promo" ? "✦ Promotion" : tag === "Nouveau" ? "Nouveauté" : "Populaire") + '</span><h3>' + esc(p.name) + '</h3><strong class="spotlight-price">' + fmt(p.price) + '</strong><button class="spotlight-open" type="button" data-spotlight-id="' + esc(p.id) + '">Voir l’article →</button></div></article>';
+  }).join("");
+}
+$("#spotlightGrid").addEventListener("click", e => {
+  const b = e.target.closest("[data-spotlight-id]");
+  if(!b) return;
+  const target = $("#grid [data-id='" + CSS.escape(b.dataset.spotlightId) + "']");
+  $("#catalogue").scrollIntoView({behavior:"smooth"});
+  if(target){ target.scrollIntoView({behavior:"smooth",block:"center"}); target.animate([{outline:"3px solid var(--go)"},{outline:"0 solid transparent"}],{duration:1300}); }
+});
+
 function render(){
+  renderSpotlights();
   const [lo, hi] = pr === "all" ? [0, 1e9] : pr.split("-").map(Number);
   const L = cur().filter(p => (cat === "all" || (cat === "fav" ? favs.has(p.id) : p.cat === cat)) && p.price >= lo && p.price <= hi &&
     (!q || `${p.name} ${p.desc} ${CATS[p.cat]}`.toLowerCase().includes(q)));
