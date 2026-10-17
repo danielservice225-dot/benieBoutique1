@@ -1145,7 +1145,7 @@ setTimeout(hideIntro, 8000); // filet de sécurité si le chargement du catalogu
   let s = null, localCatalog = [];
   // Catalogue initial versionné sur GitHub : les images distantes sont demandées au format PNG.
   try{
-    const localResponse = await fetch("./products.json?v=20261017", {cache:"no-cache"});
+    const localResponse = await fetch("./products.json?v=20261017-clothes96", {cache:"no-cache"});
     if(localResponse.ok){
       const parsed = await localResponse.json();
       if(Array.isArray(parsed)) localCatalog = parsed;
