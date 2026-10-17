@@ -870,7 +870,7 @@ function editor(id){
   <label>Tailles ou variantes (modifiables, séparées par des virgules)<input name="sizes" value="${esc((d.sizes || DEF[d.cat][0]).join(", "))}"></label>
   <div class="r2"><label>Étiquette<select name="tag">${opts(TAGS, d.tag || "")}</select></label><label>Stock<select name="stock">${opts(STK, d.stock || "ok")}</select></label></div>
   <label>Icône si pas de photo<select name="icon">${opts(ICONS, d.icon || DEF[d.cat][1])}</select></label>
-  <div class="r2"><label>Photo (JPG ou PNG)<input type="file" name="file" accept="image/*"></label><img class="prev" alt="Aperçu" ${photo ? `src="${esc(photo)}"` : "hidden"}></div>
+  <div class="r2"><label>Photo PNG<input type="file" name="file" accept="image/png,.png"></label><img class="prev" alt="Aperçu" ${photo ? `src="${esc(photo)}"` : "hidden"}></div>
   <p class="err" role="alert"></p>
   <div class="acts2"><button type="button" class="mini cx">Annuler</button><button class="btn btn-gold sm">Enregistrer</button></div></form>`);
   const f = m.querySelector("form"), er = m.querySelector(".err"), pv = m.querySelector(".prev");
@@ -879,7 +879,7 @@ function editor(id){
   f.preset.onchange = () => { if(f.preset.value) f.sizes.value = PV[f.preset.value].join(", "); };
   if(!p) f.cat.onchange = () => { f.sizes.value = DEF[f.cat.value][0].join(", "); f.icon.value = DEF[f.cat.value][1]; };
   f.file.onchange = () => { const file = f.file.files[0]; if(!file) return;
-    toPng(file).then(u => { photo = u; pv.src = u; pv.hidden = false; }, () => er.textContent = "Image illisible. Essayez un fichier JPG ou PNG."); };
+    toPng(file).then(u => { photo = u; pv.src = u; pv.hidden = false; }, () => er.textContent = "Image illisible. Sélectionnez une image au format PNG."); };
   f.onsubmit = e => {
     e.preventDefault();
     const price = parseInt(f.price.value, 10);
