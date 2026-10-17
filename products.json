@@ -1,1 +1,682 @@
-[]
+[
+  {
+    "id": "bb-001",
+    "name": "Robe wax élégante",
+    "desc": "Robe en tissu wax pour sorties et cérémonies.",
+    "price": 18000,
+    "cat": "femme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "dress",
+    "img": "",
+    "photoFile": "images/products/robe-wax-elegante.png"
+  },
+  {
+    "id": "bb-002",
+    "name": "Ensemble pagne deux pièces",
+    "desc": "Ensemble coordonné pour un style chic.",
+    "price": 22000,
+    "cat": "femme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "dress",
+    "img": "",
+    "photoFile": "images/products/ensemble-pagne-deux-pieces.png"
+  },
+  {
+    "id": "bb-003",
+    "name": "Pantalon palazzo",
+    "desc": "Pantalon fluide à taille haute.",
+    "price": 12000,
+    "cat": "femme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "pants",
+    "img": "",
+    "photoFile": "images/products/pantalon-palazzo.png"
+  },
+  {
+    "id": "bb-004",
+    "name": "Chemisier classique",
+    "desc": "Chemisier léger pour le quotidien ou le bureau.",
+    "price": 10000,
+    "cat": "femme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "shirt",
+    "img": "",
+    "photoFile": "images/products/chemisier-classique.png"
+  },
+  {
+    "id": "bb-005",
+    "name": "T-shirt femme coton",
+    "desc": "T-shirt doux à col rond.",
+    "price": 6000,
+    "cat": "femme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "tee",
+    "img": "",
+    "photoFile": "images/products/t-shirt-femme-coton.png"
+  },
+  {
+    "id": "bb-006",
+    "name": "Jean slim femme",
+    "desc": "Jean ajusté facile à associer.",
+    "price": 15000,
+    "cat": "femme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "pants",
+    "img": "",
+    "photoFile": "images/products/jean-slim-femme.png"
+  },
+  {
+    "id": "bb-007",
+    "name": "Jupe midi",
+    "desc": "Jupe midi polyvalente et confortable.",
+    "price": 9000,
+    "cat": "femme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "pants",
+    "img": "",
+    "photoFile": "images/products/jupe-midi.png"
+  },
+  {
+    "id": "bb-008",
+    "name": "Robe de soirée",
+    "desc": "Robe habillée pour événements.",
+    "price": 25000,
+    "cat": "femme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "dress",
+    "img": "",
+    "photoFile": "images/products/robe-de-soiree.png"
+  },
+  {
+    "id": "bb-009",
+    "name": "Legging stretch",
+    "desc": "Legging extensible pour sport et détente.",
+    "price": 7000,
+    "cat": "femme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "pants",
+    "img": "",
+    "photoFile": "images/products/legging-stretch.png"
+  },
+  {
+    "id": "bb-010",
+    "name": "Veste légère femme",
+    "desc": "Veste légère pour compléter une tenue.",
+    "price": 20000,
+    "cat": "femme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "shirt",
+    "img": "",
+    "photoFile": "images/products/veste-legere-femme.png"
+  },
+  {
+    "id": "bb-011",
+    "name": "Baskets femme",
+    "desc": "Chaussures décontractées pour tous les jours.",
+    "price": 18000,
+    "cat": "femme",
+    "sizes": [
+      "38",
+      "39",
+      "40",
+      "41"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "shoe",
+    "img": "",
+    "photoFile": "images/products/baskets-femme.png"
+  },
+  {
+    "id": "bb-012",
+    "name": "Sac à main élégant",
+    "desc": "Sac à main pour sorties et quotidien.",
+    "price": 14000,
+    "cat": "femme",
+    "sizes": [
+      "Unique"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "box",
+    "img": "",
+    "photoFile": "images/products/sac-a-main-elegant.png"
+  },
+  {
+    "id": "bb-013",
+    "name": "T-shirt homme coton",
+    "desc": "T-shirt classique à col rond.",
+    "price": 6000,
+    "cat": "homme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "tee",
+    "img": "",
+    "photoFile": "images/products/t-shirt-homme-coton.png"
+  },
+  {
+    "id": "bb-014",
+    "name": "Chemise manches longues",
+    "desc": "Chemise polyvalente pour le bureau et les sorties.",
+    "price": 12000,
+    "cat": "homme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "shirt",
+    "img": "",
+    "photoFile": "images/products/chemise-manches-longues.png"
+  },
+  {
+    "id": "bb-015",
+    "name": "Polo classique",
+    "desc": "Polo confortable au style soigné.",
+    "price": 9000,
+    "cat": "homme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "tee",
+    "img": "",
+    "photoFile": "images/products/polo-classique.png"
+  },
+  {
+    "id": "bb-016",
+    "name": "Jean droit homme",
+    "desc": "Jean coupe droite pour tous les jours.",
+    "price": 16000,
+    "cat": "homme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "pants",
+    "img": "",
+    "photoFile": "images/products/jean-droit-homme.png"
+  },
+  {
+    "id": "bb-017",
+    "name": "Pantalon chino",
+    "desc": "Pantalon chic et décontracté.",
+    "price": 14000,
+    "cat": "homme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "pants",
+    "img": "",
+    "photoFile": "images/products/pantalon-chino.png"
+  },
+  {
+    "id": "bb-018",
+    "name": "Short décontracté",
+    "desc": "Short léger pour les journées chaudes.",
+    "price": 8000,
+    "cat": "homme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "pants",
+    "img": "",
+    "photoFile": "images/products/short-decontracte.png"
+  },
+  {
+    "id": "bb-019",
+    "name": "Ensemble jogging homme",
+    "desc": "Ensemble confortable pour sport et détente.",
+    "price": 18000,
+    "cat": "homme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "tee",
+    "img": "",
+    "photoFile": "images/products/ensemble-jogging-homme.png"
+  },
+  {
+    "id": "bb-020",
+    "name": "Veste homme",
+    "desc": "Veste polyvalente pour une tenue habillée.",
+    "price": 28000,
+    "cat": "homme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "shirt",
+    "img": "",
+    "photoFile": "images/products/veste-homme.png"
+  },
+  {
+    "id": "bb-021",
+    "name": "Sweat à capuche",
+    "desc": "Sweat doux pour les journées fraîches.",
+    "price": 15000,
+    "cat": "homme",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "tee",
+    "img": "",
+    "photoFile": "images/products/sweat-capuche.png"
+  },
+  {
+    "id": "bb-022",
+    "name": "Baskets homme",
+    "desc": "Baskets confortables pour le quotidien.",
+    "price": 20000,
+    "cat": "homme",
+    "sizes": [
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "shoe",
+    "img": "",
+    "photoFile": "images/products/baskets-homme.png"
+  },
+  {
+    "id": "bb-023",
+    "name": "Sandales homme",
+    "desc": "Sandales simples pour la détente.",
+    "price": 7000,
+    "cat": "homme",
+    "sizes": [
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "shoe",
+    "img": "",
+    "photoFile": "images/products/sandales-homme.png"
+  },
+  {
+    "id": "bb-024",
+    "name": "Ceinture classique",
+    "desc": "Ceinture pour compléter une tenue.",
+    "price": 5000,
+    "cat": "homme",
+    "sizes": [
+      "Unique"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "box",
+    "img": "",
+    "photoFile": "images/products/ceinture-classique.png"
+  },
+  {
+    "id": "bb-025",
+    "name": "Robe fillette",
+    "desc": "Robe confortable pour petites occasions.",
+    "price": 9000,
+    "cat": "enfant",
+    "sizes": [
+      "2 ans",
+      "4 ans",
+      "6 ans",
+      "8 ans",
+      "10 ans",
+      "12 ans"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "kid",
+    "img": "",
+    "photoFile": "images/products/robe-fillette.png"
+  },
+  {
+    "id": "bb-026",
+    "name": "Ensemble short et T-shirt",
+    "desc": "Ensemble pratique pour jouer et sortir.",
+    "price": 8000,
+    "cat": "enfant",
+    "sizes": [
+      "2 ans",
+      "4 ans",
+      "6 ans",
+      "8 ans",
+      "10 ans",
+      "12 ans"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "kid",
+    "img": "",
+    "photoFile": "images/products/ensemble-short-tshirt.png"
+  },
+  {
+    "id": "bb-027",
+    "name": "T-shirt enfant",
+    "desc": "T-shirt doux pour tous les jours.",
+    "price": 4000,
+    "cat": "enfant",
+    "sizes": [
+      "2 ans",
+      "4 ans",
+      "6 ans",
+      "8 ans",
+      "10 ans",
+      "12 ans"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "tee",
+    "img": "",
+    "photoFile": "images/products/t-shirt-enfant.png"
+  },
+  {
+    "id": "bb-028",
+    "name": "Jean enfant",
+    "desc": "Jean confortable pour les activités quotidiennes.",
+    "price": 9000,
+    "cat": "enfant",
+    "sizes": [
+      "2 ans",
+      "4 ans",
+      "6 ans",
+      "8 ans",
+      "10 ans",
+      "12 ans"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "pants",
+    "img": "",
+    "photoFile": "images/products/jean-enfant.png"
+  },
+  {
+    "id": "bb-029",
+    "name": "Pantalon enfant",
+    "desc": "Pantalon souple et facile à porter.",
+    "price": 6500,
+    "cat": "enfant",
+    "sizes": [
+      "2 ans",
+      "4 ans",
+      "6 ans",
+      "8 ans",
+      "10 ans",
+      "12 ans"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "pants",
+    "img": "",
+    "photoFile": "images/products/pantalon-enfant.png"
+  },
+  {
+    "id": "bb-030",
+    "name": "Pyjama enfant",
+    "desc": "Pyjama doux pour la nuit.",
+    "price": 7000,
+    "cat": "enfant",
+    "sizes": [
+      "2 ans",
+      "4 ans",
+      "6 ans",
+      "8 ans",
+      "10 ans",
+      "12 ans"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "kid",
+    "img": "",
+    "photoFile": "images/products/pyjama-enfant.png"
+  },
+  {
+    "id": "bb-031",
+    "name": "Sweat enfant",
+    "desc": "Sweat confortable pour les sorties.",
+    "price": 8500,
+    "cat": "enfant",
+    "sizes": [
+      "2 ans",
+      "4 ans",
+      "6 ans",
+      "8 ans",
+      "10 ans",
+      "12 ans"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "tee",
+    "img": "",
+    "photoFile": "images/products/sweat-enfant.png"
+  },
+  {
+    "id": "bb-032",
+    "name": "Veste enfant",
+    "desc": "Veste légère pour compléter une tenue.",
+    "price": 12000,
+    "cat": "enfant",
+    "sizes": [
+      "2 ans",
+      "4 ans",
+      "6 ans",
+      "8 ans",
+      "10 ans",
+      "12 ans"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "shirt",
+    "img": "",
+    "photoFile": "images/products/veste-enfant.png"
+  },
+  {
+    "id": "bb-033",
+    "name": "Baskets enfant",
+    "desc": "Chaussures pour l'école et les loisirs.",
+    "price": 10000,
+    "cat": "enfant",
+    "sizes": [
+      "24",
+      "26",
+      "28",
+      "30",
+      "32",
+      "35"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "shoe",
+    "img": "",
+    "photoFile": "images/products/baskets-enfant.png"
+  },
+  {
+    "id": "bb-034",
+    "name": "Sandales enfant",
+    "desc": "Sandales légères pour les journées chaudes.",
+    "price": 6000,
+    "cat": "enfant",
+    "sizes": [
+      "24",
+      "26",
+      "28",
+      "30",
+      "32",
+      "35"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "shoe",
+    "img": "",
+    "photoFile": "images/products/sandales-enfant.png"
+  },
+  {
+    "id": "bb-035",
+    "name": "Polo enfant",
+    "desc": "Polo simple pour un style soigné.",
+    "price": 5500,
+    "cat": "enfant",
+    "sizes": [
+      "2 ans",
+      "4 ans",
+      "6 ans",
+      "8 ans",
+      "10 ans",
+      "12 ans"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "tee",
+    "img": "",
+    "photoFile": "images/products/polo-enfant.png"
+  },
+  {
+    "id": "bb-036",
+    "name": "Ensemble cérémonie enfant",
+    "desc": "Ensemble habillé pour les occasions spéciales.",
+    "price": 16000,
+    "cat": "enfant",
+    "sizes": [
+      "2 ans",
+      "4 ans",
+      "6 ans",
+      "8 ans",
+      "10 ans",
+      "12 ans"
+    ],
+    "tag": "Nouveau",
+    "stock": "ok",
+    "icon": "kid",
+    "img": "",
+    "photoFile": "images/products/ensemble-ceremonie-enfant.png"
+  }
+]
