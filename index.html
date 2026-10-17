@@ -922,7 +922,7 @@ function card(p, i){
   <div class="tile t${i % 5 + 1}">${pics.length ? `<img class="ph product-photo" src="${esc(pics[0])}" alt="Voir les avis sur ${esc(p.name)}" role="button" tabindex="0" loading="lazy" decoding="async">` : `<svg class="g" aria-hidden="true"><use href="#g-${esc(p.icon || "box")}"/></svg>`}
   ${pics.length > 1 ? `<button type="button" class="photo-nav photo-prev" data-image-step="-1" aria-label="Photo précédente">‹</button><button type="button" class="photo-nav photo-next" data-image-step="1" aria-label="Photo suivante">›</button><span class="photo-count">1 / ${pics.length}</span>` : ""}
   <button type="button" class="fav" aria-pressed="${favs.has(p.id)}" aria-label="Ajouter ${esc(p.name)} aux favoris">♥</button>${p.tag ? `<span class="flag">${esc(p.tag)}</span>` : ""}<span class="stk ${st}">${STK[st]}</span></div>
-  <div class="cb"><span class="c">${esc(CATS[p.cat] || "")}</span><h3>${esc(p.name)}</h3><p class="d">${esc(p.desc)}</p><div class="product-rating" data-product-rating="${esc(p.id)}"><span class="stars">☆☆☆☆☆</span><span>Pas encore noté</span><button type="button" class="product-review-link" data-product-reviews>Écrire un avis</button></div><p class="pr">${fmt(p.price)}</p>
+  <div class="cb"><span class="c">${esc(CATS[p.cat] || "")}</span><h3>${esc(p.name)}</h3><p class="d">${esc(p.desc)}</p><a class="product-rating product-rating-page" href="product.html?id=${encodeURIComponent(p.id)}" aria-label="Voir les détails et les avis de ${esc(p.name)}"><span class="stars">★★★★★</span><span>Voir la note et les avis</span><span class="product-review-link">Détails & avis ↗</span></a><p class="pr">${fmt(p.price)}</p>
   ${v.length > 1 ? `<div class="sz" role="group" aria-label="Taille ou variante">${v.map((s, k) => `<button type="button" class="chip" aria-pressed="${k === 0}">${esc(s)}</button>`).join("")}</div>` : ""}
   ${CLOTH.includes(p.cat) ? '<button type="button" class="link sg">Trouver ma taille</button>' : ""}<button type="button" class="btn btn-wa sm buy" ${st === "out" ? "disabled" : ""}>${st === "out" ? "Indisponible" : "Ajouter au panier"}</button>
   <div class="ctl"><button type="button" class="mini edit">Modifier</button><button type="button" class="mini danger del">Supprimer</button></div></div></article>`;
@@ -938,16 +938,16 @@ function openProductDetails(p){
         <span class="c">${esc(CATS[p.cat] || "")}</span>
         <h2>${esc(p.name)}</h2>
         <p class="detail-price">${fmt(p.price)}</p>
+        <a class="detail-rating-link" href="product.html?id=${encodeURIComponent(p.id)}"><span class="detail-stars" aria-label="Consulter les notes">★★★★★</span><span>Voir les notes et avis de cet article ↗</span></a>
         <p class="detail-desc">${esc(p.desc || "Contactez-nous pour plus d’informations sur cet article.")}</p>
         ${sizes.length > 1 ? '<label class="detail-size-label">Choisir une taille ou variante</label><div class="sz detail-sizes">' + sizes.map((v,i)=>'<button type="button" class="chip" aria-pressed="' + (i===0) + '">' + esc(v) + '</button>').join("") + '</div>' : ""}
-        <div class="detail-actions"><button type="button" class="btn btn-wa detail-buy" ${p.stock === "out" ? "disabled" : ""}>${p.stock === "out" ? "Indisponible" : "Ajouter au panier"}</button><button type="button" class="mini detail-reviews">Lire les avis</button></div>
+        <div class="detail-actions"><button type="button" class="btn btn-wa detail-buy" ${p.stock === "out" ? "disabled" : ""}>${p.stock === "out" ? "Indisponible" : "Ajouter au panier"}</button><a class="mini detail-reviews" href="product.html?id=${encodeURIComponent(p.id)}">Lire les avis ↗</a></div>
       </div>
     </div>
   </div>`);
   m.querySelector(".detail-close").onclick = close;
   m.querySelectorAll(".detail-sizes .chip").forEach(b=>b.onclick=()=>m.querySelectorAll(".detail-sizes .chip").forEach(x=>x.setAttribute("aria-pressed",x===b)));
   m.querySelector(".detail-buy").onclick = () => { const selected=m.querySelector(".detail-sizes .chip[aria-pressed=true]"); addCart(p, selected ? selected.textContent : sizes[0]); close(); };
-  m.querySelector(".detail-reviews").onclick = () => { close(); openProductReviews(p); };
 }
 
 function renderSpotlights(){
@@ -1705,5 +1705,29 @@ header.top #accountOpen:after{content:none!important;display:none!important}
 #accountModal .account-message{color:#20252A!important}
 @media(max-width:760px){header.top #accountOpen,header.top .head-actions #accountOpen{font-size:.72rem!important;padding:8px 9px!important;max-width:none!important}header.top .head-link:after{content:none!important}}
 </style>
+
+<style id="benie-reviews-teal-gold">
+/* Avis : palette turquoise et or, sans rouge ni noir dans le bloc */
+.reviews#avis{background:#F0FDFA!important;color:#115E59!important;border-color:#CCFBF1!important}
+#avis .sec-head h2,#avis .sec-head p,#avis h3,#avis label,#avis .review-summary strong{color:#115E59!important}
+#avis .review-summary,#avis .review-list,#avis .review-form{color:#115E59!important}
+#avis .review-card,#avis .review-form{background:#FFFFFF!important;border:1px solid #99F6E4!important;box-shadow:0 4px 16px #0F766E0D!important}
+#avis .review-card strong,#avis .review-card p,#avis .review-date,#avis .review-form p{color:#376B68!important}
+#avis .stars,#avis #reviewStars,.stars{color:#E5A500!important}
+#avis .review-form input,#avis .review-form textarea,#avis .review-form select{background:#FFFFFF!important;color:#134E4A!important;border-color:#99CFC8!important}
+#avis .review-form input::placeholder,#avis .review-form textarea::placeholder{color:#6B8F8B!important;opacity:1!important}
+#avis .review-form .btn,#avis #reviewSubmit{background:#0F766E!important;color:#FFFFFF!important;border-color:#0F766E!important}
+#avis .review-form .btn:hover,#avis #reviewSubmit:hover{background:#115E59!important}
+.product-rating-page{display:flex;align-items:center;flex-wrap:wrap;gap:6px;text-decoration:none;color:#376B68!important;font-size:.78rem;min-height:24px}
+.product-rating-page .stars{color:#E5A500!important;letter-spacing:1px}
+.product-rating-page .product-review-link{color:#0F766E!important;text-decoration:underline}
+.detail-rating-link{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:12px 0 16px;padding:10px 12px;border:1px solid #99F6E4;border-radius:10px;background:#F0FDFA;color:#0F766E!important;text-decoration:none;font-weight:650;font-size:.9rem}
+.detail-rating-link .detail-stars{color:#E5A500!important;letter-spacing:2px;font-size:1.2rem}
+.detail-reviews{display:inline-flex;align-items:center;justify-content:center;padding:10px 13px;border-radius:9px;background:#F0FDFA!important;color:#0F766E!important;border:1px solid #99F6E4!important;text-decoration:none;font-weight:700}
+.product-review-link{color:#0F766E!important}
+.product-rating .stars{color:#E5A500!important}
+@media(prefers-color-scheme:dark){#avis .review-card,#avis .review-form{background:#FFFFFF!important}}
+</style>
+
 </body>
 </html>
