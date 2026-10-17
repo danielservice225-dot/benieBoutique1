@@ -390,21 +390,26 @@ img{max-width:100%}
 @media(prefers-reduced-motion:reduce){.spotlight-grid{animation:none!important}}
 
 /* ===== Écran d'accueil animé, léger et accessible ===== */
-#introLoader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 38%,#1f5187 0,#143A66 42%,#0b203a 100%);color:#fff;opacity:1;visibility:visible;transition:opacity .45s ease,visibility .45s ease}
+#introLoader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;overflow:hidden;background:radial-gradient(circle at 50% 38%,#1f5187 0,#143A66 42%,#07172b 100%);background-size:140% 140%;color:#fff;opacity:1;visibility:visible;transition:opacity .65s ease,visibility .65s ease;animation:intro-bg 7s ease-in-out infinite alternate}
+#introLoader:before,#introLoader:after{content:"";position:absolute;width:min(76vw,440px);aspect-ratio:1;border:1px solid #8fc2ff26;border-radius:50%;pointer-events:none;animation:intro-spin 16s linear infinite}
+#introLoader:after{width:min(96vw,560px);border-style:dashed;animation-direction:reverse;animation-duration:24s}
 #introLoader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
-.intro-inner{display:grid;justify-items:center;gap:17px;text-align:center;animation:intro-rise .7s cubic-bezier(.2,.8,.2,1) both}
-.intro-mark{position:relative;display:grid;place-items:center;width:82px;height:82px;border-radius:25px;background:linear-gradient(145deg,#fff,#dcecff);color:#143A66;font:800 3rem/1 var(--d);box-shadow:0 12px 42px #020b1b55;animation:intro-float 2s ease-in-out infinite}
-.intro-mark:after{content:"";position:absolute;inset:-9px;border:2px solid #8fc2ff80;border-top-color:#fff;border-radius:31px;animation:intro-spin 1.8s linear infinite}
-.intro-name{font:800 clamp(1.7rem,6vw,2.3rem)/1.1 var(--d);letter-spacing:-.04em}
+.intro-inner{position:relative;z-index:1;display:grid;justify-items:center;gap:17px;text-align:center;animation:intro-rise .9s cubic-bezier(.2,.8,.2,1) both}
+.intro-mark{position:relative;display:grid;place-items:center;width:96px;height:96px;border-radius:28px;background:linear-gradient(145deg,#fff,#dcecff);color:#143A66;font:800 3.5rem/1 var(--d);box-shadow:0 12px 42px #020b1b55,0 0 45px #69a7f855;animation:intro-float 2s ease-in-out infinite}
+.intro-mark:after{content:"";position:absolute;inset:-10px;border:2px solid #8fc2ff80;border-top-color:#fff;border-radius:34px;animation:intro-spin 1.8s linear infinite}
+.intro-name{font:800 clamp(1.9rem,7vw,2.6rem)/1.1 var(--d);letter-spacing:-.04em;animation:intro-rise .8s .15s both}
 .intro-name span{color:#8fc2ff}
-.intro-sub{color:#d7e8ff;font-size:.95rem;max-width:280px}
-.intro-track{width:180px;height:4px;overflow:hidden;border-radius:99px;background:#ffffff30;margin-top:5px}
-.intro-track:after{content:"";display:block;width:42%;height:100%;border-radius:99px;background:#8fc2ff;animation:intro-progress 1.25s ease-in-out infinite}
+.intro-sub{color:#d7e8ff;font-size:1rem;max-width:300px;animation:intro-rise .8s .3s both}
+.intro-track{width:210px;height:5px;overflow:hidden;border-radius:99px;background:#ffffff30;margin-top:8px;box-shadow:0 0 20px #8fc2ff24}
+.intro-track:after{content:"";display:block;width:42%;height:100%;border-radius:99px;background:linear-gradient(90deg,#8fc2ff,#fff);animation:intro-progress 1.25s ease-in-out infinite}
+.intro-hint{margin-top:1px;color:#a8ccf5;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;animation:intro-pulse 1.8s ease-in-out infinite}
 @keyframes intro-spin{to{transform:rotate(360deg)}}
-@keyframes intro-float{50%{transform:translateY(-5px)}}
-@keyframes intro-rise{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes intro-float{50%{transform:translateY(-7px) rotate(-2deg)}}
+@keyframes intro-rise{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
 @keyframes intro-progress{from{transform:translateX(-110%)}to{transform:translateX(350%)}}
-@media(prefers-reduced-motion:reduce){#introLoader,.intro-inner,.intro-mark,.intro-mark:after,.intro-track:after{animation:none!important;transition:none!important}}
+@keyframes intro-bg{to{background-position:100% 80%}}
+@keyframes intro-pulse{50%{opacity:.55}}
+@media(prefers-reduced-motion:reduce){#introLoader,.intro-inner,.intro-mark,.intro-mark:after,.intro-track:after,.intro-name,.intro-sub,.intro-hint,#introLoader:before,#introLoader:after{animation:none!important;transition:none!important}}
 
 
 /* ===== Publicité animée des articles au premier chargement ===== */
@@ -461,6 +466,7 @@ img{max-width:100%}
     <div class="intro-name">Bénie <span>Boutique</span></div>
     <p class="intro-sub">Mode, électronique et innovation à portée de main.</p>
     <div class="intro-track" aria-hidden="true"></div>
+    <p class="intro-hint">Préparez-vous à découvrir nos articles</p>
   </div>
 </div>
 <a class="skip" href="#catalogue">Aller au catalogue</a>
@@ -1110,8 +1116,23 @@ $("#shopAdClose").addEventListener("click", closeShopAd);
 $("#shopAdSkip").addEventListener("click", closeShopAd);
 $("#shopAd").addEventListener("click", e => { if(e.target === $("#shopAd")) closeShopAd(); });
 
-const hideIntro = () => { const intro = document.getElementById("introLoader"); if (intro && !intro.classList.contains("is-hidden")) { intro.classList.add("is-hidden"); setTimeout(() => intro.remove(), 500); } };
-setTimeout(hideIntro, 5500); // filet de sécurité : l'écran d'accueil ne reste jamais bloqué
+const introStartedAt = Date.now();
+let introHideScheduled = false;
+const hideIntro = () => {
+  if(introHideScheduled) return;
+  introHideScheduled = true;
+  // Laisse l'écran animé visible au moins 4 secondes, même si le catalogue charge vite.
+  const wait = Math.max(0, 4000 - (Date.now() - introStartedAt));
+  setTimeout(() => {
+    const intro = document.getElementById("introLoader");
+    if(intro && !intro.classList.contains("is-hidden")){
+      intro.classList.add("is-hidden");
+      setTimeout(() => intro.remove(), 700);
+    }
+    setTimeout(() => showShopAd(items), 450);
+  }, wait);
+};
+setTimeout(hideIntro, 8000); // filet de sécurité si le chargement du catalogue est lent
 (async function init(){
   $("#grid").innerHTML = '<div class="sk"></div>'.repeat(8);    // chargement (skeleton)
   let s = null;
@@ -1121,7 +1142,7 @@ setTimeout(hideIntro, 5500); // filet de sécurité : l'écran d'accueil ne rest
   }catch(e){}
   // Aucun catalogue de démonstration ni fichier de secours : seuls les produits gérés dans Supabase sont affichés.
   items = Array.isArray(s) ? s.filter(p => !DEMO_PRODUCT_NAMES.has(String(p?.name || "").trim().toLocaleLowerCase("fr"))) : [];
-  render(); hideIntro(); setTimeout(() => showShopAd(items), 350); $("#stA").dataset.n = items.length; $$(".stats b[data-n]").forEach(countUp); cartN();
+  render(); hideIntro(); $("#stA").dataset.n = items.length; $$(".stats b[data-n]").forEach(countUp); cartN();
 })();
 </script>
 </body>
