@@ -165,7 +165,7 @@ body.adm{padding-bottom:9rem}
 .floats span{position:absolute;width:clamp(46px,9vw,84px);aspect-ratio:1;border-radius:24%;display:grid;place-items:center;background:color-mix(in srgb,#fff 12%,transparent);border:1px solid color-mix(in srgb,#fff 28%,transparent);backdrop-filter:blur(8px);color:var(--go);--tc:#143A66;animation:fl 6s ease-in-out infinite;animation-delay:var(--d)}
 .floats svg{width:56%;height:56%}
 @media(max-width:700px){.floats span:nth-child(n+3){display:none}.floats span{opacity:.75}}
-.tick{overflow:hidden;background:var(--pl);border-block:1px solid color-mix(in srgb,var(--go) 40%,transparent);padding-block:.85rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tick{display:block;position:relative;overflow:hidden;margin:0;background:var(--pl);border:0;padding-block:.75rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .trk{display:flex;width:max-content;animation:mq 30s linear infinite}.tick:hover .trk{animation-play-state:paused}
 .trk span{color:var(--pm);font:600 .95rem var(--b);white-space:nowrap;padding-right:2.2rem}.trk span::before{content:"✦";color:var(--go);margin-right:2.2rem}
 .btn-gold:not(.manage),.btn-wa:not(.fab){position:relative;overflow:hidden}
@@ -230,7 +230,7 @@ nav.links a:hover:after{right:0}
 .live{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.48rem .8rem;background:rgba(255,255,255,.08);font-size:.83rem!important;color:#f9e7b7!important}
 .stats{display:flex;flex-wrap:wrap;gap:clamp(1rem,4vw,2.6rem);padding-top:1.35rem;margin-top:.5rem;border-top:1px solid rgba(255,255,255,.16);width:min(100%,660px)}
 .stats div{display:grid;gap:.15rem}.stats b{font:800 1.45rem/1.2 var(--d);color:#f4c35c}.stats span{font-size:.82rem;color:#d2c4e8}
-.tick{padding-block:.75rem}
+.tick{padding-block:.65rem}
 .market-trust{background:var(--sf);border-bottom:1px solid var(--ln)}
 .market-trust .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding-block:1.05rem;gap:1rem}
 .trust-item{display:flex;align-items:center;justify-content:center;gap:.7rem;min-width:0}
