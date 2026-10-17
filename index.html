@@ -185,6 +185,98 @@ body.adm{padding-bottom:9rem}
 @keyframes ping{50%{box-shadow:0 0 0 6px transparent;opacity:.6}}
 @keyframes ring{0%{box-shadow:0 6px 20px rgba(0,0,0,.3),0 0 0 0 color-mix(in srgb,var(--wa) 55%,transparent)}70%,100%{box-shadow:0 6px 20px rgba(0,0,0,.3),0 0 0 16px transparent}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ===== Refonte UX/UI : boutique marchande, hiérarchie et confort d'achat ===== */
+:root{--market-radius:18px}
+.wrap{max-width:1240px}
+.market-topline{background:#21123d;color:#f8f3ff;font-size:.79rem;letter-spacing:.01em}
+.market-topline .wrap{min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:6px}
+.market-topline-right{color:#ded2f4}
+.market-topline b{color:#e9b444;margin-inline:5px}
+header.top{background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(16px);box-shadow:0 4px 18px rgba(28,15,53,.055)}
+header.top .wrap{min-height:72px;gap:clamp(.5rem,1.4vw,1.1rem)}
+.brand{font-size:1.28rem;letter-spacing:-.025em}
+nav.links{gap:clamp(.8rem,2vw,1.7rem);font-size:.94rem}
+nav.links a{padding:9px 0;position:relative}
+nav.links a:after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:2px;background:var(--go);transition:right .2s}
+nav.links a:hover:after{right:0}
+.hero{background:radial-gradient(ellipse at 83% 22%,rgba(227,167,47,.23),transparent 36%),linear-gradient(115deg,#21123d 0%,#30205a 58%,#20143d 100%)}
+.hero .wrap{padding-block:clamp(3.2rem,7vw,5.8rem);gap:1.25rem}
+.hero h1{max-width:850px;font-size:clamp(3rem,8vw,6.2rem);letter-spacing:-.055em}
+.hero p:not(.live){font-size:clamp(1rem,1.5vw,1.12rem);line-height:1.75;max-width:57ch}
+.hero .cta{margin-top:.65rem;gap:.8rem}
+.hero .cta .btn{min-height:52px;padding-inline:1.5rem}
+.live{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.48rem .8rem;background:rgba(255,255,255,.08);font-size:.83rem!important;color:#f9e7b7!important}
+.stats{display:flex;flex-wrap:wrap;gap:clamp(1rem,4vw,2.6rem);padding-top:1.35rem;margin-top:.5rem;border-top:1px solid rgba(255,255,255,.16);width:min(100%,660px)}
+.stats div{display:grid;gap:.15rem}.stats b{font:800 1.45rem/1.2 var(--d);color:#f4c35c}.stats span{font-size:.82rem;color:#d2c4e8}
+.tick{padding-block:.75rem}
+.market-trust{background:var(--sf);border-bottom:1px solid var(--ln)}
+.market-trust .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding-block:1.05rem;gap:1rem}
+.trust-item{display:flex;align-items:center;justify-content:center;gap:.7rem;min-width:0}
+.trust-icon{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border-radius:12px;background:color-mix(in srgb,var(--go) 18%,var(--sf));color:var(--pl);font-size:.85rem;font-weight:800}
+.trust-item div{display:grid;gap:.1rem}.trust-item strong{font-size:.88rem}.trust-item small{color:var(--mu);font-size:.77rem;line-height:1.35}
+section.block{padding-block:clamp(2.5rem,5vw,4.4rem)}
+.sec-head{margin-bottom:1.6rem;gap:.55rem}
+.sec-head h2{letter-spacing:-.04em}
+#catalogue{scroll-margin-top:92px}
+.tools{gap:.75rem;margin-bottom:1.1rem}
+.tools input,.tools select{min-height:50px;border-radius:13px;box-shadow:0 2px 7px rgba(42,23,80,.025);transition:border-color .2s,box-shadow .2s}
+.tools input:focus,.tools select:focus{border-color:var(--go);box-shadow:0 0 0 4px color-mix(in srgb,var(--go) 20%,transparent);outline:none}
+.tools input[type=search]{padding-left:1rem}
+.tabs{padding-block:.3rem 1rem;gap:.55rem}
+.tab{min-height:42px;padding-inline:1rem;border-radius:11px;font-size:.9rem}
+.tab[aria-pressed=true]{box-shadow:0 3px 10px rgba(42,23,80,.14),inset 0 0 0 1px var(--go)}
+.count{font-size:.86rem;margin-bottom:1rem}
+.grid{gap:1.2rem .9rem}
+@media(min-width:720px){.grid{gap:1.5rem 1.1rem}}
+@media(min-width:1000px){.grid{gap:1.6rem 1.2rem}}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:var(--market-radius);overflow:hidden;box-shadow:0 2px 10px rgba(33,18,61,.035);transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+.card:hover{border-color:color-mix(in srgb,var(--go) 68%,var(--ln));box-shadow:0 14px 32px rgba(33,18,61,.12)}
+.tile{border-radius:0;aspect-ratio:1 / 1;background:color-mix(in srgb,var(--tc) 80%,var(--sf))}
+.cb{padding:.85rem .85rem 1rem;gap:.42rem}
+.cb .c{font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.045em}
+.cb h3{font-size:clamp(.95rem,1.2vw,1.06rem);line-height:1.3;min-height:2.5em}
+.cb .d{font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.55em}
+.cb .pr{font-size:1.2rem;color:var(--pl);margin-top:.18rem}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .cb .pr{color:var(--go)}}
+:root[data-theme=dark] .cb .pr{color:var(--go)}
+.cb .buy{border-radius:11px;min-height:43px}
+.fav{box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.stk{box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.empty{background:var(--sf);border:1px dashed var(--ln);border-radius:var(--market-radius);padding:2rem!important;text-align:center}
+.perk{background:var(--bg);border:1px solid var(--ln);border-top:3px solid var(--go);border-radius:14px;padding:1.15rem;transition:transform .2s,box-shadow .2s}
+.perk:hover{box-shadow:0 10px 24px rgba(42,23,80,.08)}
+form.cf{box-shadow:0 12px 32px rgba(42,23,80,.06)}
+footer{padding-block:2.5rem}
+@media(max-width:700px){
+ .market-topline .wrap{justify-content:center;text-align:center;min-height:31px}
+ .market-topline-right{display:none}
+ header.top .wrap{min-height:62px}
+ .brand{font-size:1.08rem;gap:.35rem}
+ .logo{width:34px;height:34px}
+ header.top .btn.sm{min-height:40px;padding:.45rem .7rem;font-size:.82rem}
+ .hero .wrap{padding-block:3rem 2.7rem}
+ .hero h1{font-size:clamp(2.65rem,13vw,4.1rem)}
+ .hero p:not(.live){max-width:42ch}
+ .hero .cta{width:100%}.hero .cta .btn{flex:1;min-width:145px;padding-inline:.8rem}
+ .stats{gap:1rem 1.3rem}
+ .market-trust .wrap{grid-template-columns:1fr;gap:.8rem;padding-block:1rem}
+ .trust-item{justify-content:flex-start}.trust-icon{flex-basis:34px;width:34px;height:34px}
+ .grid{gap:.85rem .65rem}
+ .card{border-radius:14px}
+ .tile{border-radius:0}
+ .cb{padding:.7rem .65rem .8rem}
+ .cb h3{font-size:.94rem;min-height:2.45em}
+ .cb .d{font-size:.81rem}
+ .cb .pr{font-size:1.08rem}
+ .cb .buy{font-size:.84rem;padding-inline:.45rem}
+ .flag,.stk{font-size:.67rem;padding:.3rem .4rem}
+ .fav{width:34px;height:34px;top:.4rem;right:.4rem}
+ .photo-nav{width:28px;height:34px}
+}
+@media(max-width:380px){.brand{font-size:.98rem}.header.top .btn.sm{padding-inline:.45rem}.theme{width:38px;height:38px}.cartbtn{width:38px;height:38px}}
+@media(prefers-reduced-motion:reduce){.hero>.wrap>*,.trk,.floats span,.hero h1 em,.card,.rv,.logo{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
 </style>
 </head>
 <body>
@@ -207,6 +299,7 @@ body.adm{padding-bottom:9rem}
 <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.1.5.1.6-.1l.9-1.100c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.400z"/></symbol>
 </defs></svg>
 
+<div class="market-topline"><div class="wrap"><span>✦ Mode & électronique au même endroit</span><span class="market-topline-right">Abidjan, Côte d’Ivoire <b>·</b> Prix en FCFA <b>·</b> Commande sur WhatsApp</span></div></div>
 <header class="top"><div class="wrap">
   <a class="brand" href="#accueil" aria-label="Bénie Boutique, accueil"><span class="logo" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7D27A"/><stop offset="1" stop-color="#E3A72F"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="18" fill="#2A1750" stroke="#E3A72F" stroke-opacity=".5" stroke-width="1.5"/><path class="trace" pathLength="1" d="M21 13V51H34C42 51 46 46.5 46 41C46 35.5 42.5 32.5 37 32C41 31 44 28 44 23C44 17 40 13 33 13ZM21 32H37" fill="none" stroke="url(#lg)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><g fill="#fff"><circle class="nd" cx="21" cy="13" r="3.2"/><circle class="nd" cx="21" cy="51" r="3.2"/><circle class="nd" cx="46" cy="41" r="3.2"/><circle class="nd" cx="44" cy="23" r="3.2"/></g></svg></span>Bénie Boutique</a>
   <nav class="links" aria-label="Navigation principale"><a href="#catalogue">Catalogue</a><a href="#engagements">Engagements</a><a href="#contact">Contact</a></nav>
@@ -227,6 +320,8 @@ body.adm{padding-bottom:9rem}
   </div></div>
 
   <div class="tick" aria-hidden="true"><div class="trk"><span>Femme</span><span>Homme</span><span>Enfant</span><span>Kits Arduino</span><span>Kits électroniques</span><span>Raspberry Pi</span><span>ESP32</span><span>Composants</span></div></div>
+
+<div class="market-trust"><div class="wrap"><div class="trust-item"><span class="trust-icon">✓</span><div><strong>Commande simple</strong><small>Finalisez sur WhatsApp</small></div></div><div class="trust-item"><span class="trust-icon">↗</span><div><strong>Livraison à Abidjan</strong><small>Tarif confirmé avant envoi</small></div></div><div class="trust-item"><span class="trust-icon">CFA</span><div><strong>Prix en FCFA</strong><small>Clairs et faciles à comparer</small></div></div></div></div>
 
   <section class="block" id="catalogue" aria-labelledby="h-cat"><div class="wrap">
     <div class="sec-head"><h2 id="h-cat">Le catalogue</h2><p>Prix en FCFA. Choisissez la taille ou la variante, ajoutez au panier, puis envoyez votre commande en un message WhatsApp déjà écrit.</p></div>
