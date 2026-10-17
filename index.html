@@ -1445,5 +1445,26 @@ setTimeout(hideIntro, 8000); // filet de sécurité si le chargement du catalogu
  });
 })();
 </script>
+
+<!-- Navigation vers une vraie fiche produit dédiée -->
+<script>
+document.addEventListener("click", function(e) {
+  const spotlight = e.target.closest("[data-spotlight-id]");
+  if (spotlight) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    location.href = "product.html?id=" + encodeURIComponent(spotlight.dataset.spotlightId);
+    return;
+  }
+  const card = e.target.closest("#grid .card");
+  if (!card || e.target.closest("button, a, input, select, textarea, .chip, .fav, .buy, .ctl")) return;
+  const id = card.dataset.id;
+  if (!id) return;
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  location.href = "product.html?id=" + encodeURIComponent(id);
+}, true);
+</script>
+
 </body>
 </html>
