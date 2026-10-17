@@ -56,8 +56,10 @@ nav.links{display:none;gap:1.3rem;font-weight:500}nav.links a{text-decoration:no
 .spotlight-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.25rem}
 .spotlight-head .sec-head{margin:0}
 .spotlight-kicker{font:700 .74rem/1.2 var(--b);letter-spacing:.13em;color:var(--mu)}
-.spotlight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-.spotlight-item{display:grid;grid-template-columns:100px minmax(0,1fr);gap:.9rem;align-items:center;padding:.8rem;border:1px solid var(--ln);border-radius:16px;background:var(--sf);box-shadow:0 5px 18px rgba(42,23,80,.045);min-width:0;transition:transform .2s,box-shadow .2s,border-color .2s}
+.spotlight-viewport{overflow:hidden;width:100%;padding:.35rem 0 1rem;mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent)}
+.spotlight-grid{display:flex;align-items:stretch;gap:1rem;width:max-content;animation:spotlight-scroll 32s linear infinite;will-change:transform}
+.spotlight-viewport:hover .spotlight-grid,.spotlight-viewport:focus-within .spotlight-grid{animation-play-state:paused}
+.spotlight-item{display:grid;grid-template-columns:100px minmax(0,1fr);gap:.9rem;align-items:center;padding:.8rem;border:1px solid var(--ln);border-radius:16px;background:var(--sf);box-shadow:0 5px 18px rgba(42,23,80,.045);width:340px;min-width:280px;max-width:calc(100vw - 40px);transition:transform .2s,box-shadow .2s,border-color .2s}
 .spotlight-item:hover{transform:translateY(-3px);border-color:var(--go);box-shadow:0 12px 28px rgba(42,23,80,.1)}
 .spotlight-photo{width:100px;aspect-ratio:1;overflow:hidden;border-radius:11px;background:var(--bg);display:grid;place-items:center;color:var(--pl);font-size:2rem}
 .spotlight-photo img{width:100%;height:100%;object-fit:cover}
@@ -67,8 +69,8 @@ nav.links{display:none;gap:1.3rem;font-weight:500}nav.links a{text-decoration:no
 .spotlight-price{font:800 1.05rem/1.2 var(--d);color:var(--pl)}
 :root[data-theme=dark] .spotlight-price{color:var(--go)}
 .spotlight-open{justify-self:start;border:0;background:none;padding:.25rem 0;color:var(--mu);font:600 .82rem var(--b);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-@media(max-width:900px){.spotlight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.spotlight-head{align-items:flex-start;flex-direction:column}.spotlight-grid{grid-template-columns:1fr}.spotlight-item{grid-template-columns:88px minmax(0,1fr)}.spotlight-photo{width:88px}.spotlight-head .btn{width:100%}}
+@keyframes spotlight-scroll{to{transform:translateX(-50%)}}
+@media(max-width:560px){.spotlight-head{align-items:flex-start;flex-direction:column}.spotlight-item{grid-template-columns:88px minmax(0,1fr);width:min(320px,calc(100vw - 40px));min-width:min(280px,calc(100vw - 40px))}.spotlight-photo{width:88px}.spotlight-head .btn{width:100%}}
 
 /* ===== Sections ===== */
 section.block{padding-block:3rem}
@@ -416,7 +418,7 @@ img{max-width:100%}
         <div class="sec-head"><span class="spotlight-kicker">✦ SÉLECTION BÉNIE BOUTIQUE</span><h2 id="h-spotlight">Promotions & articles à la une</h2><p>Découvrez les offres et nouveautés actuellement mises en avant dans notre catalogue.</p></div>
         <a class="btn btn-gold sm" href="#catalogue">Voir tous les articles ↗</a>
       </div>
-      <div class="spotlight-grid" id="spotlightGrid"></div>
+      <div class="spotlight-viewport" aria-label="Promotions et articles à la une défilants"><div class="spotlight-grid" id="spotlightGrid"></div></div>
     </div>
   </section>
 
@@ -592,6 +594,16 @@ function renderSpotlights(){
     const tag = String(p.tag || "");
     return '<article class="spotlight-item"><div class="spotlight-photo">' + photo + '</div><div class="spotlight-info"><span class="spotlight-tag">' + esc(tag === "Promo" ? "✦ Promotion" : tag === "Nouveau" ? "Nouveauté" : "Populaire") + '</span><h3>' + esc(p.name) + '</h3><strong class="spotlight-price">' + fmt(p.price) + '</strong><button class="spotlight-open" type="button" data-spotlight-id="' + esc(p.id) + '">Voir l’article →</button></div></article>';
   }).join("");
+  // Duplique la piste pour un défilement continu sans espace vide.
+  grid.querySelectorAll("[data-spotlight-clone]").forEach(el => el.remove());
+  const originals = Array.from(grid.children);
+  originals.forEach(el => {
+    const clone = el.cloneNode(true);
+    clone.setAttribute("data-spotlight-clone", "true");
+    clone.setAttribute("aria-hidden", "true");
+    clone.querySelectorAll("button, a, input, select, textarea, [tabindex]").forEach(control => control.setAttribute("tabindex", "-1"));
+    grid.appendChild(clone);
+  });
 }
 $("#spotlightGrid").addEventListener("click", e => {
   const b = e.target.closest("[data-spotlight-id]");
