@@ -562,6 +562,7 @@ function render(){
   const so = $("#sort").value; if(so === "asc") L.sort((a, b) => a.price - b.price); if(so === "desc") L.sort((a, b) => b.price - a.price);
   $("#grid").innerHTML = L.map(card).join("") || `<div class="empty"><p>Aucun article ne correspond.</p><button type="button" class="btn btn-gold sm" id="rst" style="margin-top:.8rem">Réinitialiser les filtres</button></div>`;
   $("#count").textContent = `${L.length} article${L.length > 1 ? "s" : ""}`;
+  loadProductRatings();
 }
 function setCat(c){ cat = c; $$(".tab").forEach(t => t.setAttribute("aria-pressed", t.dataset.c === c)); }
 
@@ -894,7 +895,6 @@ $("#reviewForm").addEventListener("submit",async e=>{
  }catch(err){msg.textContent="L’envoi n’est pas encore disponible. La table reviews et ses règles doivent être configurées dans Supabase.";}finally{btn.disabled=false;}
 });
 loadReviews();
-loadProductRatings();
 
 /* ---------- Démarrage ---------- */
 $$("[data-wa]").forEach(a => a.href = wa(`Bonjour ${CFG.shop}, j’ai une question.`));
