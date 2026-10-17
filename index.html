@@ -1655,5 +1655,29 @@ input,select,textarea{color:#20252A}
 :root[data-theme="dark"] #catalogue .tab{background:#22262A!important;color:#F5F6F7!important;border-color:#3A4046!important}
 :root[data-theme="dark"] #catalogue .tab[aria-pressed="true"]{background:#48271F!important;color:#FF9A80!important;border-color:#FF6847!important}
 </style>
+
+<style id="account-red-readable-fix">
+/* Connexion / inscription : bouton rouge visible et formulaire lisible */
+header.top #accountOpen,.head-actions #accountOpen{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ gap:6px!important;background:#D92D20!important;color:#FFFFFF!important;
+ border:1px solid #B42318!important;border-radius:8px!important;padding:10px 13px!important;
+ font-weight:800!important;font-size:.82rem!important;line-height:1.35!important;
+ text-decoration:none!important;opacity:1!important;visibility:visible!important;
+ box-shadow:0 2px 5px #D92D2026!important;max-width:none!important
+}
+header.top #accountOpen:hover{background:#B42318!important;color:#FFFFFF!important}
+#accountModal{background:rgba(20,20,20,.68)!important}
+#accountModal .account-card{background:#FFFFFF!important;color:#20252A!important;border:1px solid #E1E5E8!important}
+#accountModal .account-head h2,#accountModal h2,#accountModal h3,#accountModal p,#accountModal label,#accountModal .account-small{color:#20252A!important}
+#accountModal .account-tabs button{background:#F5F5F5!important;color:#20252A!important;border:1px solid #D5D9DD!important}
+#accountModal .account-tabs button.active{background:#D92D20!important;color:#FFFFFF!important;border-color:#B42318!important}
+#accountModal .account-form input{background:#FFFFFF!important;color:#20252A!important;border:1px solid #B8C0C8!important}
+#accountModal .account-form input::placeholder{color:#69727D!important;opacity:1!important}
+#accountModal .account-form .btn{background:#D92D20!important;color:#FFFFFF!important;border:1px solid #B42318!important}
+#accountModal .account-message{background:#F5F6F7!important;color:#20252A!important;border:1px solid #E1E5E8!important}
+#accountModal .account-close{color:#20252A!important;background:#FFFFFF!important;border-color:#D5D9DD!important}
+@media(max-width:760px){header.top #accountOpen,.head-actions #accountOpen{font-size:.76rem!important;padding:8px 9px!important;max-width:none!important}header.top .head-link:after{content:none!important}}
+</style>
 </body>
 </html>
