@@ -223,6 +223,50 @@ h1,h2,h3,.brand,.stat strong{font-family:"Bricolage Grotesque",system-ui,sans-se
 }
 @media(prefers-reduced-motion:reduce){#loginScreen:before{animation:none!important}#app *,#loginScreen *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
+
+
+/* Palette monochrome officielle Bénie Boutique : blanc, noir et gris */
+:root{
+ --bg:#F7F7F7!important;--sf:#FFFFFF!important;--fg:#111111!important;--mu:#666666!important;
+ --ln:#E2E2E2!important;--pl:#111111!important;--pf:#F5F5F5!important;--pm:#E7E7E7!important;
+ --go:#111111!important;--gi:#FFFFFF!important;--wa:#222222!important;--wi:#FFFFFF!important;
+ --rd:#333333!important;--panel:#FFFFFF!important;--ink:#111111!important;--muted:#666666!important;
+ --line:#E2E2E2!important;--purple:#111111!important;--gold:#222222!important;
+ --green:#333333!important;--red:#444444!important;--shadow:0 12px 32px rgba(0,0,0,.07)!important;
+}
+body{background:#F7F7F7!important;color:#111!important}
+header,nav,.navbar,.site-header,.topbar,footer{background:rgba(255,255,255,.94)!important;color:#111!important;border-color:#E2E2E2!important}
+a{color:inherit}
+button,.btn,.button,.btn-primary,.btn-gold,.primary-button{background:#111!important;color:#fff!important;border-color:#111!important}
+button:hover,.btn:hover,.button:hover,.btn-primary:hover,.btn-gold:hover,.primary-button:hover{background:#333!important;color:#fff!important;border-color:#333!important}
+.btn-light,.btn-secondary,.secondary-button{background:#fff!important;color:#111!important;border:1px solid #D8D8D8!important}
+.card,.product-card,.product,.panel,.modal,.login-card,.stat,.table-wrap,.category-card,.feature-card{
+ background:rgba(255,255,255,.96)!important;color:#111!important;border-color:#E4E4E4!important;
+ box-shadow:0 8px 28px rgba(0,0,0,.045)!important;
+}
+input,select,textarea{background:#fff!important;color:#111!important;border-color:#D8D8D8!important}
+input:focus,select:focus,textarea:focus{border-color:#111!important;box-shadow:0 0 0 3px rgba(0,0,0,.08)!important}
+.badge,.tag,.pill{background:#F1F1F1!important;color:#222!important;border-color:#E0E0E0!important}
+img{filter:none}
+::selection{background:#222;color:#fff}
+
+/* Tableau d'administration : monochrome */
+#loginScreen{background:radial-gradient(ellipse at 15% 15%,#3B3B3B 0%,transparent 42%),linear-gradient(135deg,#080808,#252525 60%,#111)!important}
+#loginScreen:before{border-color:rgba(255,255,255,.12)!important;box-shadow:0 0 0 45px rgba(255,255,255,.025),0 0 0 90px rgba(255,255,255,.018)!important}
+.login-card .logo,.logo{background:#111!important;color:#fff!important;box-shadow:none!important}
+.login-card .btn-primary,#app .btn-primary{background:#111!important;color:#fff!important;box-shadow:0 8px 20px rgba(0,0,0,.14)!important}
+#app aside{background:rgba(255,255,255,.96)!important;color:#111!important;border-color:#E2E2E2!important}
+#app aside .brand,#app .topbar h1,#app aside .nav button.active,#app .stat strong{color:#111!important}
+#app aside .nav button:hover,#app aside .nav button.active{background:#EEEEEE!important;color:#111!important}
+#app aside .nav button.active{box-shadow:inset 3px 0 #111!important}
+#app .welcome{background:radial-gradient(ellipse at 83% 22%,rgba(255,255,255,.13),transparent 36%),linear-gradient(115deg,#090909,#292929 58%,#111)!important;color:#fff!important}
+#app .welcome p{color:#E0E0E0!important}
+#app .stat-icon,#app .activity-dot{background:#F0F0F0!important;color:#111!important}
+#app .quick button{background:#F8F8F8!important;color:#111!important;border-color:#E4E4E4!important}
+#app th{background:#F0F0F0!important;color:#333!important}
+#productModal{background:rgba(0,0,0,.48)!important}
+#toast{background:#111!important;color:#fff!important}
+
 </style>
 </head>
 <body>
