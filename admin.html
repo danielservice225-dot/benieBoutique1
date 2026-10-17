@@ -438,7 +438,7 @@ html,body{max-width:100%;overflow-x:hidden}
 const CFG={url:"https://arodkdazldfvyiecjstk.supabase.co",key:"sb_publishable_VpsmokBwJ4Zd3C1x31_ljg_ZoqNMSWq"};
 // Aucun produit de démonstration : le catalogue est géré exclusivement par l'administrateur.
 let accessToken="",user=null,products=[],orders=[],currentView="dashboard",productImagesDraft=[];
-const $=s=>document.querySelector(s), $=s=>[...document.querySelectorAll(s)];
+const $=s=>document.querySelector(s), qsa=s=>[...document.querySelectorAll(s)];
 let customers=[];
 function esc(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function money(n){return Number(n||0).toLocaleString("fr-FR")+" FCFA";}
@@ -449,7 +449,7 @@ async function api(path,opts={}){const r=await fetch(CFG.url+path,{...opts,heade
 function catName(c){return ({femme:"Mode femme",homme:"Mode homme",enfant:"Mode enfant",arduino:"Arduino",esp32:"ESP32",rpi:"Raspberry Pi",kits:"Kits électroniques",compo:"Composants"})[c]||c||"Autre";}
 function stockName(s){return s==="out"?"Rupture":s==="low"?"Stock limité":"Disponible";}
 function stockBadge(s){return '<span class="badge '+(s==="out"?"out":s==="low"?"low":"")+'">'+stockName(s)+'</span>';}
-function openView(v){currentView=v;$$(".view").forEach(x=>x.classList.toggle("active",x.id==="view-"+v));$$("[data-view]").forEach(x=>x.classList.toggle("active",x.dataset.view===v));const titles={dashboard:"Vue d'ensemble",products:"Gestion des produits",orders:"Commandes clients",customers:"Clients inscrits",settings:"Paramètres"};$("#pageTitle").textContent=titles[v];$("#crumb").textContent=titles[v];$("#topAdd").style.display=v==="products"?"inline-flex":"none";if(v==="products")renderProducts();if(v==="orders")loadOrders().catch(e=>notify("Chargement des commandes : "+e.message));if(v==="customers")loadCustomers().catch(e=>notify("Chargement des clients : "+e.message));}
+function openView(v){currentView=v;qsa(".view").forEach(x=>x.classList.toggle("active",x.id==="view-"+v));qsa("[data-view]").forEach(x=>x.classList.toggle("active",x.dataset.view===v));const titles={dashboard:"Vue d'ensemble",products:"Gestion des produits",orders:"Commandes clients",customers:"Clients inscrits",settings:"Paramètres"};$("#pageTitle").textContent=titles[v];$("#crumb").textContent=titles[v];$("#topAdd").style.display=v==="products"?"inline-flex":"none";if(v==="products")renderProducts();if(v==="orders")loadOrders().catch(e=>notify("Chargement des commandes : "+e.message));if(v==="customers")loadCustomers().catch(e=>notify("Chargement des clients : "+e.message));}
 function showApp(){ $("#loginScreen").style.display="none";$("#app").hidden=false;$("#profileEmail").textContent=user?.email||"Administrateur";$("#avatar").textContent=(user?.email||"BB").slice(0,2).toUpperCase();loadProducts().then(()=>loadOrders().catch(()=>{})).catch(e=>notify("Connexion établie, mais lecture impossible : "+e.message));}
 async function login(email,password){const r=await fetch(CFG.url+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:CFG.key,"Content-Type":"application/json"},body:JSON.stringify({email,password})});const d=await r.json();if(!r.ok)throw new Error(d.msg||d.message||"E-mail ou mot de passe incorrect.");accessToken=d.access_token;user=d.user;}
 async function loadProducts(){const rows=await api("/rest/v1/products?select=id,data&order=created_at.desc");products=(rows||[]).map(r=>({...r.data,id:r.id||r.data?.id}));$("#statProducts").textContent=products.length;$("#activityProducts").textContent=products.length+" produit(s) chargés";renderProducts();renderRecent();updateStats();}
@@ -591,7 +591,7 @@ function exportOrdersCSV(){
 }
 $("#loginForm").onsubmit=async e=>{e.preventDefault();const b=$("#loginBtn");b.disabled=true;b.textContent="Connexion…";$("#loginError").textContent="";try{await login($("#email").value.trim(),$("#password").value);showApp();}catch(err){$("#loginError").textContent=err.message||"Connexion refusée. Vérifiez l'e-mail et le mot de passe."; }finally{b.disabled=false;b.innerHTML='Se connecter <span>→</span>';}};
 $("#logoutBtn").onclick=()=>{accessToken="";user=null;products=[];orders=[];$("#app").hidden=true;$("#loginScreen").style.display="flex";$("#password").value="";};
-$$("[data-view]").forEach(b=>b.onclick=()=>openView(b.dataset.view));$$("[data-goto]").forEach(b=>b.onclick=()=>openView(b.dataset.goto));
+qsa("[data-view]").forEach(b=>b.onclick=()=>openView(b.dataset.view));qsa("[data-goto]").forEach(b=>b.onclick=()=>openView(b.dataset.goto));
 $("#topAdd").onclick=$("#addProduct").onclick=$("#quickAdd").onclick=()=>openProductModal();$("#closeModal").onclick=$("#cancelModal").onclick=closeProductModal;$("#productModal").onclick=e=>{if(e.target===$("#productModal"))closeProductModal();};
 ["productSearch","categoryFilter","stockFilter"].forEach(id=>$("#"+id).addEventListener(id==="productSearch"?"input":"change",renderProducts));
 $("#orderSearch").oninput=$("#orderStatusFilter").onchange=renderOrders;$("#refreshOrders").onclick=()=>loadOrders().then(()=>toast("Commandes actualisées.")).catch(e=>notify(e.message));
