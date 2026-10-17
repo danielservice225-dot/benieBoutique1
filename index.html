@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Bénie Boutique – Mode, Arduino, Raspberry Pi et ESP32 à Abidjan</title>
 <meta name="description" content="Bénie Boutique à Abidjan : vêtements femme, homme et enfant, kits Arduino, Raspberry Pi, ESP32 et composants électroniques. Commandez sur WhatsApp.">
-<meta name="theme-color" content="#2A1750">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='18' fill='%232A1750'/%3E%3Cpath d='M21 13V51H34C42 51 46 46.5 46 41C46 35.5 42.5 32.5 37 32C41 31 44 28 44 23C44 17 40 13 33 13ZM21 32H37' fill='none' stroke='%23F0B94A' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#143A66">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='18' fill='%23143A66'/%3E%3Cpath d='M21 13V51H34C42 51 46 46.5 46 41C46 35.5 42.5 32.5 37 32C41 31 44 28 44 23C44 17 40 13 33 13ZM21 32H37' fill='none' stroke='%233C8DFA' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;600&display=swap">
 <style>
 /* ===== Thème : variables clair / sombre (auto + forçage via data-theme) ===== */
-:root{--bg:#F7F4FA;--sf:#fff;--fg:#1E1233;--mu:#5E5573;--ln:#E1DAEB;--pl:#2A1750;--pf:#F7F4FA;--pm:#CFC3E6;--go:#E3A72F;--gi:#2A1750;--wa:#0E7A40;--wi:#fff;--rd:#B3261E;
+:root{--bg:#F5F8FC;--sf:#fff;--fg:#10233F;--mu:#5B6B82;--ln:#DCE6F2;--pl:#143A66;--pf:#F5F8FC;--pm:#D7E5F8;--go:#2878D0;--gi:#143A66;--wa:#0E7A40;--wi:#fff;--rd:#B3261E;
 --d:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;--b:"Figtree",system-ui,sans-serif}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#140C24;--sf:#1E1334;--fg:#F1EBF9;--mu:#B2A7C8;--ln:#33244F;--pl:#0C0618;--go:#F0B94A;--gi:#1A0F33;--wa:#2FBF71;--wi:#06210F;--rd:#FF8E7A;color-scheme:dark}}
-:root[data-theme=dark]{--bg:#140C24;--sf:#1E1334;--fg:#F1EBF9;--mu:#B2A7C8;--ln:#33244F;--pl:#0C0618;--go:#F0B94A;--gi:#1A0F33;--wa:#2FBF71;--wi:#06210F;--rd:#FF8E7A;color-scheme:dark}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0B1728;--sf:#14243A;--fg:#F1F7FF;--mu:#B6C8DE;--ln:#2A4261;--pl:#081426;--go:#3C8DFA;--gi:#0C2340;--wa:#2FBF71;--wi:#06210F;--rd:#FF8E7A;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0B1728;--sf:#14243A;--fg:#F1F7FF;--mu:#B6C8DE;--ln:#2A4261;--pl:#081426;--go:#3C8DFA;--gi:#0C2340;--wa:#2FBF71;--wi:#06210F;--rd:#FF8E7A;color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 1rem/1.55 var(--b);-webkit-text-size-adjust:100%}
@@ -52,7 +52,7 @@ nav.links{display:none;gap:1.3rem;font-weight:500}nav.links a{text-decoration:no
 .hero>.wrap>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) backwards}.hero>.wrap>:nth-child(2){animation-delay:.1s}.hero>.wrap>:nth-child(3){animation-delay:.2s}
 
 /* ===== Promotions et articles mis en avant ===== */
-.spotlight{background:linear-gradient(125deg,color-mix(in srgb,var(--go) 14%,var(--sf)),var(--sf) 55%,color-mix(in srgb,#8b65c5 9%,var(--sf)));border-block:1px solid var(--ln)}
+.spotlight{background:linear-gradient(125deg,color-mix(in srgb,var(--go) 14%,var(--sf)),var(--sf) 55%,color-mix(in srgb,#5E9BE8 9%,var(--sf)));border-block:1px solid var(--ln)}
 .spotlight-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.25rem}
 .spotlight-head .sec-head{margin:0}
 .spotlight-kicker{font:700 .74rem/1.2 var(--b);letter-spacing:.13em;color:var(--mu)}
@@ -156,13 +156,13 @@ body.adm{padding-bottom:9rem}
 .logo svg{width:100%;height:100%;display:block}.brand:hover .logo{transform:rotate(-8deg) scale(1.1)}
 .trace{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.4s .2s cubic-bezier(.6,0,.2,1) forwards}
 .nd{animation:node 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.nd:nth-child(2){animation-delay:.4s}.nd:nth-child(3){animation-delay:.8s}.nd:nth-child(4){animation-delay:1.2s}
-.prog{position:fixed;top:0;left:0;width:100%;height:3px;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--go),#a77bff);z-index:100}
+.prog{position:fixed;top:0;left:0;width:100%;height:3px;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--go),#69A7F8);z-index:100}
 .hero{position:relative;overflow:hidden}.hero .wrap{position:relative;z-index:2}
-.hero::before{content:"";position:absolute;inset:-30%;background:radial-gradient(40% 40% at 25% 30%,rgba(120,70,255,.5),transparent),radial-gradient(35% 35% at 78% 62%,rgba(227,167,47,.32),transparent);filter:blur(30px);animation:aurora 14s ease-in-out infinite alternate}
+.hero::before{content:"";position:absolute;inset:-30%;background:radial-gradient(40% 40% at 25% 30%,rgba(45,125,230,.42),transparent),radial-gradient(35% 35% at 78% 62%,rgba(40,120,208,.30),transparent);filter:blur(30px);animation:aurora 14s ease-in-out infinite alternate}
 #net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-.hero h1 em{background:linear-gradient(90deg,#F0B94A,#fff,#F0B94A);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
+.hero h1 em{background:linear-gradient(90deg,#3C8DFA,#fff,#3C8DFA);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
 .floats{position:absolute;inset:0;z-index:1;pointer-events:none}
-.floats span{position:absolute;width:clamp(46px,9vw,84px);aspect-ratio:1;border-radius:24%;display:grid;place-items:center;background:color-mix(in srgb,#fff 12%,transparent);border:1px solid color-mix(in srgb,#fff 28%,transparent);backdrop-filter:blur(8px);color:var(--go);--tc:#2A1750;animation:fl 6s ease-in-out infinite;animation-delay:var(--d)}
+.floats span{position:absolute;width:clamp(46px,9vw,84px);aspect-ratio:1;border-radius:24%;display:grid;place-items:center;background:color-mix(in srgb,#fff 12%,transparent);border:1px solid color-mix(in srgb,#fff 28%,transparent);backdrop-filter:blur(8px);color:var(--go);--tc:#143A66;animation:fl 6s ease-in-out infinite;animation-delay:var(--d)}
 .floats svg{width:56%;height:56%}
 @media(max-width:700px){.floats span:nth-child(n+3){display:none}.floats span{opacity:.75}}
 .tick{overflow:hidden;background:var(--pl);border-block:1px solid color-mix(in srgb,var(--go) 40%,transparent);padding-block:.85rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -174,7 +174,7 @@ body.adm{padding-bottom:9rem}
 .card.tilt{transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-6px)}
 .tile::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.38),transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none}.card:hover .tile::after{opacity:1}
 .rv{opacity:0;transform:translateY(26px);filter:blur(6px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1),filter .8s}.rv.in{opacity:1;transform:none;filter:none}
-@keyframes draw{to{stroke-dashoffset:0}}@keyframes node{50%{transform:scale(1.7);fill:#F0B94A}}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes node{50%{transform:scale(1.7);fill:#3C8DFA}}
 @keyframes aurora{to{transform:translate(6%,-5%) rotate(12deg) scale(1.1)}}@keyframes shine{to{background-position:-200% 0}}
 @keyframes fl{50%{transform:translateY(-16px) rotate(5deg)}}@keyframes mq{to{transform:translateX(-50%)}}
 .fav{position:absolute;top:.5rem;right:.5rem;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:color-mix(in srgb,var(--sf) 85%,transparent);backdrop-filter:blur(6px);color:var(--mu);font-size:1.15rem;cursor:pointer;transition:transform .2s,color .2s}
@@ -210,10 +210,10 @@ body.adm{padding-bottom:9rem}
 /* ===== Refonte UX/UI : boutique marchande, hiérarchie et confort d'achat ===== */
 :root{--market-radius:18px}
 .wrap{max-width:1240px}
-.market-topline{background:#21123d;color:#f8f3ff;font-size:.79rem;letter-spacing:.01em}
+.market-topline{background:#143A66;color:#F5F8FC;font-size:.79rem;letter-spacing:.01em}
 .market-topline .wrap{min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:6px}
-.market-topline-right{color:#ded2f4}
-.market-topline b{color:#e9b444;margin-inline:5px}
+.market-topline-right{color:#D7E5F8}
+.market-topline b{color:#3C8DFA;margin-inline:5px}
 header.top{background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(16px);box-shadow:0 4px 18px rgba(28,15,53,.055)}
 header.top .wrap{min-height:72px;gap:clamp(.5rem,1.4vw,1.1rem)}
 .brand{font-size:1.28rem;letter-spacing:-.025em}
@@ -221,7 +221,7 @@ nav.links{gap:clamp(.8rem,2vw,1.7rem);font-size:.94rem}
 nav.links a{padding:9px 0;position:relative}
 nav.links a:after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:2px;background:var(--go);transition:right .2s}
 nav.links a:hover:after{right:0}
-.hero{background:radial-gradient(ellipse at 83% 22%,rgba(227,167,47,.23),transparent 36%),linear-gradient(115deg,#21123d 0%,#30205a 58%,#20143d 100%)}
+.hero{background:radial-gradient(ellipse at 83% 22%,rgba(40,120,208,.24),transparent 36%),linear-gradient(115deg,#143A66 0%,#1C4C82 58%,#102B4C 100%)}
 .hero .wrap{padding-block:clamp(3.2rem,7vw,5.8rem);gap:1.25rem}
 .hero h1{max-width:850px;font-size:clamp(3rem,8vw,6.2rem);letter-spacing:-.055em}
 .hero p:not(.live){font-size:clamp(1rem,1.5vw,1.12rem);line-height:1.75;max-width:57ch}
@@ -300,7 +300,7 @@ footer{padding-block:2.5rem}
 
 
 /* ===== Avis clients et étoiles ===== */
-.reviews{background:var(--bg);border-block:1px solid var(--ln)}.review-summary{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:.5rem 0 1.4rem}.stars{color:#E3A72F;letter-spacing:2px;font-size:1.15rem;white-space:nowrap}.review-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1rem}.review-card{padding:1.15rem;border:1px solid var(--ln);border-radius:16px;background:var(--sf)}.review-card p{margin:.6rem 0;color:var(--mu);overflow-wrap:anywhere}.review-card strong{color:var(--fg)}.review-date{font-size:.78rem;color:var(--mu)}.review-form{margin-top:1.5rem;padding:1.2rem;border:1px solid var(--ln);border-radius:18px;background:var(--sf);max-width:720px}.review-form label{display:block;font-weight:600;margin:.75rem 0 .35rem}.review-form input,.review-form textarea,.review-form select{width:100%;padding:.75rem;border:1.5px solid var(--ln);border-radius:11px;background:var(--sf);color:var(--fg);font:inherit}.review-form textarea{min-height:100px;resize:vertical}.review-form .review-fields{display:grid;grid-template-columns:1fr 180px;gap:.8rem}@media(max-width:560px){.review-form .review-fields{grid-template-columns:1fr}}
+.reviews{background:var(--bg);border-block:1px solid var(--ln)}.review-summary{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:.5rem 0 1.4rem}.stars{color:#2878D0;letter-spacing:2px;font-size:1.15rem;white-space:nowrap}.review-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1rem}.review-card{padding:1.15rem;border:1px solid var(--ln);border-radius:16px;background:var(--sf)}.review-card p{margin:.6rem 0;color:var(--mu);overflow-wrap:anywhere}.review-card strong{color:var(--fg)}.review-date{font-size:.78rem;color:var(--mu)}.review-form{margin-top:1.5rem;padding:1.2rem;border:1px solid var(--ln);border-radius:18px;background:var(--sf);max-width:720px}.review-form label{display:block;font-weight:600;margin:.75rem 0 .35rem}.review-form input,.review-form textarea,.review-form select{width:100%;padding:.75rem;border:1.5px solid var(--ln);border-radius:11px;background:var(--sf);color:var(--fg);font:inherit}.review-form textarea{min-height:100px;resize:vertical}.review-form .review-fields{display:grid;grid-template-columns:1fr 180px;gap:.8rem}@media(max-width:560px){.review-form .review-fields{grid-template-columns:1fr}}
 
 /* ===== Marketplace responsive refresh (inspiré des grands marketplaces) ===== */
 :root{--market-accent:#f5a623;--market-blue:#2a1750}
@@ -316,9 +316,9 @@ img{max-width:100%}
 .cb .d{font-size:.82rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.3em}
 .cb .pr{font-size:1.12rem;font-weight:800;margin:.2rem 0;color:var(--fg)}
 .product-rating{display:flex;align-items:center;gap:5px;min-height:22px;font-size:.78rem;color:var(--mu);flex-wrap:wrap}
-.product-rating .stars{font-size:.9rem;letter-spacing:0;color:#E3A72F}
+.product-rating .stars{font-size:.9rem;letter-spacing:0;color:#2878D0}
 .product-review-link{border:0;background:transparent;color:var(--pl);text-decoration:underline;text-underline-offset:2px;padding:3px 0;font:600 .78rem var(--b);cursor:pointer}
-.product-review-link:focus-visible,.btn:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #E3A72F;outline-offset:3px}
+.product-review-link:focus-visible,.btn:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #2878D0;outline-offset:3px}
 .card .buy{width:100%;min-height:42px;border-radius:9px}
 .product-review-list{display:grid;gap:.7rem;margin:1rem 0;max-height:42vh;overflow:auto}
 .product-review-list article{padding:.85rem;border:1px solid var(--ln);border-radius:12px;background:var(--bg)}
@@ -366,6 +366,28 @@ img{max-width:100%}
 }
 @media(min-width:761px) and (max-width:999px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{animation:none;transition:none}}
+
+/* ===== Identité visuelle bleu marine & blanc : Bénie Boutique ===== */
+:root{color-scheme:light;--bg:#F5F8FC;--sf:#FFFFFF;--fg:#10233F;--mu:#5B6B82;--ln:#DCE6F2;--pl:#143A66;--pf:#F5F8FC;--pm:#D7E5F8;--go:#2878D0;--gi:#102B4C;--wa:#0E7A40;--wi:#FFFFFF;--rd:#B3261E}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){color-scheme:dark;--bg:#0B1728;--sf:#14243A;--fg:#F1F7FF;--mu:#B6C8DE;--ln:#2A4261;--pl:#081426;--pf:#F1F7FF;--pm:#B6C8DE;--go:#3C8DFA;--gi:#081426;--wa:#2FBF71;--wi:#06210F;--rd:#FF8E7A}}
+:root[data-theme=light]{color-scheme:light;--bg:#F5F8FC;--sf:#FFFFFF;--fg:#10233F;--mu:#5B6B82;--ln:#DCE6F2;--pl:#143A66;--pf:#F5F8FC;--pm:#D7E5F8;--go:#2878D0;--gi:#102B4C}
+:root[data-theme=dark]{color-scheme:dark;--bg:#0B1728;--sf:#14243A;--fg:#F1F7FF;--mu:#B6C8DE;--ln:#2A4261;--pl:#081426;--pf:#F1F7FF;--pm:#B6C8DE;--go:#3C8DFA;--gi:#081426}
+.market-topline{background:#143A66;color:#F5F8FC}
+.market-topline-right{color:#D7E5F8}
+.hero{background:radial-gradient(ellipse at 83% 22%,rgba(40,120,208,.24),transparent 36%),linear-gradient(115deg,#102B4C 0%,#1C4C82 58%,#102B4C 100%)}
+.hero::before{background:radial-gradient(40% 40% at 25% 30%,rgba(45,125,230,.42),transparent),radial-gradient(35% 35% at 78% 62%,rgba(40,120,208,.30),transparent)}
+.hero h1 em{background:linear-gradient(90deg,#3C8DFA,#FFFFFF,#3C8DFA);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn-gold,.tab[aria-pressed=true]{background:var(--go);color:#FFFFFF;border-color:var(--go)}
+.btn-line{color:#FFFFFF;box-shadow:inset 0 0 0 2px #B6C8DE}
+.logo{filter:drop-shadow(0 0 10px rgba(60,141,250,.35))}
+.spotlight{background:linear-gradient(125deg,#EAF2FC,#FFFFFF 55%,#F2F7FD);border-block:1px solid var(--ln)}
+:root[data-theme=dark] .spotlight{background:linear-gradient(125deg,#14243A,#101E32 55%,#14243A)}
+.spotlight-tag{background:#E4EFFD;color:#143A66}
+:root[data-theme=dark] .spotlight-tag{background:#213D60;color:#F1F7FF}
+.spotlight-price{color:#143A66}
+:root[data-theme=dark] .spotlight-price{color:#69A7F8}
+.btn:focus-visible,.mini:focus-visible,.tab:focus-visible{outline-color:#2878D0}
+@media(prefers-reduced-motion:reduce){.spotlight-grid{animation:none!important}}
 </style>
 </head>
 <body>
@@ -390,7 +412,7 @@ img{max-width:100%}
 
 <div class="market-topline"><div class="wrap"><span>✦ Mode & électronique au même endroit</span><span class="market-topline-right">Abidjan, Côte d’Ivoire <b>·</b> Prix en FCFA <b>·</b> Commande sur WhatsApp</span></div></div>
 <header class="top"><div class="wrap">
-  <a class="brand" href="#accueil" aria-label="Bénie Boutique, accueil"><span class="logo" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7D27A"/><stop offset="1" stop-color="#E3A72F"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="18" fill="#2A1750" stroke="#E3A72F" stroke-opacity=".5" stroke-width="1.5"/><path class="trace" pathLength="1" d="M21 13V51H34C42 51 46 46.5 46 41C46 35.5 42.5 32.5 37 32C41 31 44 28 44 23C44 17 40 13 33 13ZM21 32H37" fill="none" stroke="url(#lg)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><g fill="#fff"><circle class="nd" cx="21" cy="13" r="3.2"/><circle class="nd" cx="21" cy="51" r="3.2"/><circle class="nd" cx="46" cy="41" r="3.2"/><circle class="nd" cx="44" cy="23" r="3.2"/></g></svg></span>Bénie Boutique</a>
+  <a class="brand" href="#accueil" aria-label="Bénie Boutique, accueil"><span class="logo" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7D27A"/><stop offset="1" stop-color="#2878D0"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="18" fill="#143A66" stroke="#2878D0" stroke-opacity=".5" stroke-width="1.5"/><path class="trace" pathLength="1" d="M21 13V51H34C42 51 46 46.5 46 41C46 35.5 42.5 32.5 37 32C41 31 44 28 44 23C44 17 40 13 33 13ZM21 32H37" fill="none" stroke="url(#lg)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><g fill="#fff"><circle class="nd" cx="21" cy="13" r="3.2"/><circle class="nd" cx="21" cy="51" r="3.2"/><circle class="nd" cx="46" cy="41" r="3.2"/><circle class="nd" cx="44" cy="23" r="3.2"/></g></svg></span>Bénie Boutique</a>
   <nav class="links" aria-label="Navigation principale"><a href="#catalogue">Catalogue</a><a href="#engagements">Engagements</a><a href="#contact">Contact</a></nav>
   <a class="btn btn-wa sm" data-wa target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
   <button class="cartbtn" id="cartBtn" type="button" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><b id="cartN" hidden>0</b></button>
@@ -804,7 +826,7 @@ $(".trk").innerHTML += $(".trk").innerHTML;
     c.clearRect(0, 0, W, H); const D = 120 * k;
     P.forEach((a, i) => {
       if(!calm){ a.x += a.vx; a.y += a.vy; if(a.x < 0 || a.x > W) a.vx *= -1; if(a.y < 0 || a.y > H) a.vy *= -1; }
-      c.fillStyle = "rgba(240,185,74,.85)"; c.beginPath(); c.arc(a.x, a.y, 1.8 * k, 0, 7); c.fill();
+      c.fillStyle = "rgba(60,141,250,.85)"; c.beginPath(); c.arc(a.x, a.y, 1.8 * k, 0, 7); c.fill();
       for(let j = i + 1; j < P.length; j++){ const b = P[j], d = Math.hypot(a.x - b.x, a.y - b.y);
         if(d < D){ c.strokeStyle = `rgba(190,160,255,${(1 - d / D) * .45})`; c.lineWidth = k; c.beginPath(); c.moveTo(a.x, a.y); c.lineTo(b.x, b.y); c.stroke(); } }
       const m = Math.hypot(a.x - mx, a.y - my);
