@@ -312,6 +312,15 @@ const DEF = { // variantes et icône proposées par défaut selon la catégorie
   arduino:[["Unique"],"board"],kits:[["Unique"],"box"],rpi:[["Unique"],"cpu"],esp32:[["Unique"],"wifi"],compo:[["Unique"],"bolt"]};
 const U=["Unique"], S=["S","M","L","XL"];
 const PRODUCTS = []; // Catalogue vide : les articles seront ajoutés depuis l'espace administrateur.
+// Anciens articles fictifs : masqués du site public tant qu'ils restent dans Supabase.
+const DEMO_PRODUCT_NAMES = new Set([
+  "robe wax évasée","ensemble pagne 2 pièces","pantalon palazzo","chemise lin manches longues",
+  "t-shirt coton col rond","sneakers blanches","robe wax fillette","ensemble short et t-shirt",
+  "sneakers enfant","arduino starter kit","arduino uno r3","arduino nano ch340",
+  "kit débutant led et résistances","kit 37 capteurs","raspberry pi 4 model b 4 go",
+  "raspberry pi zero 2 w","boîtier pi 4 avec ventilateur","esp32 devkit v1","esp32-cam",
+  "esp32 avec écran oled 0,96\"","capteur dht22","module relais 2 canaux 5v","breadboard 830 points"
+].map(n => n.toLocaleLowerCase("fr")));
 
 /* ===================================================================== */
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -655,7 +664,7 @@ const showMng = () => $("#manage").hidden = location.hash !== "#admin"; showMng(
     if(r.ok) s = (await r.json()).map(x => x.data);
   }catch(e){}
   // Aucun catalogue de démonstration ni fichier de secours : seuls les produits gérés dans Supabase sont affichés.
-  items = Array.isArray(s) ? s : [];
+  items = Array.isArray(s) ? s.filter(p => !DEMO_PRODUCT_NAMES.has(String(p?.name || "").trim().toLocaleLowerCase("fr"))) : [];
   render(); $("#stA").dataset.n = items.length; $$(".stats b[data-n]").forEach(countUp); cartN();
 })();
 </script>
