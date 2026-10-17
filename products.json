@@ -1,1 +1,284 @@
-[]
+[
+  {
+    "id": "bb-elec-101",
+    "name": "Arduino Uno R3 compatible",
+    "cat": "arduino",
+    "desc": "Carte de développement ATmega328P pour apprendre l’électronique et programmer des projets.",
+    "price": 6500,
+    "stock": "ok",
+    "icon": "arduino",
+    "tag": "Best-seller"
+  },
+  {
+    "id": "bb-elec-102",
+    "name": "Arduino Nano CH340",
+    "cat": "arduino",
+    "desc": "Petite carte compatible Arduino, idéale pour les montages compacts.",
+    "price": 3500,
+    "stock": "ok",
+    "icon": "arduino",
+    "tag": "Nouveau"
+  },
+  {
+    "id": "bb-elec-103",
+    "name": "Arduino Mega 2560 compatible",
+    "cat": "arduino",
+    "desc": "Carte avec nombreuses entrées/sorties pour projets avancés et robotique.",
+    "price": 12000,
+    "stock": "ok",
+    "icon": "arduino"
+  },
+  {
+    "id": "bb-elec-104",
+    "name": "Kit débutant Arduino  starter",
+    "cat": "arduino",
+    "desc": "Pack de démarrage avec composants essentiels pour les premiers montages.",
+    "price": 18000,
+    "stock": "ok",
+    "icon": "box",
+    "tag": "Best-seller"
+  },
+  {
+    "id": "bb-elec-105",
+    "name": "Kit robot 2 roues avec châssis",
+    "cat": "kits",
+    "desc": "Châssis à deux moteurs pour réaliser un robot mobile éducatif.",
+    "price": 12000,
+    "stock": "low",
+    "icon": "box",
+    "tag": "Nouveau"
+  },
+  {
+    "id": "bb-elec-106",
+    "name": "Kit 37 capteurs pour Arduino",
+    "cat": "kits",
+    "desc": "Sélection de modules et capteurs pour expérimenter avec Arduino.",
+    "price": 15000,
+    "stock": "ok",
+    "icon": "box",
+    "tag": "Promo"
+  },
+  {
+    "id": "bb-elec-107",
+    "name": "Kit LED et résistances",
+    "cat": "kits",
+    "desc": "LED de plusieurs couleurs et résistances pour apprendre les circuits.",
+    "price": 2500,
+    "stock": "ok",
+    "icon": "bulb"
+  },
+  {
+    "id": "bb-elec-108",
+    "name": "Breadboard 830 points",
+    "cat": "compo",
+    "desc": "Plaque d’essai sans soudure pour prototyper rapidement vos circuits.",
+    "price": 2500,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-109",
+    "name": "Fils Dupont mâle-mâle",
+    "cat": "compo",
+    "desc": "Jeu de câbles de connexion pour breadboard et cartes de développement.",
+    "price": 1500,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-110",
+    "name": "Fils Dupont mâle-femelle",
+    "cat": "compo",
+    "desc": "Câbles de prototypage pour connecter capteurs et modules.",
+    "price": 1500,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-111",
+    "name": "Capteur ultrason HC-SR04",
+    "cat": "compo",
+    "desc": "Mesure la distance pour robots éviteurs d’obstacles et projets domotiques.",
+    "price": 2000,
+    "stock": "ok",
+    "icon": "box",
+    "tag": "Best-seller"
+  },
+  {
+    "id": "bb-elec-112",
+    "name": "Capteur température DHT22",
+    "cat": "compo",
+    "desc": "Mesure la température et l’humidité pour projets météo et domotique.",
+    "price": 3500,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-113",
+    "name": "Module relais 2 canaux 5 V",
+    "cat": "compo",
+    "desc": "Commande de charges via microcontrôleur. Respecter les consignes de sécurité électrique.",
+    "price": 2500,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-114",
+    "name": "Driver moteur L298N",
+    "cat": "compo",
+    "desc": "Module de commande de moteurs DC pour petits robots et prototypes.",
+    "price": 3000,
+    "stock": "ok",
+    "icon": "box",
+    "tag": "Best-seller"
+  },
+  {
+    "id": "bb-elec-115",
+    "name": "Servomoteur SG90",
+    "cat": "compo",
+    "desc": "Petit servomoteur pour bras robotisés, mécanismes et maquettes.",
+    "price": 2500,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-116",
+    "name": "Écran LCD 1602 avec I2C",
+    "cat": "compo",
+    "desc": "Affiche du texte avec seulement quelques broches de commande.",
+    "price": 4500,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-117",
+    "name": "Module RFID RC522",
+    "cat": "compo",
+    "desc": "Lecteur RFID pour prototypes de contrôle d’accès et identification.",
+    "price": 3000,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-118",
+    "name": "ESP32 DevKit V1 Wi-Fi Bluetooth",
+    "cat": "esp32",
+    "desc": "Carte de développement Wi-Fi et Bluetooth pour IoT, robotique et MicroPython.",
+    "price": 6500,
+    "stock": "ok",
+    "icon": "cpu",
+    "tag": "Best-seller"
+  },
+  {
+    "id": "bb-elec-119",
+    "name": "ESP32-CAM avec caméra",
+    "cat": "esp32",
+    "desc": "Module caméra compact pour prototypes connectés et vision embarquée.",
+    "price": 8500,
+    "stock": "ok",
+    "icon": "cpu",
+    "tag": "Nouveau"
+  },
+  {
+    "id": "bb-elec-120",
+    "name": "ESP8266 NodeMCU Wi-Fi",
+    "cat": "esp32",
+    "desc": "Carte Wi-Fi pour objets connectés et automatisation.",
+    "price": 4500,
+    "stock": "ok",
+    "icon": "cpu"
+  },
+  {
+    "id": "bb-elec-121",
+    "name": "Raspberry Pi 4 Model B 4 Go",
+    "cat": "rpi",
+    "desc": "Mini-ordinateur pour programmation, serveur maison et projets éducatifs.",
+    "price": 65000,
+    "stock": "low",
+    "icon": "cpu",
+    "tag": "Nouveau"
+  },
+  {
+    "id": "bb-elec-122",
+    "name": "Raspberry Pi Zero 2 W",
+    "cat": "rpi",
+    "desc": "Mini-ordinateur compact avec connectivité sans fil pour projets embarqués.",
+    "price": 28000,
+    "stock": "low",
+    "icon": "cpu"
+  },
+  {
+    "id": "bb-elec-123",
+    "name": "Carte microSD 32 Go",
+    "cat": "compo",
+    "desc": "Stockage pour systèmes embarqués et mini-ordinateurs. Vitesse selon modèle disponible.",
+    "price": 5000,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-124",
+    "name": "Fer à souder réglable",
+    "cat": "compo",
+    "desc": "Outil de soudure pour assemblage et réparation de circuits électroniques.",
+    "price": 12000,
+    "stock": "ok",
+    "icon": "box",
+    "tag": "Promo"
+  },
+  {
+    "id": "bb-elec-125",
+    "name": "Multimètre numérique",
+    "cat": "compo",
+    "desc": "Mesure tension, courant et résistance pour les travaux électroniques.",
+    "price": 7500,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-126",
+    "name": "Alimentation breadboard MB102",
+    "cat": "compo",
+    "desc": "Module d’alimentation pour breadboard, avec sorties de tension sélectionnables.",
+    "price": 2000,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-127",
+    "name": "Buzzer actif 5 V",
+    "cat": "compo",
+    "desc": "Avertisseur sonore pour alarmes et projets à microcontrôleur.",
+    "price": 1000,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-128",
+    "name": "Potentiomètre 10 kΩ",
+    "cat": "compo",
+    "desc": "Composant variable pour réglages analogiques et expériences électroniques.",
+    "price": 500,
+    "stock": "ok",
+    "icon": "box"
+  },
+  {
+    "id": "bb-elec-129",
+    "name": "Module Bluetooth HC-05",
+    "cat": "compo",
+    "desc": "Communication Bluetooth série pour piloter un robot depuis un téléphone.",
+    "price": 6000,
+    "stock": "ok",
+    "icon": "box",
+    "tag": "Best-seller"
+  },
+  {
+    "id": "bb-elec-130",
+    "name": "Batterie 18650 rechargeable",
+    "cat": "compo",
+    "desc": "Cellule rechargeable pour projets portables. Chargeur et protection adaptés requis.",
+    "price": 3500,
+    "stock": "ok",
+    "icon": "box"
+  }
+]
