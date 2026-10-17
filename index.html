@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Bénie Boutique – Mode, Arduino, Raspberry Pi et ESP32 à Abidjan</title>
 <meta name="description" content="Bénie Boutique à Abidjan : vêtements femme, homme et enfant, kits Arduino, Raspberry Pi, ESP32 et composants électroniques. Commandez sur WhatsApp.">
-<meta name="theme-color" content="#143A66">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='18' fill='%23143A66'/%3E%3Cpath d='M21 13V51H34C42 51 46 46.5 46 41C46 35.5 42.5 32.5 37 32C41 31 44 28 44 23C44 17 40 13 33 13ZM21 32H37' fill='none' stroke='%233C8DFA' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#211D1B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='18' fill='%23211D1B'/%3E%3Cpath d='M21 13V51H34C42 51 46 46.5 46 41C46 35.5 42.5 32.5 37 32C41 31 44 28 44 23C44 17 40 13 33 13ZM21 32H37' fill='none' stroke='%23C04F36' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;600&display=swap">
 <style>
 /* ===== Thème : variables clair / sombre (auto + forçage via data-theme) ===== */
@@ -532,6 +532,40 @@ body{background:#F7F7F5!important;color:#171717!important}
 [class*="hero"] h1,[class*="hero"] h2,[class*="banner"] h1,[class*="banner"] h2,
 [class*="promo"] h1,[class*="promo"] h2{color:#171717!important}
 a:not(.btn):not(.button){text-decoration-color:#777!important}
+
+/* Thème boutique plus visible : ivoire, charbon et terracotta */
+:root{
+ --bg:#FAF8F5!important;--sf:#FFFFFF!important;--fg:#201C1A!important;--mu:#625A55!important;
+ --ln:#E5DDD7!important;--pl:#211D1B!important;--pf:#FFF9F5!important;--pm:#E8DAD2!important;
+ --go:#C04F36!important;--gi:#FFFFFF!important;--wa:#137A48!important;--wi:#FFFFFF!important;
+ --rd:#A52A2A!important;--panel:#FFFFFF!important;--ink:#201C1A!important;
+ --muted:#625A55!important;--line:#E5DDD7!important;--purple:#C04F36!important;
+ --gold:#C04F36!important;--green:#137A48!important;--red:#A52A2A!important;
+}
+body{background:#FAF8F5!important;color:#201C1A!important}
+header.top{background:rgba(255,255,255,.97)!important;border-color:#E5DDD7!important}
+.brand,.brand:visited{color:#201C1A!important}
+.logo{background:#211D1B!important;color:#FFFFFF!important;box-shadow:0 0 0 2px #C04F36!important}
+.hero{
+ background:radial-gradient(circle at 88% 15%,rgba(192,79,54,.36),transparent 42%),linear-gradient(125deg,#211D1B,#342722 72%,#211D1B)!important;
+ color:#FFF9F5!important;
+}
+.hero h1,.hero h2{color:#FFFFFF!important}
+.hero h1 em{color:#FF9B7F!important}
+.hero p{color:#F0E3DD!important}
+.hero .btn-gold,.btn-gold{background:#C04F36!important;color:#FFFFFF!important}
+.hero .btn-line{color:#FFFFFF!important;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)!important}
+.spotlight{background:linear-gradient(135deg,#F3E9E2,#FFFFFF 60%,#F8F2ED)!important;border-color:#E5DDD7!important}
+.spotlight-kicker{color:#625A55!important}
+.spotlight-item{background:#FFFFFF!important;border-color:#E5DDD7!important}
+.spotlight-item:hover{border-color:#C04F36!important}
+.spotlight-photo{background:#F3E9E2!important;color:#873321!important}
+.spotlight-tag{background:#F5DFD6!important;color:#7D2F20!important}
+.spotlight-price{color:#873321!important}
+.spotlight-open{color:#625A55!important}
+.tab[aria-selected="true"],.tab.active,.tab[aria-pressed="true"]{background:#211D1B!important;color:#FFFFFF!important;border-color:#211D1B!important}
+:focus-visible{outline-color:#C04F36!important}
+::selection{background:#C04F36!important;color:#FFFFFF!important}
 </style>
 </head>
 <body>
