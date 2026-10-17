@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -447,6 +447,24 @@ img{max-width:100%}
 @media(max-width:650px){#shopAd{padding:12px}.shop-ad-panel{grid-template-columns:1fr;min-height:0;max-height:92dvh;overflow:auto}.shop-ad-visual{min-height:215px;height:215px}.shop-ad-visual:before{width:170px;height:170px}.shop-ad-visual:after{width:215px;height:215px}.shop-ad-img{height:180px;width:70%}.shop-ad-icon{font-size:4rem}.shop-ad-copy{padding:22px;gap:10px}.shop-ad-title{font-size:2rem}.shop-ad-desc{font-size:.92rem}.shop-ad-close{top:9px;right:9px}}
 @media(prefers-reduced-motion:reduce){#shopAd,.shop-ad-panel,.shop-ad-img,.shop-ad-icon,.shop-ad-visual:before,.shop-ad-visual:after,#shopAd.ad-visible .shop-ad-progress span{animation:none!important;transition:none!important}}
 
+
+/* ===== Palette demandée : bleu Alice et blanc, interface toujours claire ===== */
+:root[data-theme="light"]{
+ color-scheme:light;
+ --bg:#F0F8FF; --sf:#FFFFFF; --fg:#17324D; --mu:#5F748A; --ln:#D5E8F7;
+ --pl:#1E90FF; --pf:#FFFFFF; --pm:#EAF5FF; --go:#1E90FF; --gi:#FFFFFF;
+ --wa:#168653; --wi:#FFFFFF; --rd:#C43D4B;
+}
+.theme{display:none!important}
+body{background:#F0F8FF;color:#17324D}
+header.top{background:rgba(240,248,255,.97)}
+.hero{background:linear-gradient(135deg,#1E90FF,#4CA8FF);color:#fff}
+.hero p{color:#F2F9FF}
+.spotlight{background:#FFFFFF}
+.tab[aria-pressed=true],.chip[aria-pressed=true]{background:#1E90FF;color:#fff;border-color:#1E90FF}
+.btn-gold{background:#1E90FF;color:#fff}
+footer{background:#EAF5FF;color:#34536F;border-top:1px solid #D5E8F7}
+footer strong{color:#1E90FF}
 </style>
 </head>
 <body>
@@ -767,13 +785,9 @@ function status(){
   el.querySelector("span").textContent = open ? `Magasin ouvert, jusqu’à ${c}h` : (h < o ? `Magasin fermé, ouvre à ${o}h` : "Magasin fermé, ouvre demain");
 }
 
-/* ---------- Thème clair / sombre ---------- */
-const root = document.documentElement, tb = $("#theme");
-const dark = () => (root.dataset.theme || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light")) === "dark";
-function paintTheme(){ tb.textContent = dark() ? "☀" : "☾"; }
-try{ const t = localStorage.getItem("benie.theme"); if(t) root.dataset.theme = t; }catch(e){}
-tb.onclick = () => { root.dataset.theme = dark() ? "light" : "dark"; try{ localStorage.setItem("benie.theme", root.dataset.theme); }catch(e){} paintTheme(); };
-paintTheme();
+/* ---------- Thème fixe : bleu Alice et blanc ---------- */
+const root = document.documentElement;
+root.dataset.theme = "light";
 
 /* ---------- Contact → WhatsApp ---------- */
 $("#contactForm").onsubmit = e => {
