@@ -280,6 +280,71 @@ footer{padding-block:2.5rem}
 
 /* ===== Avis clients et étoiles ===== */
 .reviews{background:var(--bg);border-block:1px solid var(--ln)}.review-summary{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:.5rem 0 1.4rem}.stars{color:#E3A72F;letter-spacing:2px;font-size:1.15rem;white-space:nowrap}.review-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1rem}.review-card{padding:1.15rem;border:1px solid var(--ln);border-radius:16px;background:var(--sf)}.review-card p{margin:.6rem 0;color:var(--mu);overflow-wrap:anywhere}.review-card strong{color:var(--fg)}.review-date{font-size:.78rem;color:var(--mu)}.review-form{margin-top:1.5rem;padding:1.2rem;border:1px solid var(--ln);border-radius:18px;background:var(--sf);max-width:720px}.review-form label{display:block;font-weight:600;margin:.75rem 0 .35rem}.review-form input,.review-form textarea,.review-form select{width:100%;padding:.75rem;border:1.5px solid var(--ln);border-radius:11px;background:var(--sf);color:var(--fg);font:inherit}.review-form textarea{min-height:100px;resize:vertical}.review-form .review-fields{display:grid;grid-template-columns:1fr 180px;gap:.8rem}@media(max-width:560px){.review-form .review-fields{grid-template-columns:1fr}}
+
+/* ===== Marketplace responsive refresh (inspiré des grands marketplaces) ===== */
+:root{--market-accent:#f5a623;--market-blue:#2a1750}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+button,a,input,select,textarea{touch-action:manipulation}
+img{max-width:100%}
+.wrap{width:min(100% - 32px,1240px)}
+.card{overflow:hidden;background:var(--sf);border:1px solid var(--ln);border-radius:13px;box-shadow:0 2px 8px #21113b0a}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px #21113b18}
+.tile{border-radius:0;aspect-ratio:1/1;background:color-mix(in srgb,var(--bg) 70%,var(--sf))}
+.cb{padding:12px;gap:.35rem}
+.cb h3{font-size:clamp(.88rem,1.1vw,1.02rem);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.7em}
+.cb .d{font-size:.82rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.3em}
+.cb .pr{font-size:1.12rem;font-weight:800;margin:.2rem 0;color:var(--fg)}
+.product-rating{display:flex;align-items:center;gap:5px;min-height:22px;font-size:.78rem;color:var(--mu);flex-wrap:wrap}
+.product-rating .stars{font-size:.9rem;letter-spacing:0;color:#E3A72F}
+.product-review-link{border:0;background:transparent;color:var(--pl);text-decoration:underline;text-underline-offset:2px;padding:3px 0;font:600 .78rem var(--b);cursor:pointer}
+.product-review-link:focus-visible,.btn:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #E3A72F;outline-offset:3px}
+.card .buy{width:100%;min-height:42px;border-radius:9px}
+.product-review-list{display:grid;gap:.7rem;margin:1rem 0;max-height:42vh;overflow:auto}
+.product-review-list article{padding:.85rem;border:1px solid var(--ln);border-radius:12px;background:var(--bg)}
+.product-review-list p{margin:.4rem 0;overflow-wrap:anywhere}
+.review-sheet{width:min(100%,620px);max-height:90dvh;overflow:auto}
+.review-sheet label{display:block;margin:.7rem 0 .3rem;font-weight:600}
+.review-sheet input,.review-sheet textarea,.review-sheet select{width:100%;padding:.75rem;border:1px solid var(--ln);border-radius:10px;background:var(--sf);color:var(--fg);font:inherit}
+.review-sheet textarea{min-height:95px}
+@media(max-width:760px){
+ .wrap{width:calc(100% - 24px)}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .card{border-radius:11px}
+ .card:hover{transform:none}
+ .cb{padding:9px;gap:.32rem}
+ .cb h3{font-size:.91rem;min-height:2.5em}
+ .cb .d{font-size:.78rem;min-height:2.15em}
+ .cb .pr{font-size:1.04rem}
+ .tile{aspect-ratio:1/1}
+ .flag{top:6px;left:6px;font-size:.66rem;padding:5px}
+ .stk{font-size:.64rem}
+ .fav{top:6px;right:6px}
+ .photo-nav{width:28px;height:34px}
+ .card .buy{font-size:.82rem;padding:.6rem .45rem;min-height:42px}
+ .product-rating{gap:3px;font-size:.7rem}
+ .product-rating .stars{font-size:.8rem}
+ .product-review-link{font-size:.72rem}
+ .hero{padding-block:clamp(2.2rem,8vw,4rem)}
+ .hero h1{font-size:clamp(2.4rem,11vw,4rem)}
+ .tools{grid-template-columns:minmax(0,1fr)}
+ .tools input,.tools select{min-height:46px}
+ .tabs{margin-inline:-4px;padding-inline:4px}
+ .sec-head h2{font-size:clamp(1.55rem,6vw,2.1rem)}
+ header.top{padding-inline:12px;gap:8px}
+ header.top .btn.sm{padding:.55rem .7rem;font-size:.8rem}
+}
+@media(max-width:380px){
+ .wrap{width:calc(100% - 16px)}
+ .grid{gap:7px}
+ .cb{padding:7px}
+ .cb h3{font-size:.84rem}
+ .cb .d{font-size:.74rem}
+ .cb .pr{font-size:.96rem}
+ .product-rating{font-size:.65rem}
+ .card .buy{font-size:.75rem}
+}
+@media(min-width:761px) and (max-width:999px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{animation:none;transition:none}}
 </style>
 </head>
 <body>
@@ -480,7 +545,7 @@ function card(p, i){
   <div class="tile t${i % 5 + 1}">${pics.length ? `<img class="ph product-photo" src="${esc(pics[0])}" alt="${esc(p.name)}" loading="lazy">` : `<svg class="g" aria-hidden="true"><use href="#g-${esc(p.icon || "box")}"/></svg>`}
   ${pics.length > 1 ? `<button type="button" class="photo-nav photo-prev" data-image-step="-1" aria-label="Photo précédente">‹</button><button type="button" class="photo-nav photo-next" data-image-step="1" aria-label="Photo suivante">›</button><span class="photo-count">1 / ${pics.length}</span>` : ""}
   <button type="button" class="fav" aria-pressed="${favs.has(p.id)}" aria-label="Ajouter ${esc(p.name)} aux favoris">♥</button>${p.tag ? `<span class="flag">${esc(p.tag)}</span>` : ""}<span class="stk ${st}">${STK[st]}</span></div>
-  <div class="cb"><span class="c">${esc(CATS[p.cat] || "")}</span><h3>${esc(p.name)}</h3><p class="d">${esc(p.desc)}</p><p class="pr">${fmt(p.price)}</p>
+  <div class="cb"><span class="c">${esc(CATS[p.cat] || "")}</span><h3>${esc(p.name)}</h3><p class="d">${esc(p.desc)}</p><div class="product-rating" data-product-rating="${esc(p.id)}"><span class="stars">☆☆☆☆☆</span><span>Pas encore noté</span><button type="button" class="product-review-link" data-product-reviews>Écrire un avis</button></div><p class="pr">${fmt(p.price)}</p>
   ${v.length > 1 ? `<div class="sz" role="group" aria-label="Taille ou variante">${v.map((s, k) => `<button type="button" class="chip" aria-pressed="${k === 0}">${esc(s)}</button>`).join("")}</div>` : ""}
   ${CLOTH.includes(p.cat) ? '<button type="button" class="link sg">Trouver ma taille</button>' : ""}<button type="button" class="btn btn-wa sm buy" ${st === "out" ? "disabled" : ""}>${st === "out" ? "Indisponible" : "Ajouter au panier"}</button>
   <div class="ctl"><button type="button" class="mini edit">Modifier</button><button type="button" class="mini danger del">Supprimer</button></div></div></article>`;
@@ -510,6 +575,7 @@ $("#grid").onclick = e => {
   const p = cur().find(x => x.id === c.dataset.id); if(!p) return;
   const imageStep = e.target.closest("[data-image-step]");
   if(imageStep){const pics=Array.isArray(p.imgs)&&p.imgs.length?p.imgs:(p.img?[p.img]:[]);if(pics.length>1){const n=(Number(c.dataset.imageIndex||0)+Number(imageStep.dataset.imageStep)+pics.length)%pics.length;c.dataset.imageIndex=String(n);const photo=c.querySelector(".product-photo");if(photo)photo.src=pics[n];const count=c.querySelector(".photo-count");if(count)count.textContent=(n+1)+" / "+pics.length;}return;}
+  if(e.target.closest("[data-product-reviews]")){ openProductReviews(p); return; }
   const fv = e.target.closest(".fav");
   if(fv){ favs.has(p.id) ? favs.delete(p.id) : favs.add(p.id); saveFav(); fv.setAttribute("aria-pressed", favs.has(p.id)); toast(favs.has(p.id) ? "Ajouté aux favoris." : "Retiré des favoris."); if(cat === "fav") render(); return; }
   const chip = e.target.closest(".chip");
@@ -762,12 +828,51 @@ function countUp(el){                     // compteur animé du héro
   requestAnimationFrame(f);
 }
 
+/* ---------- Avis et notes par article ---------- */
+async function loadProductRatings(){
+ try{
+  const res=await fetch(`${CFG.supabaseUrl}/rest/v1/reviews?select=product_id,rating&status=eq.published&product_id=not.is.null&limit=5000`,{headers:dbH()});
+  if(!res.ok)return;
+  const rows=await res.json(), sums={};
+  rows.forEach(r=>{const id=String(r.product_id);if(!sums[id])sums[id]={sum:0,count:0};sums[id].sum+=Number(r.rating)||0;sums[id].count++;});
+  $(".product-rating[data-product-rating]").forEach(el=>{
+   const s=sums[el.dataset.productRating], stars=el.querySelector(".stars"), label=el.querySelector("span:nth-child(2)");
+   if(s){stars.textContent=reviewStars(Math.round(s.sum/s.count));label.textContent=`${(s.sum/s.count).toFixed(1)} (${s.count})`;stars.setAttribute("aria-label",`Note moyenne ${(s.sum/s.count).toFixed(1)} sur 5`);}
+  });
+ }catch(e){}
+}
+async function openProductReviews(p){
+ const {m,close}=modal(`<div class="review-sheet"><button type="button" class="mini" data-review-close style="float:right">Fermer ✕</button><h3>Avis clients : ${esc(p.name)}</h3><p style="color:var(--mu)">Notez cet article et partagez votre expérience.</p><div class="product-review-list" id="productReviewList"><p>Chargement des avis…</p></div><form id="productReviewForm"><label for="prName">Votre prénom</label><input id="prName" maxlength="60" required placeholder="Ex. Aïcha"><label for="prRating">Votre note</label><select id="prRating" required><option value="5">★★★★★ — Excellent</option><option value="4">★★★★☆ — Très bien</option><option value="3">★★★☆☆ — Bien</option><option value="2">★★☆☆☆ — Moyen</option><option value="1">★☆☆☆☆ — Déçu</option></select><label for="prComment">Votre commentaire</label><textarea id="prComment" maxlength="1000" required placeholder="Parlez de cet article…"></textarea><button class="btn btn-gold" type="submit" style="margin-top:.8rem">Envoyer mon avis</button><p id="prMessage" role="status" style="margin-top:.6rem;color:var(--mu)"></p></form></div>`);
+ m.querySelector(".sheet").classList.add("review-sheet");
+ m.querySelector("[data-review-close]").onclick=close;
+ const list=m.querySelector("#productReviewList");
+ const refresh=async()=>{
+  try{
+   const url=`${CFG.supabaseUrl}/rest/v1/reviews?select=name,rating,comment,created_at&status=eq.published&product_id=eq.${encodeURIComponent(String(p.id))}&order=created_at.desc&limit=50`;
+   const res=await fetch(url,{headers:dbH()});if(!res.ok)throw Error();
+   const reviews=await res.json();
+   list.innerHTML=reviews.length?reviews.map(r=>`<article><div class="stars">${reviewStars(r.rating)}</div><strong>${esc(r.name)}</strong><p>${esc(r.comment)}</p><small style="color:var(--mu)">${r.created_at?new Date(r.created_at).toLocaleDateString("fr-FR"):""}</small></article>`).join(""):'<p style="color:var(--mu)">Aucun avis publié pour cet article. Soyez le premier !</p>';
+  }catch(e){list.innerHTML='<p style="color:var(--mu)">Les avis par article seront disponibles après la configuration de Supabase.</p>';}
+ };
+ await refresh();
+ m.querySelector("#productReviewForm").onsubmit=async e=>{
+  e.preventDefault();const btn=e.target.querySelector("button[type=submit]"),msg=m.querySelector("#prMessage");
+  const name=m.querySelector("#prName").value.trim(),comment=m.querySelector("#prComment").value.trim(),rating=Number(m.querySelector("#prRating").value);
+  btn.disabled=true;msg.textContent="Envoi de votre avis…";
+  try{
+   const res=await fetch(`${CFG.supabaseUrl}/rest/v1/reviews`,{method:"POST",headers:{...dbH(),"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({product_id:String(p.id),name,comment,rating})});
+   if(!res.ok)throw Error();e.target.reset();msg.textContent="Merci ! Votre avis sera visible après validation.";
+  }catch(err){msg.textContent="Impossible d’envoyer l’avis : vérifiez que la colonne product_id et les règles Supabase sont configurées.";}
+  finally{btn.disabled=false;}
+ };
+}
+
 /* ---------- Avis clients : lecture et envoi dans Supabase ---------- */
 const reviewStars = n => "★".repeat(Math.max(0,Math.min(5,Number(n)||0)) ) + "☆".repeat(5-Math.max(0,Math.min(5,Number(n)||0)));
 async function loadReviews(){
  const list=$("#reviewList");
  try{
-  const res=await fetch(`${CFG.supabaseUrl}/rest/v1/reviews?select=id,name,rating,comment,created_at&status=eq.published&order=created_at.desc&limit=30`,{headers:dbH()});
+  const res=await fetch(`${CFG.supabaseUrl}/rest/v1/reviews?select=id,name,rating,comment,created_at&status=eq.published&product_id=is.null&order=created_at.desc&limit=30`,{headers:dbH()});
   if(!res.ok) throw new Error("reviews unavailable");
   const reviews=await res.json();
   const count=reviews.length, avg=count?reviews.reduce((s,r)=>s+Number(r.rating||0),0)/count:0;
@@ -789,6 +894,7 @@ $("#reviewForm").addEventListener("submit",async e=>{
  }catch(err){msg.textContent="L’envoi n’est pas encore disponible. La table reviews et ses règles doivent être configurées dans Supabase.";}finally{btn.disabled=false;}
 });
 loadReviews();
+loadProductRatings();
 
 /* ---------- Démarrage ---------- */
 $$("[data-wa]").forEach(a => a.href = wa(`Bonjour ${CFG.shop}, j’ai une question.`));
