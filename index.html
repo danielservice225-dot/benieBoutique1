@@ -685,7 +685,7 @@ button,a,input,select,textarea{ -webkit-tap-highlight-color:transparent }
 </div>
 <div id="introLoader" role="status" aria-live="polite" aria-label="Chargement de Bénie Boutique">
   <div class="intro-inner">
-    <div class="intro-mark" aria-hidden="true">B</div>
+    <div class="intro-mark" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><defs><linearGradient id="bbIntroGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset=".55" stop-color="#2563EB"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs><rect x="3" y="3" width="58" height="58" rx="18" fill="#EFF6FF"/><path d="M13 25h38l-4 24H17z" fill="url(#bbIntroGrad)"/><path d="M22 26v-5a10 10 0 0 1 20 0v5" fill="none" stroke="#1D4ED8" stroke-width="4" stroke-linecap="round"/><path d="M22 35h20" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="43" r="2.5" fill="#fff"/><circle cx="40" cy="43" r="2.5" fill="#fff"/><path d="M48 9l2.1 5.9L56 17l-5.9 2.1L48 25l-2.1-5.9L40 17l5.9-2.1z" fill="#F59E0B"/></svg></div>
     <div class="intro-name">Bénie <span>Boutique</span></div>
     <p class="intro-sub">Mode, électronique et innovation à portée de main.</p>
     <div class="intro-track" aria-hidden="true"></div>
@@ -713,7 +713,7 @@ button,a,input,select,textarea{ -webkit-tap-highlight-color:transparent }
 
 <div class="market-topline"><div class="wrap"><span>✦ Mode & électronique au même endroit</span><span class="market-topline-right">Abidjan, Côte d’Ivoire <b>·</b> Prix en FCFA <b>·</b> Commande sur WhatsApp</span></div></div>
 <header class="top"><div class="wrap shop-head">
-  <a class="brand" href="#accueil" aria-label="Bénie Boutique, accueil"><span class="logo" aria-hidden="true">🛒</span><span class="brand-copy">Bénie <em>Boutique</em><small>Votre partenaire en électronique</small></span></a>
+  <a class="brand" href="#accueil" aria-label="Bénie Boutique, accueil"><span class="logo" aria-hidden="true"><svg viewBox="0 0 64 64" role="img" focusable="false"><defs><linearGradient id="bbLogoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset=".55" stop-color="#2563EB"/><stop offset="1" stop-color="#7C3AED"/></linearGradient><linearGradient id="bbLogoGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FDE68A"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs><rect x="3" y="3" width="58" height="58" rx="18" fill="#EFF6FF"/><path d="M13 25h38l-4 24H17z" fill="url(#bbLogoGrad)"/><path d="M22 26v-5a10 10 0 0 1 20 0v5" fill="none" stroke="#1D4ED8" stroke-width="4" stroke-linecap="round"/><path d="M22 35h20" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".9"/><circle cx="24" cy="43" r="2.5" fill="#fff"/><circle cx="40" cy="43" r="2.5" fill="#fff"/><path d="M48 9l2.1 5.9L56 17l-5.9 2.1L48 25l-2.1-5.9L40 17l5.9-2.1z" fill="url(#bbLogoGold)"/></svg></span><span class="brand-copy">Bénie <em>Boutique</em><small>Votre partenaire en électronique</small></span></a>
   <form class="head-search" id="headSearch"><input id="headSearchInput" type="search" placeholder="Rechercher un produit, une marque..." aria-label="Rechercher un produit"><button aria-label="Lancer la recherche">⌕</button></form>
   <div class="head-actions"><button class="head-link" id="accountOpen" type="button">♙ Connexion / Inscription</button><button class="cartbtn" id="cartBtn" type="button" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><b id="cartN" hidden>0</b><span id="headCartPrice">Panier</span></button><button class="theme" id="theme" type="button" aria-label="Changer de thème clair ou sombre">☾</button></div>
 </div><nav class="shop-nav"><div class="wrap"><a href="#catalogue">☰ Toutes les catégories</a><a class="active" href="#accueil">⌂ Accueil</a><a href="#a-la-une">♢ Promotions</a><a href="#catalogue">◷ Nouveautés</a><a href="#catalogue">✧ Meilleures ventes</a><a href="#engagements">ⓘ À propos</a><a href="#contact">✉ Contact</a></div></nav></header>
@@ -1792,6 +1792,39 @@ a.btn.btn-gold[href="#catalogue"]:hover,
   background:#1D4ED8!important;
   color:#FFFFFF!important;
 }
+</style>
+
+
+<!-- Bénie Boutique : identité visuelle premium et animations de démarrage -->
+<style id="benie-premium-ux-motion">
+:root{--bb-blue:#2563EB;--bb-blue-dark:#1D4ED8;--bb-blue-light:#EFF6FF;--bb-violet:#7C3AED;--bb-gold:#F59E0B}
+header.top .brand{gap:11px}
+header.top .logo{width:48px!important;height:48px!important;display:grid!important;place-items:center!important;overflow:visible;border-radius:15px!important;background:transparent!important;box-shadow:none!important;filter:drop-shadow(0 7px 13px #2563EB30)!important;transition:transform .45s cubic-bezier(.2,.9,.2,1),filter .45s!important}
+header.top .logo svg{width:100%;height:100%;display:block;overflow:visible}
+header.top .brand:hover .logo{transform:translateY(-3px) rotate(-5deg) scale(1.06)!important;filter:drop-shadow(0 10px 16px #2563EB55)!important}
+.brand-copy em{color:#2563EB!important}
+.brand-copy small{letter-spacing:.025em}
+#introLoader{background:radial-gradient(ellipse at 50% 42%,#172f68 0%,#0b1738 45%,#050b1d 100%)!important}
+#introLoader:before,#introLoader:after{border-color:#60A5FA55!important;box-shadow:0 0 35px #2563EB22,inset 0 0 35px #2563EB12}
+#introLoader:before{animation:intro-spin 10s linear infinite,bb-ring-pulse 3s ease-in-out infinite!important}
+#introLoader:after{border-color:#A78BFA42!important;animation:intro-spin 18s linear infinite reverse,bb-ring-pulse 4s ease-in-out infinite reverse!important}
+.intro-inner{gap:19px!important}
+.intro-mark{width:104px!important;height:104px!important;border-radius:30px!important;padding:4px;background:linear-gradient(135deg,#60A5FA,#7C3AED,#F59E0B)!important;box-shadow:0 15px 55px #2563EB50,0 0 0 8px #60A5FA12!important;animation:intro-float 2.4s ease-in-out infinite,bb-mark-glow 2.8s ease-in-out infinite!important}
+.intro-mark svg{width:100%;height:100%;display:block;filter:drop-shadow(0 4px 10px #1D4ED833)}
+.intro-mark:after{border-color:#93C5FD!important;border-top-color:#FDE68A!important;inset:-12px!important;border-radius:36px!important;animation:intro-spin 3.4s linear infinite!important}
+.intro-name{letter-spacing:-.045em!important;text-shadow:0 4px 30px #60A5FA35}
+.intro-name span{color:#93C5FD!important}
+.intro-sub{color:#DCE8FF!important}
+.intro-track{height:6px!important;background:#FFFFFF20!important;box-shadow:0 0 24px #3B82F640!important}
+.intro-track:after{width:38%!important;background:linear-gradient(90deg,#60A5FA,#C4B5FD,#FDE68A)!important;box-shadow:0 0 18px #60A5FA!important;animation:intro-progress 1.05s ease-in-out infinite!important}
+.intro-hint{color:#BFDBFE!important;letter-spacing:.16em!important}
+.hero::before{animation:aurora 9s ease-in-out infinite alternate!important}
+.hero h1 em{background-image:linear-gradient(90deg,#60A5FA,#fff,#A78BFA,#60A5FA)!important}
+.spotlight-kicker{color:#2563EB!important}
+@keyframes bb-mark-glow{0%,100%{box-shadow:0 15px 45px #2563EB35,0 0 0 7px #60A5FA10}50%{box-shadow:0 18px 62px #7C3AED65,0 0 0 13px #60A5FA18}}
+@keyframes bb-ring-pulse{0%,100%{opacity:.45;transform:scale(.96)}50%{opacity:1;transform:scale(1.04)}}
+@media(max-width:760px){header.top .logo{width:40px!important;height:40px!important}.intro-mark{width:88px!important;height:88px!important}}
+@media(prefers-reduced-motion:reduce){#introLoader:before,#introLoader:after,.intro-mark,.intro-mark:after,.header.top .logo{animation:none!important;transition:none!important}}
 </style>
 
 </body>
