@@ -1729,5 +1729,70 @@ header.top #accountOpen:after{content:none!important;display:none!important}
 @media(prefers-color-scheme:dark){#avis .review-card,#avis .review-form{background:#FFFFFF!important}}
 </style>
 
+
+<!-- Correction couleur bleue : liens articles et espace avis -->
+<style id="benie-blue-articles-avis">
+/* Tous les liens/boutons pour voir les articles : bleu, sans rouge/noir */
+a.btn.btn-gold[href="#catalogue"],
+#spotlight a.btn,
+a[href="#catalogue"].btn-gold,
+.product-rating-page,
+.product-rating-page .product-review-link,
+.detail-rating-link,
+.detail-reviews,
+.product-review-link {
+  background-color:#EFF6FF!important;
+  background:#EFF6FF!important;
+  color:#1D4ED8!important;
+  border-color:#93C5FD!important;
+}
+a.btn.btn-gold[href="#catalogue"]:hover,
+#spotlight a.btn:hover,
+.product-rating-page:hover,
+.detail-rating-link:hover,
+.detail-reviews:hover {
+  background:#DBEAFE!important;
+  color:#1E40AF!important;
+  border-color:#60A5FA!important;
+}
+.product-rating-page .stars,
+.detail-rating-link .detail-stars,
+.detail-stars,
+#avis .stars,
+#avis #reviewStars {
+  color:#2563EB!important;
+}
+/* Bloc avis : texte et actions bleus, cartes claires */
+#avis.reviews,.reviews#avis,#avis .sec-head h2,#avis .sec-head p,
+#avis h3,#avis label,#avis .review-summary strong,
+#avis .review-summary,#avis .review-list,
+#avis .review-card strong,#avis .review-card p,
+#avis .review-date,#avis .review-form p {
+  color:#1D4ED8!important;
+}
+#avis .review-card,#avis .review-form {
+  background:#FFFFFF!important;
+  color:#1D4ED8!important;
+  border:1px solid #BFDBFE!important;
+}
+#avis .review-form input,#avis .review-form textarea,#avis .review-form select {
+  color:#1E3A8A!important;
+  border-color:#93C5FD!important;
+  background:#FFFFFF!important;
+}
+#avis .review-form input::placeholder,#avis .review-form textarea::placeholder {
+  color:#64748B!important;
+}
+#avis .review-form .btn,#avis #reviewSubmit {
+  background:#2563EB!important;
+  color:#FFFFFF!important;
+  border-color:#2563EB!important;
+}
+#avis .review-form .btn:hover,#avis #reviewSubmit:hover {
+  background:#1D4ED8!important;
+  color:#FFFFFF!important;
+}
+</style>
+
 </body>
 </html>
