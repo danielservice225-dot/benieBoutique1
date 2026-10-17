@@ -70,7 +70,7 @@ tbody tr{transition:background .18s ease}.thumb{transition:transform .22s ease,b
   </section>
   <section class="view" id="view-products">
     <div class="section-head" style="margin-top:0"><div><h2>Catalogue produits</h2><p>Ajoutez, modifiez, supprimez et gérez la disponibilité de vos articles.</p></div><button class="btn btn-primary" id="addProduct">＋ Nouveau produit</button></div>
-    <div class="toolbar"><div class="search"><input id="productSearch" placeholder="Rechercher un produit, une référence…"></div><button class="btn btn-light" id="importBtn" type="button">⇧ Importer 30–50 produits (CSV)</button><input id="importFile" type="file" accept=".csv,text/csv" hidden><select id="categoryFilter"><option value="">Toutes les catégories</option><option value="femme">Mode femme</option><option value="homme">Mode homme</option><option value="enfant">Mode enfant</option><option value="arduino">Arduino</option><option value="esp32">ESP32</option><option value="rpi">Raspberry Pi</option><option value="kits">Kits électroniques</option><option value="compo">Composants</option></select><select id="stockFilter"><option value="">Tous les stocks</option><option value="ok">Disponible</option><option value="low">Stock limité</option><option value="out">Rupture</option></select></div>
+    <div class="toolbar"><div class="search"><input id="productSearch" placeholder="Rechercher un produit, une référence…"></div><button class="btn btn-light" id="templateBtn" type="button">⇩ Modèle CSV</button><button class="btn btn-light" id="importBtn" type="button">⇧ Importer 30–50 produits (CSV)</button><input id="importFile" type="file" accept=".csv,text/csv" hidden><select id="categoryFilter"><option value="">Toutes les catégories</option><option value="femme">Mode femme</option><option value="homme">Mode homme</option><option value="enfant">Mode enfant</option><option value="arduino">Arduino</option><option value="esp32">ESP32</option><option value="rpi">Raspberry Pi</option><option value="kits">Kits électroniques</option><option value="compo">Composants</option></select><select id="stockFilter"><option value="">Tous les stocks</option><option value="ok">Disponible</option><option value="low">Stock limité</option><option value="out">Rupture</option></select></div>
     <div class="table-wrap"><table><thead><tr><th>Produit</th><th>Catégorie</th><th>Prix</th><th>Disponibilité</th><th>Actions</th></tr></thead><tbody id="productRows"><tr><td colspan="5"><div class="empty">Connectez-vous pour charger les produits.</div></td></tr></tbody></table></div>
     <div class="section-head"><p id="productCount">0 produit</p><div style="display:flex;gap:9px;flex-wrap:wrap"><button class="btn btn-light" id="exportBtnProducts">⇩ Exporter CSV</button><button class="btn btn-danger" id="deleteAllProducts">⌫ Vider tout le catalogue</button></div></div>
   </section>
@@ -218,6 +218,15 @@ async function importCSVFile(file){
   await loadProducts();toast(payload.length+" produit(s) importé(s) avec succès.");openView("products");
  }finally{btn.disabled=false;btn.textContent="⇧ Importer 30–50 produits (CSV)";}
 }
+$("#templateBtn").onclick=()=>{
+ const sample=[
+  ["id","name","desc","price","cat","stock","tag","img","imgs","sizes"],
+  ["","T-shirt femme","T-shirt coton disponible en plusieurs couleurs",5000,"femme","ok","Nouveau","https://exemple.com/tshirt.jpg","https://exemple.com/tshirt.jpg|https://exemple.com/tshirt-dos.jpg","S, M, L, XL"],
+  ["","Carte ESP32 DevKit","Carte de développement Wi-Fi et Bluetooth",7500,"esp32","ok","","https://exemple.com/esp32.jpg","","Unique"]
+ ];
+ const csv=sample.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(";")).join("\\r\\n");
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\\ufeff",csv],{type:"text/csv;charset=utf-8"}));a.download="modele-produits-benie-boutique.csv";a.click();URL.revokeObjectURL(a.href);
+};
 $("#importBtn").onclick=()=>$("#importFile").click();
 $("#importFile").addEventListener("change",async e=>{
  const file=e.target.files?.[0];if(!file)return;
