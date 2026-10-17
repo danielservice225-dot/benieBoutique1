@@ -448,6 +448,32 @@ img{max-width:100%}
 @media(prefers-reduced-motion:reduce){#shopAd,.shop-ad-panel,.shop-ad-img,.shop-ad-icon,.shop-ad-visual:before,.shop-ad-visual:after,#shopAd.ad-visible .shop-ad-progress span{animation:none!important;transition:none!important}}
 
 
+/* Cartes produits compactes : plus d'articles visibles sans surcharge */
+.cb{padding:.65rem .8rem .8rem}
+.cb .d{display:none}
+.cb h3{font-size:.94rem;line-height:1.25;margin:.2rem 0 .3rem;cursor:pointer}
+.cb .c{font-size:.66rem}
+.cb .pr{font-size:1rem;margin:.25rem 0}
+.product-rating{gap:4px;min-height:16px;font-size:.69rem;line-height:1.1}
+.product-rating .stars{font-size:.78rem}
+.product-review-link{font-size:.68rem;padding:1px 0}
+.cb .sz{margin:.35rem 0}
+.card .buy{min-height:36px;padding:.5rem .65rem}
+.product-detail-modal{width:min(760px,90vw);max-height:86vh;overflow:auto}
+.detail-close{position:absolute;right:12px;top:8px;border:0;background:rgba(255,255,255,.9);font-size:1.7rem;line-height:1.4;cursor:pointer;color:#456780;z-index:2}
+.detail-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.2rem;padding:.5rem}
+.detail-image{min-height:230px;max-height:420px;display:flex;align-items:center;justify-content:center;background:#EDF5FB;border-radius:14px;overflow:hidden}
+.detail-image img{width:100%;height:100%;max-height:420px;object-fit:contain}
+.detail-image span{font-size:3rem;color:#8DB9D9}
+.detail-content{padding:1rem .6rem .6rem 0;min-width:0}
+.detail-content h2{font-size:1.35rem;line-height:1.2;margin:.45rem 0}
+.detail-price{font-size:1.25rem;font-weight:800;color:#669BC4;margin:.45rem 0}
+.detail-desc{font-size:.92rem;line-height:1.5;color:var(--mu);margin:.5rem 0 .9rem}
+.detail-size-label{display:block;font-size:.8rem;color:var(--mu);margin:.5rem 0}
+.detail-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem;margin-top:1rem}
+.detail-actions .detail-buy{flex:1}
+@media(max-width:560px){.detail-layout{grid-template-columns:1fr;gap:.6rem}.detail-image{min-height:180px;max-height:260px}.detail-image img{max-height:260px}.detail-content{padding:.2rem .3rem .5rem}.product-detail-modal{width:94vw}}
+
 /* ===== Palette douce : bleu Alice pastel, blanc et transparence ===== */
 :root[data-theme="light"]{
  color-scheme:light;
@@ -704,6 +730,29 @@ function card(p, i){
   ${CLOTH.includes(p.cat) ? '<button type="button" class="link sg">Trouver ma taille</button>' : ""}<button type="button" class="btn btn-wa sm buy" ${st === "out" ? "disabled" : ""}>${st === "out" ? "Indisponible" : "Ajouter au panier"}</button>
   <div class="ctl"><button type="button" class="mini edit">Modifier</button><button type="button" class="mini danger del">Supprimer</button></div></div></article>`;
 }
+function openProductDetails(p){
+  const pics = Array.isArray(p.imgs) && p.imgs.length ? p.imgs : (p.img ? [p.img] : []);
+  const sizes = p.sizes && p.sizes.length ? p.sizes : U;
+  const {m, close} = modal(`<div class="product-detail-modal">
+    <button type="button" class="detail-close" aria-label="Fermer">×</button>
+    <div class="detail-layout">
+      <div class="detail-image">${pics.length ? '<img src="' + esc(pics[0]) + '" alt="' + esc(p.name) + '">' : '<span aria-hidden="true">✦</span>'}</div>
+      <div class="detail-content">
+        <span class="c">${esc(CATS[p.cat] || "")}</span>
+        <h2>${esc(p.name)}</h2>
+        <p class="detail-price">${fmt(p.price)}</p>
+        <p class="detail-desc">${esc(p.desc || "Contactez-nous pour plus d’informations sur cet article.")}</p>
+        ${sizes.length > 1 ? '<label class="detail-size-label">Choisir une taille ou variante</label><div class="sz detail-sizes">' + sizes.map((v,i)=>'<button type="button" class="chip" aria-pressed="' + (i===0) + '">' + esc(v) + '</button>').join("") + '</div>' : ""}
+        <div class="detail-actions"><button type="button" class="btn btn-wa detail-buy" ${p.stock === "out" ? "disabled" : ""}>${p.stock === "out" ? "Indisponible" : "Ajouter au panier"}</button><button type="button" class="mini detail-reviews">Lire les avis</button></div>
+      </div>
+    </div>
+  </div>`);
+  m.querySelector(".detail-close").onclick = close;
+  m.querySelectorAll(".detail-sizes .chip").forEach(b=>b.onclick=()=>m.querySelectorAll(".detail-sizes .chip").forEach(x=>x.setAttribute("aria-pressed",x===b)));
+  m.querySelector(".detail-buy").onclick = () => { const selected=m.querySelector(".detail-sizes .chip[aria-pressed=true]"); addCart(p, selected ? selected.textContent : sizes[0]); close(); };
+  m.querySelector(".detail-reviews").onclick = () => { close(); openProductReviews(p); };
+}
+
 function renderSpotlights(){
   const root = $("#a-la-une"), grid = $("#spotlightGrid");
   if(!root || !grid) return;
@@ -763,7 +812,9 @@ $("#grid").onclick = e => {
   const p = cur().find(x => x.id === c.dataset.id); if(!p) return;
   const imageStep = e.target.closest("[data-image-step]");
   if(imageStep){const pics=Array.isArray(p.imgs)&&p.imgs.length?p.imgs:(p.img?[p.img]:[]);if(pics.length>1){const n=(Number(c.dataset.imageIndex||0)+Number(imageStep.dataset.imageStep)+pics.length)%pics.length;c.dataset.imageIndex=String(n);const photo=c.querySelector(".product-photo");if(photo)photo.src=pics[n];const count=c.querySelector(".photo-count");if(count)count.textContent=(n+1)+" / "+pics.length;}return;}
-  if(e.target.closest(".product-photo")){ openProductReviews(p); return; }
+  if(e.target.closest(".product-photo")){ openProductDetails(p); return; }
+  if(e.target.closest("h3")){ openProductDetails(p); return; }
+  if(e.target.closest(".cb") && !e.target.closest("button, input, a, .chip")){ openProductDetails(p); return; }
   if(e.target.closest("[data-product-reviews]")){ openProductReviews(p); return; }
   const fv = e.target.closest(".fav");
   if(fv){ favs.has(p.id) ? favs.delete(p.id) : favs.add(p.id); saveFav(); fv.setAttribute("aria-pressed", favs.has(p.id)); toast(favs.has(p.id) ? "Ajouté aux favoris." : "Retiré des favoris."); if(cat === "fav") render(); return; }
