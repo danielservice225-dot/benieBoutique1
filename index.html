@@ -1827,5 +1827,38 @@ header.top .brand:hover .logo{transform:translateY(-3px) rotate(-5deg) scale(1.0
 @media(prefers-reduced-motion:reduce){#introLoader:before,#introLoader:after,.intro-mark,.intro-mark:after,.header.top .logo{animation:none!important;transition:none!important}}
 </style>
 
+
+<style id="benie-spotlight-blue-fix">
+/* Articles défilants : bouton « Voir l’article » en bleu */
+.spotlight-item .spotlight-open,
+button.spotlight-open,
+#spotlightGrid .spotlight-open {
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:6px!important;
+  padding:8px 12px!important;
+  border:1px solid #93C5FD!important;
+  border-radius:9px!important;
+  background:#EFF6FF!important;
+  color:#1D4ED8!important;
+  font-weight:750!important;
+  text-decoration:none!important;
+  box-shadow:0 2px 8px #2563EB12!important;
+  transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease!important;
+}
+.spotlight-item .spotlight-open:hover,
+button.spotlight-open:hover,
+#spotlightGrid .spotlight-open:hover {
+  background:#DBEAFE!important;
+  color:#1E40AF!important;
+  border-color:#60A5FA!important;
+  transform:translateY(-1px)!important;
+}
+.spotlight-item:hover{border-color:#93C5FD!important}
+.spotlight-item .spotlight-tag{color:#1D4ED8!important;background:#EFF6FF!important}
+.spotlight-item .spotlight-price{color:#1D4ED8!important}
+</style>
+
 </body>
 </html>
