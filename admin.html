@@ -438,7 +438,7 @@ html,body{max-width:100%;overflow-x:hidden}
 const CFG={url:"https://arodkdazldfvyiecjstk.supabase.co",key:"sb_publishable_VpsmokBwJ4Zd3C1x31_ljg_ZoqNMSWq"};
 // Aucun produit de démonstration : le catalogue est géré exclusivement par l'administrateur.
 let accessToken="",user=null,products=[],orders=[],currentView="dashboard",productImagesDraft=[];
-const $=s=>document.querySelector(s),$=s=>[...document.querySelectorAll(s)];
+const $=s=>document.querySelector(s), $=s=>[...document.querySelectorAll(s)];
 let customers=[];
 function esc(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function money(n){return Number(n||0).toLocaleString("fr-FR")+" FCFA";}
