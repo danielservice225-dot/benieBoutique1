@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Bénie Boutique – Mode, Arduino, Raspberry Pi et ESP32 à Abidjan</title>
-<meta name="description" content="Bénie Boutique à Abidjan : vêtements femme, homme et enfant, kits Arduino, Raspberry Pi, ESP32 et composants électroniques. Commandez sur WhatsApp.">
+<meta name="description" content="Bénie Boutique à Abidjan : kits Arduino, Raspberry Pi, ESP32 et composants électroniques. Commandez sur WhatsApp.">
 <meta name="theme-color" content="#211D1B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='18' fill='%23211D1B'/%3E%3Cpath d='M21 13V51H34C42 51 46 46.5 46 41C46 35.5 42.5 32.5 37 32C41 31 44 28 44 23C44 17 40 13 33 13ZM21 32H37' fill='none' stroke='%23C04F36' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;600&display=swap">
@@ -635,16 +635,16 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 
 <main id="accueil">
   <div class="hero"><canvas id="net" aria-hidden="true"></canvas>
-  <div class="floats" aria-hidden="true"><span style="--d:0s;top:9%;right:6%"><svg><use href="#g-cpu"/></svg></span><span style="--d:-2s;top:46%;right:20%"><svg><use href="#g-wifi"/></svg></span><span style="--d:-4s;top:18%;right:30%"><svg><use href="#g-board"/></svg></span><span style="--d:-1s;top:62%;right:5%"><svg><use href="#g-dress"/></svg></span></div>
+  <div class="floats" aria-hidden="true"><span style="--d:0s;top:9%;right:6%"><svg><use href="#g-cpu"/></svg></span><span style="--d:-2s;top:46%;right:20%"><svg><use href="#g-wifi"/></svg></span><span style="--d:-4s;top:18%;right:30%"><svg><use href="#g-board"/></svg></span></div>
   <div class="wrap">
     <p class="live"><i></i>Actif 24h/24, 7j/7</p>
     <h1>Bénie <em>Boutique</em></h1>
-    <p>Des robes wax aux cartes ESP32 : habillez toute la famille et lancez vos projets électroniques depuis Abidjan. Remplissez votre panier : la boutique en ligne est ouverte 24h/24, 7j/7, et on vous répond sur WhatsApp.</p>
+    <p>Kits Arduino, Raspberry Pi, cartes ESP32 et composants électroniques pour vos projets depuis Abidjan. Remplissez votre panier : la boutique en ligne est ouverte 24h/24, 7j/7, et on vous répond sur WhatsApp.</p>
     <div class="cta"><a class="btn btn-gold" href="#catalogue">Voir le catalogue</a><a class="btn btn-line" data-wa target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Écrire sur WhatsApp</a></div>
-    <div class="stats"><div><b id="stA" data-n="0">0</b><span>articles</span></div><div><b data-n="8">0</b><span>catégories</span></div><div><b>24h/24</b><span>commande en ligne</span></div></div>
+    <div class="stats"><div><b id="stA" data-n="0">0</b><span>articles</span></div><div><b data-n="5">0</b><span>catégories électroniques</span></div><div><b>24h/24</b><span>commande en ligne</span></div></div>
   </div></div>
 
-  <div class="tick" aria-hidden="true"><div class="trk"><span>Femme</span><span>Homme</span><span>Enfant</span><span>Kits Arduino</span><span>Kits électroniques</span><span>Raspberry Pi</span><span>ESP32</span><span>Composants</span></div></div>
+  <div class="tick" aria-hidden="true"><div class="trk"><span>Kits Arduino</span><span>Kits électroniques</span><span>Raspberry Pi</span><span>ESP32</span><span>Composants</span></div></div>
 
 <div class="market-trust"><div class="wrap"><div class="trust-item"><span class="trust-icon">✓</span><div><strong>Commande simple</strong><small>Finalisez sur WhatsApp</small></div></div><div class="trust-item"><span class="trust-icon">↗</span><div><strong>Livraison à Abidjan</strong><small>Tarif confirmé avant envoi</small></div></div><div class="trust-item"><span class="trust-icon">CFA</span><div><strong>Prix en FCFA</strong><small>Clairs et faciles à comparer</small></div></div></div></div>
 
@@ -659,9 +659,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   </section>
 
   <section class="block" id="catalogue" aria-labelledby="h-cat"><div class="wrap">
-    <div class="sec-head"><h2 id="h-cat">Le catalogue</h2><p>Prix en FCFA. Choisissez la taille ou la variante, ajoutez au panier, puis envoyez votre commande en un message WhatsApp déjà écrit.</p></div>
+    <div class="sec-head"><h2 id="h-cat">Le catalogue</h2><p>Matériel électronique en FCFA. Choisissez votre produit, ajoutez-le au panier, puis envoyez votre commande par WhatsApp.</p></div>
     <div class="tools">
-      <input id="q" type="search" placeholder="Rechercher : ESP32, robe wax, capteur… (touche /)" aria-label="Rechercher un article">
+      <input id="q" type="search" placeholder="Rechercher : ESP32, Arduino, capteur… (touche /)" aria-label="Rechercher un article">
       <select id="pr" aria-label="Filtrer par prix"><option value="all">Tous les prix</option><option value="0-10000">Moins de 10 000 FCFA</option><option value="10000-50000">10 000 à 50 000 FCFA</option><option value="50000-99999999">Plus de 50 000 FCFA</option></select>
       <select id="sort" aria-label="Trier les articles"><option value="rel">Trier : pertinence</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option></select>
     </div>
@@ -711,7 +711,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   </div></section>
 </main>
 
-<footer><div class="wrap"><strong>Bénie Boutique</strong><p>Mode et électronique · Abidjan, Côte d’Ivoire</p><p>Contact : <a data-mail></a></p><p><button type="button" class="mini" id="share">Partager la boutique</button></p>
+<footer><div class="wrap"><strong>Bénie Boutique</strong><p>Électronique et composants · Abidjan, Côte d’Ivoire</p><p>Contact : <a data-mail></a></p><p><button type="button" class="mini" id="share">Partager la boutique</button></p>
 <p><a href="./admin.html?v=20261017-ui2" style="font-size:.85rem;text-decoration:underline">Espace administrateur</a></p></div></footer>
 
 <a class="btn btn-wa fab" data-wa target="_blank" rel="noopener" aria-label="Écrire à Bénie Boutique sur WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
@@ -747,7 +747,7 @@ const CFG = {
    Champs : id, name, desc, price (FCFA), cat, sizes[], img (URL ou data URL, "" = icône),
             tag ("" ou Nouveau / Best-seller / Promo / Stock limité), stock (ok | low | out), icon
    ===================================================================== */
-const CATS = {femme:"Femme",homme:"Homme",enfant:"Enfant",arduino:"Kits Arduino",kits:"Kits électroniques",rpi:"Raspberry Pi",esp32:"ESP32",compo:"Composants"};
+const CATS = {arduino:"Kits Arduino",kits:"Kits électroniques",rpi:"Raspberry Pi",esp32:"ESP32",compo:"Composants"};
 const ICONS = {dress:"Robe",tee:"T-shirt",shirt:"Chemise",pants:"Pantalon",kid:"Vêtement enfant",shoe:"Chaussures",board:"Carte",cpu:"Processeur",wifi:"WiFi",bolt:"Composant",box:"Kit"};
 const DEF = { // variantes et icône proposées par défaut selon la catégorie
   femme:[["S","M","L","XL"],"dress"],homme:[["S","M","L","XL"],"shirt"],enfant:[["2 ans","4 ans","6 ans","8 ans"],"kid"],
@@ -774,6 +774,7 @@ const STK = {ok:"En stock", low:"Stock limité", out:"Rupture"};
 const PRESETS = {"":"Choisir un modèle…",s:"Vêtements : S, M, L, XL, XXL",k:"Enfant : 2 à 12 ans",p:"Pointures adultes : 38 à 45",q:"Pointures enfants : 24 à 35",u:"Taille unique"};
 const PV = {s:["S","M","L","XL","XXL"],k:["2 ans","4 ans","6 ans","8 ans","10 ans","12 ans"],p:["38","39","40","41","42","43","44","45"],q:["24","26","28","30","32","35"],u:["Unique"]};
 const CLOTH = ["femme","homme","enfant"];
+const isElectronicProduct = p => !!p && ["arduino","kits","rpi","esp32","compo"].includes(String(p.cat || "").toLowerCase());
 const TAGS = {"":"Aucune","Nouveau":"Nouveau","Best-seller":"Best-seller","Promo":"Promo","Stock limité":"Stock limité"};
 
 let favs; try{ favs = new Set(JSON.parse(localStorage.getItem("benie.fav") || "[]")); }catch(e){ favs = new Set(); }
@@ -843,7 +844,7 @@ function openProductDetails(p){
 function renderSpotlights(){
   const root = $("#a-la-une"), grid = $("#spotlightGrid");
   if(!root || !grid) return;
-  const featured = items.filter(p => ["Promo","Nouveau","Best-seller"].includes(String(p.tag || ""))).slice(0,6);
+  const featured = items.filter(p => isElectronicProduct(p) && ["Promo","Nouveau","Best-seller"].includes(String(p.tag || ""))).slice(0,6);
   root.hidden = featured.length === 0;
   if(!featured.length){ grid.innerHTML = ""; return; }
   grid.innerHTML = featured.map(p => {
@@ -875,9 +876,9 @@ $("#spotlightGrid").addEventListener("click", e => {
 function render(){
   renderSpotlights();
   const [lo, hi] = pr === "all" ? [0, 1e9] : pr.split("-").map(Number);
-  const L = cur().filter(p => (cat === "all" || (cat === "fav" ? favs.has(p.id) : p.cat === cat)) && p.price >= lo && p.price <= hi &&
+  const L = cur().filter(p => isElectronicProduct(p) && (cat === "all" || (cat === "fav" ? favs.has(p.id) : p.cat === cat)) && p.price >= lo && p.price <= hi &&
     (!q || `${p.name} ${p.desc} ${CATS[p.cat]}`.toLowerCase().includes(q)));
-  if(!cur().length){
+  if(!cur().some(isElectronicProduct)){
     $("#grid").innerHTML = '<div class="empty" style="grid-column:1/-1;padding:2.5rem 1rem"><h3 style="margin-bottom:.6rem">Votre boutique est prête à accueillir vos produits</h3><p>Le catalogue est vide pour le moment. Connectez-vous à l’espace administrateur pour ajouter vos premiers articles.</p><a class="btn btn-gold" href="./admin.html" style="margin-top:1rem">＋ Ajouter mon premier produit</a></div>';
     $("#count").textContent = "Aucun article publié pour le moment";
     return;
@@ -1111,7 +1112,7 @@ addEventListener("keydown", e => { if(e.key === "/" && !/INPUT|TEXTAREA|SELECT/.
 
 /* ---------- Panier (conservé sur l'appareil) : commande groupée sur WhatsApp ---------- */
 let cart = []; try{ cart = JSON.parse(localStorage.getItem("benie.cart") || "[]"); }catch(e){}
-const lines = () => cart.map(l => ({...l, p: items.find(x => x.id === l.id)})).filter(l => l.p);
+const lines = () => cart.map(l => ({...l, p: items.find(x => x.id === l.id)})).filter(l => l.p && isElectronicProduct(l.p));
 const cartN = () => { const n = lines().reduce((t, l) => t + l.q, 0), b = $("#cartN"); b.hidden = !n; b.textContent = n; };
 const saveCart = () => { try{ localStorage.setItem("benie.cart", JSON.stringify(cart)); }catch(e){} cartN(); };
 function addCart(p, v){
@@ -1253,9 +1254,9 @@ function paintShopAd(){
     visual.innerHTML = '<span class="shop-ad-icon" aria-hidden="true">✦</span>';
     $("#shopAdKicker").textContent = "Mode & technologie";
     $("#shopAdTitle").innerHTML = 'Bénie <span>Boutique</span>';
-    $("#shopAdDesc").textContent = "Des vêtements pour toute la famille et du matériel électronique pour vos projets : explorez notre sélection.";
+    $("#shopAdDesc").textContent = "Kits Arduino, Raspberry Pi, ESP32 et composants électroniques pour vos projets : explorez notre sélection.";
     $("#shopAdPrice").textContent = "Votre prochain coup de cœur vous attend.";
-    $("#shopAdCount").textContent = "Femme · Homme · Enfant · Arduino · ESP32 · Raspberry Pi";
+    $("#shopAdCount").textContent = "Arduino · ESP32 · Raspberry Pi · Composants électroniques";
     $("#shopAdGo").textContent = "Explorer les catégories ↗";
     $("#shopAdGo").onclick = e => { e.preventDefault(); closeShopAd(); $("#catalogue").scrollIntoView({behavior:"smooth"}); };
   }
@@ -1264,7 +1265,7 @@ function paintShopAd(){
 }
 function showShopAd(products){
   const ad = $("#shopAd"); if(!ad) return;
-  shopAdProducts = (Array.isArray(products) ? products : []).filter(p => p && p.stock !== "out").slice(0,4);
+  shopAdProducts = (Array.isArray(products) ? products : []).filter(p => isElectronicProduct(p) && p.stock !== "out").slice(0,4);
   shopAdIndex = 0; paintShopAd();
   ad.classList.add("ad-visible"); ad.setAttribute("aria-hidden","false");
   if(shopAdTimer) clearInterval(shopAdTimer);
@@ -1311,7 +1312,7 @@ setTimeout(hideIntro, 8000); // filet de sécurité si le chargement du catalogu
   const merged = new Map(localCatalog.filter(p => !DEMO_PRODUCT_NAMES.has(String(p?.name || "").trim().toLocaleLowerCase("fr"))).map(p => [String(p.id), p]));
   if(Array.isArray(s)) s.filter(p => !DEMO_PRODUCT_NAMES.has(String(p?.name || "").trim().toLocaleLowerCase("fr"))).forEach(p => merged.set(String(p.id), p));
   items = [...merged.values()];
-  render(); hideIntro(); $("#stA").dataset.n = items.length; $(".stats b[data-n]").forEach(countUp); cartN();
+  render(); hideIntro(); $("#stA").dataset.n = items.filter(isElectronicProduct).length; $(".stats b[data-n]").forEach(countUp); cartN();
 })();
 </script>
 </body>
