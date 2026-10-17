@@ -302,6 +302,7 @@ a:not(.btn):not(.button){text-decoration-color:#777!important}
     <button class="active" data-view="dashboard"><span class="ico">⌂</span> Vue d'ensemble</button>
     <button data-view="products"><span class="ico">▦</span> Produits</button>
     <button data-view="orders"><span class="ico">▤</span> Commandes</button>
+    <button data-view="customers"><span class="ico">♙</span> Clients inscrits</button>
     <button data-view="settings"><span class="ico">⚙</span> Paramètres</button>
   </nav></div>
   <div class="side-bottom"><a class="side-link" href="./index.html">↗ Voir la boutique</a><div class="profile"><div class="avatar" id="avatar">BB</div><div><b id="profileName">Administrateur</b><small id="profileEmail">Compte connecté</small></div></div><button class="side-link" id="logoutBtn" style="border:0;background:transparent;text-align:left">↪ Déconnexion</button></div>
@@ -334,6 +335,16 @@ a:not(.btn):not(.button){text-decoration-color:#777!important}
     <div class="table-wrap"><table><thead><tr><th>Commande</th><th>Client</th><th>Date</th><th>Total</th><th>Statut</th><th>Paiement</th></tr></thead><tbody id="orderRows"><tr><td colspan="6"><div class="empty">Aucune commande chargée.</div></td></tr></tbody></table></div>
     <p style="color:var(--muted);font-size:12px;margin-top:12px">Les commandes apparaîtront ici lorsqu'elles seront enregistrées dans la table <code>orders</code>. Le formulaire de commande du site doit aussi être relié à cette table pour automatiser leur création.</p>
   </section>
+  <section class="view" id="view-customers">
+    <div class="section-head" style="margin-top:0"><div><h2>Clients inscrits</h2><p>Consultez les comptes créés sur Bénie Boutique et exportez votre liste de clients.</p></div><button class="btn btn-primary" id="refreshCustomers">↻ Actualiser</button></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-top">Comptes clients <span class="stat-icon">♙</span></div><strong id="statCustomers">—</strong><small>Profils clients enregistrés</small></div>
+      <div class="stat"><div class="stat-top">Inscriptions récentes <span class="stat-icon">✦</span></div><strong id="statNewCustomers">—</strong><small>Sur les 7 derniers jours</small></div>
+    </div>
+    <div class="toolbar"><div class="search"><input id="customerSearch" placeholder="Rechercher nom, e-mail ou téléphone…"></div><button class="btn btn-light" id="exportCustomers">⇩ Exporter les clients (CSV)</button></div>
+    <div class="table-wrap"><table><thead><tr><th>Client</th><th>E-mail</th><th>Téléphone</th><th>Date d'inscription</th><th>Identifiant</th></tr></thead><tbody id="customerRows"><tr><td colspan="5"><div class="empty">Connectez-vous pour charger les clients.</div></td></tr></tbody></table></div>
+    <p style="margin-top:12px;color:var(--muted);font-size:12px">Pour suspendre ou supprimer un compte d'accès, ouvrez la gestion sécurisée des utilisateurs Supabase dans Paramètres. Ne partagez pas les données personnelles des clients.</p>
+  </section>
   <section class="view" id="view-settings">
     <div class="section-head" style="margin-top:0"><div><h2>Paramètres de la boutique</h2><p>Informations de contact et préférences d'administration.</p></div></div>
     <div class="card"><div class="card-title"><h3>Informations publiques</h3><span>Enregistrées dans ce navigateur</span></div><div class="settings-grid">
@@ -362,7 +373,8 @@ a:not(.btn):not(.button){text-decoration-color:#777!important}
 const CFG={url:"https://arodkdazldfvyiecjstk.supabase.co",key:"sb_publishable_VpsmokBwJ4Zd3C1x31_ljg_ZoqNMSWq"};
 // Aucun produit de démonstration : le catalogue est géré exclusivement par l'administrateur.
 let accessToken="",user=null,products=[],orders=[],currentView="dashboard",productImagesDraft=[];
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const $=s=>document.querySelector(s),$=s=>[...document.querySelectorAll(s)];
+let customers=[];
 function esc(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function money(n){return Number(n||0).toLocaleString("fr-FR")+" FCFA";}
 function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),3200);}
@@ -372,11 +384,28 @@ async function api(path,opts={}){const r=await fetch(CFG.url+path,{...opts,heade
 function catName(c){return ({femme:"Mode femme",homme:"Mode homme",enfant:"Mode enfant",arduino:"Arduino",esp32:"ESP32",rpi:"Raspberry Pi",kits:"Kits électroniques",compo:"Composants"})[c]||c||"Autre";}
 function stockName(s){return s==="out"?"Rupture":s==="low"?"Stock limité":"Disponible";}
 function stockBadge(s){return '<span class="badge '+(s==="out"?"out":s==="low"?"low":"")+'">'+stockName(s)+'</span>';}
-function openView(v){currentView=v;$$(".view").forEach(x=>x.classList.toggle("active",x.id==="view-"+v));$$("[data-view]").forEach(x=>x.classList.toggle("active",x.dataset.view===v));const titles={dashboard:"Vue d'ensemble",products:"Gestion des produits",orders:"Commandes clients",settings:"Paramètres"};$("#pageTitle").textContent=titles[v];$("#crumb").textContent=titles[v];$("#topAdd").style.display=v==="products"?"inline-flex":"none";if(v==="products")renderProducts();if(v==="orders")loadOrders().catch(e=>notify("Chargement des commandes : "+e.message));}
+function openView(v){currentView=v;$$(".view").forEach(x=>x.classList.toggle("active",x.id==="view-"+v));$$("[data-view]").forEach(x=>x.classList.toggle("active",x.dataset.view===v));const titles={dashboard:"Vue d'ensemble",products:"Gestion des produits",orders:"Commandes clients",customers:"Clients inscrits",settings:"Paramètres"};$("#pageTitle").textContent=titles[v];$("#crumb").textContent=titles[v];$("#topAdd").style.display=v==="products"?"inline-flex":"none";if(v==="products")renderProducts();if(v==="orders")loadOrders().catch(e=>notify("Chargement des commandes : "+e.message));if(v==="customers")loadCustomers().catch(e=>notify("Chargement des clients : "+e.message));}
 function showApp(){ $("#loginScreen").style.display="none";$("#app").hidden=false;$("#profileEmail").textContent=user?.email||"Administrateur";$("#avatar").textContent=(user?.email||"BB").slice(0,2).toUpperCase();loadProducts().then(()=>loadOrders().catch(()=>{})).catch(e=>notify("Connexion établie, mais lecture impossible : "+e.message));}
 async function login(email,password){const r=await fetch(CFG.url+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:CFG.key,"Content-Type":"application/json"},body:JSON.stringify({email,password})});const d=await r.json();if(!r.ok)throw new Error(d.msg||d.message||"E-mail ou mot de passe incorrect.");accessToken=d.access_token;user=d.user;}
 async function loadProducts(){const rows=await api("/rest/v1/products?select=id,data&order=created_at.desc");products=(rows||[]).map(r=>({...r.data,id:r.id||r.data?.id}));$("#statProducts").textContent=products.length;$("#activityProducts").textContent=products.length+" produit(s) chargés";renderProducts();renderRecent();updateStats();}
 async function loadOrders(){try{orders=await api("/rest/v1/orders?select=*&order=created_at.desc");}catch(e){if(String(e.message).includes("404"))orders=[];else throw e;}renderOrders();updateStats();}
+async function loadCustomers(){
+ customers=await api("/rest/v1/customer_profiles?select=user_id,full_name,email,phone,created_at&order=created_at.desc");
+ $("#statCustomers").textContent=customers.length;
+ const since=Date.now()-7*24*60*60*1000;
+ $("#statNewCustomers").textContent=customers.filter(c=>new Date(c.created_at).getTime()>=since).length;
+ renderCustomers();
+}
+function renderCustomers(){
+ const q=$("#customerSearch").value.trim().toLowerCase();
+ const list=customers.filter(c=>[c.full_name,c.email,c.phone,c.user_id].some(v=>String(v||"").toLowerCase().includes(q)));
+ $("#customerRows").innerHTML=list.length?list.map(c=>'<tr><td><b>'+esc(c.full_name||"Client")+'</b></td><td>'+esc(c.email||"—")+'</td><td>'+esc(c.phone||"—")+'</td><td>'+esc(c.created_at?new Date(c.created_at).toLocaleDateString("fr-FR"):"—")+'</td><td><small>'+esc(c.user_id||"")+'</small></td></tr>').join(""):'<tr><td colspan="5"><div class="empty">Aucun client trouvé.</div></td></tr>';
+}
+function exportCustomersCSV(){
+ const rows=[["Nom","E-mail","Téléphone","Date inscription","Identifiant"],...customers.map(c=>[c.full_name,c.email,c.phone,c.created_at,c.user_id])];
+ const csv="\uFEFF"+rows.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(";")).join("\r\n");
+ const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8;"}));const a=document.createElement("a");a.href=url;a.download="benie-boutique-clients.csv";a.click();URL.revokeObjectURL(url);
+}
 function updateStats(){$("#statProducts").textContent=products.length;$("#statOrders").textContent=orders.length;$("#statPending").textContent=orders.filter(o=>o.status==="pending").length;$("#statRevenue").textContent=money(orders.filter(o=>o.payment_status==="paid").reduce((a,o)=>a+Number(o.total_fcfa||0),0));}
 function productRow(p){return '<tr><td><div class="product-cell"><div class="thumb">'+(p.img?'<img src="'+esc(p.img)+'" alt="" onerror="this.parentNode.textContent=\'▦\'">':"▦")+'</div><div><b>'+esc(p.name)+'</b><small>Réf. '+esc(p.id)+'</small></div></div></td><td>'+esc(catName(p.cat))+'</td><td><b>'+money(p.price)+'</b></td><td>'+stockBadge(p.stock)+'</td><td><div class="actions"><button class="icon-btn edit-btn" data-edit="'+esc(p.id)+'" title="Modifier">✎</button><button class="icon-btn" data-stock="'+esc(p.id)+'" title="Changer le stock">⇄</button><button class="icon-btn delete-btn" data-delete="'+esc(p.id)+'" title="Supprimer définitivement" aria-label="Supprimer ce produit">⌫ <span>Supprimer</span></button></div></td></tr>';}
 function renderProducts(){const q=$("#productSearch").value.toLowerCase(),cat=$("#categoryFilter").value,stock=$("#stockFilter").value;const list=products.filter(p=>(!q||(p.name+" "+p.id+" "+p.desc).toLowerCase().includes(q))&&(!cat||p.cat===cat)&&(!stock||p.stock===stock));$("#productRows").innerHTML=list.length?list.map(productRow).join(""):'<tr><td colspan="5"><div class="empty"><strong>Aucun produit trouvé</strong>Ajoutez un produit ou modifiez les filtres.</div></td></tr>';$("#productCount").textContent=list.length+" produit(s) affiché(s) sur "+products.length;$("#productRows").querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editProduct(b.dataset.edit));$("#productRows").querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>deleteProduct(b.dataset.delete));$("#productRows").querySelectorAll("[data-stock]").forEach(b=>b.onclick=()=>cycleStock(b.dataset.stock));}
@@ -500,7 +529,8 @@ $("#logoutBtn").onclick=()=>{accessToken="";user=null;products=[];orders=[];$("#
 $$("[data-view]").forEach(b=>b.onclick=()=>openView(b.dataset.view));$$("[data-goto]").forEach(b=>b.onclick=()=>openView(b.dataset.goto));
 $("#topAdd").onclick=$("#addProduct").onclick=$("#quickAdd").onclick=()=>openProductModal();$("#closeModal").onclick=$("#cancelModal").onclick=closeProductModal;$("#productModal").onclick=e=>{if(e.target===$("#productModal"))closeProductModal();};
 ["productSearch","categoryFilter","stockFilter"].forEach(id=>$("#"+id).addEventListener(id==="productSearch"?"input":"change",renderProducts));
-$("#orderSearch").oninput=$("#orderStatusFilter").onchange=renderOrders;$("#refreshOrders").onclick=()=>loadOrders().then(()=>toast("Commandes actualisées.")).catch(e=>notify(e.message));$("#exportBtn").onclick=exportCSV;$("#exportBtnProducts").onclick=exportCSV;$("#exportOrdersBtn").onclick=exportOrdersCSV;$("#deleteAllProducts").onclick=deleteAllProducts;
+$("#orderSearch").oninput=$("#orderStatusFilter").onchange=renderOrders;$("#refreshOrders").onclick=()=>loadOrders().then(()=>toast("Commandes actualisées.")).catch(e=>notify(e.message));
+$("#customerSearch").oninput=renderCustomers;$("#refreshCustomers").onclick=()=>loadCustomers().then(()=>toast("Liste des clients actualisée.")).catch(e=>notify(e.message));$("#exportCustomers").onclick=exportCustomersCSV;$("#exportBtn").onclick=exportCSV;$("#exportBtnProducts").onclick=exportCSV;$("#exportOrdersBtn").onclick=exportOrdersCSV;$("#deleteAllProducts").onclick=deleteAllProducts;
 $("#saveSettings").onclick=()=>{localStorage.setItem("bb_admin_settings",JSON.stringify({shop:$("#setShop").value,email:$("#setEmail").value,whatsapp:$("#setWhatsApp").value}));toast("Paramètres enregistrés dans ce navigateur.");};
 try{const s=JSON.parse(localStorage.getItem("bb_admin_settings")||"null");if(s){$("#setShop").value=s.shop||"Bénie Boutique";$("#setEmail").value=s.email||"danielservice225@gmail.com";$("#setWhatsApp").value=s.whatsapp||"2250100847544";}}catch{}
 </script>
