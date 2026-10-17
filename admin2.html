@@ -337,6 +337,68 @@ body{background:#F7F7F5!important;color:#171717!important}
 [class*="hero"] h1,[class*="hero"] h2,[class*="banner"] h1,[class*="banner"] h2,
 [class*="promo"] h1,[class*="promo"] h2{color:#171717!important}
 a:not(.btn):not(.button){text-decoration-color:#777!important}
+
+/* Responsive renforcé : mobile, tablette et ordinateur */
+html,body{max-width:100%;overflow-x:hidden}
+#app{width:100%;min-width:0}
+#app .main{min-width:0}
+#app .table-wrap{width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+#app table{min-width:650px}
+#app .toolbar,#app .section-head,#app .topbar,#app .top-actions{min-width:0;flex-wrap:wrap}
+#app input,#app select,#app textarea{min-width:0;max-width:100%}
+#productModal{padding:12px;overflow-y:auto}
+#productModal .modal{width:min(680px,100%);max-height:calc(100dvh - 24px);overflow-y:auto}
+@media(max-width:760px){
+ #app.shell{display:flex!important;flex-direction:column!important;min-height:100vh}
+ #app>aside{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;min-height:0!important;padding:12px!important;gap:12px!important;display:flex!important;flex-direction:column!important;overflow:visible!important}
+ #app>aside .brand{padding:0 4px;font-size:16px}
+ #app>aside>div:nth-child(2){width:100%;min-width:0}
+ #app>aside .nav-label{margin:2px 0 7px;padding:0 5px}
+ #app>aside .nav{display:flex!important;gap:7px;overflow-x:auto;max-width:100%;padding:2px 1px 8px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+ #app>aside .nav button{flex:0 0 auto;white-space:nowrap;padding:10px 12px;font-size:13px}
+ #app>aside .nav .ico{width:auto}
+ #app>aside .side-bottom{display:flex!important;align-items:center;gap:8px;flex-wrap:wrap;margin-top:0;padding-top:8px;border-top:1px solid #ffffff24}
+ #app>aside .profile{flex:1 1 150px;min-width:0;padding:0;border:0}
+ #app>aside .profile b,#app>aside .profile small{overflow-wrap:anywhere}
+ #app>aside .side-link{font-size:12px;padding:8px}
+ #app .main{width:100%!important;padding:14px 12px 32px!important}
+ #app .topbar{position:relative!important;top:auto!important;margin:0 0 18px!important;padding:0 0 12px!important;align-items:flex-start}
+ #app .topbar h1{font-size:clamp(21px,5vw,29px);overflow-wrap:anywhere}
+ #app .top-actions{width:100%;gap:7px}
+ #app .top-actions>*{max-width:100%;font-size:12px}
+ #app .pill{white-space:normal;padding:8px 10px}
+ #app .welcome{display:block;padding:18px!important}
+ #app .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ #app .stat{min-width:0;padding:14px}
+ #app .stat strong{font-size:clamp(20px,6vw,28px);overflow-wrap:anywhere}
+ #app .grid-two{grid-template-columns:minmax(0,1fr)!important}
+ #app .toolbar{display:flex;gap:8px}
+ #app .toolbar>*{flex:1 1 140px;min-width:0}
+ #app .toolbar .search{flex:1 1 100%}
+ #app .section-head{gap:10px;align-items:flex-start}
+ #app .section-head h2{font-size:20px}
+ #app .card{min-width:0;max-width:100%}
+ #app .settings-grid,#app .form-grid{grid-template-columns:minmax(0,1fr)!important}
+ #loginScreen{padding:16px!important;min-height:100dvh}
+ #loginScreen form,#loginScreen .login-card{width:100%;max-width:440px}
+}
+@media(max-width:420px){
+ #app .main{padding-inline:9px!important}
+ #app>aside{padding:10px!important}
+ #app>aside .nav button{padding:9px 10px;font-size:12px}
+ #app .top-actions a,#app .top-actions button{padding:9px}
+ #app .stats{gap:8px}
+ #app .stat{padding:11px}
+ #app .stat small{font-size:11px}
+ #app .section-head .btn{font-size:12px;padding:9px}
+}
+@media(min-width:761px) and (max-width:1050px){
+ #app.shell{grid-template-columns:205px minmax(0,1fr)}
+ #app>aside{padding:20px 12px}
+ #app .main{padding:22px 18px 36px!important}
+ #app .top-actions{flex-wrap:wrap}
+}
+
 </style>
 </head>
 <body>
