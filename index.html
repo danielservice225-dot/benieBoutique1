@@ -578,6 +578,44 @@ html,body{background:#FAF8F5!important;color:#201C1A!important}
 .spotlight{background:linear-gradient(125deg,#F3E9E2,#FFFFFF 55%,#F8F2ED)!important}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,:focus-visible{outline-color:#C04F36!important}
 .product-review-link{color:#873321!important}
+
+/* ===== Refonte boutique électronique inspirée de la référence fournie ===== */
+:root{--shop-orange:#f04424;--shop-black:#191c1f}
+header.top{background:#fff;color:#111;border-bottom:1px solid #e7e7e7;box-shadow:0 2px 10px #00000008}
+header.top .wrap.shop-head{max-width:1460px;min-height:80px;padding:10px 18px;display:grid;grid-template-columns:minmax(240px,350px) minmax(240px,1fr) auto;gap:24px}
+.brand{gap:12px;font-size:1.55rem;color:#101114;white-space:nowrap}
+.logo{width:48px;height:48px;border-radius:0;background:transparent;color:var(--shop-orange);box-shadow:none;font-size:2rem}
+.brand-copy{display:flex;flex-direction:column;gap:3px}.brand-copy em{font-style:normal;color:var(--shop-orange)}.brand-copy small{font:400 .77rem var(--b);color:#555}
+.head-search{display:flex;height:42px;border:1px solid #d7d7d7;border-radius:8px;overflow:hidden;align-self:center;min-width:0}
+.head-search input{width:100%;min-width:0;border:0;outline:0;padding:0 14px;background:#fff;color:#222;font:400 .9rem var(--b)}
+.head-search button{width:54px;flex:none;border:0;background:#191c1f;color:#fff;font-size:1.7rem}
+.head-actions{display:flex;align-items:center;gap:12px}.head-link{border:0;background:transparent;color:#111;font:500 .82rem var(--b);cursor:pointer;max-width:140px}
+header .cartbtn{position:relative;display:flex;align-items:center;gap:7px;background:transparent;border:0;color:#111;padding:8px;font:500 .8rem var(--b)}header .cartbtn b{position:absolute;top:0;right:30px;background:var(--shop-orange);color:white;border-radius:50%;min-width:18px;height:18px;font-size:.7rem;display:grid;place-items:center}
+.shop-nav{background:#191c1f;color:white}.shop-nav .wrap{max-width:1460px;display:flex;align-items:center;gap:clamp(14px,2.6vw,38px);min-height:42px;padding:0 20px;overflow-x:auto;white-space:nowrap}.shop-nav a{text-decoration:none;font-size:.82rem;font-weight:600}.shop-nav a:hover,.shop-nav a.active{color:#ff8c38}
+.shop-nav a:first-child{margin-right:auto}.shop-nav a.active{align-self:stretch;display:flex;align-items:center;border-bottom:3px solid #ff8c38}
+.theme{width:32px;height:32px;min-width:32px;border:1px solid #ddd;background:#fff;color:#222}
+.shop-hero{max-width:1460px;padding-top:18px;display:grid;grid-template-columns:minmax(0,3fr) minmax(260px,.95fr);gap:18px}
+.hero-banner{min-height:238px;border-radius:9px;overflow:hidden;position:relative;display:flex;align-items:center;background:#f2ece7 url("https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=1400&h=600&q=85&fm=png") center right/cover no-repeat}
+.hero-banner:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#f8f4f0 0%,#f8f4f0f5 35%,#f8f4f0a8 56%,#f8f4f000 100%)}
+.hero-copy{position:relative;z-index:1;padding:20px;width:min(52%,560px);min-width:360px;color:#131d2a}.hero-copy h1{font-size:clamp(2rem,3.1vw,3.2rem);font-weight:800;letter-spacing:-.035em}.hero-copy h1 em{display:block;font-style:normal;color:var(--shop-orange)}.hero-copy p{margin:12px 0;color:#15191e;font-size:.98rem}.hero-points{display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;margin:14px 0 18px}.hero-points span+span:before{content:"•";margin-right:14px;color:#111}.hero-copy .btn{min-height:38px;background:var(--shop-orange);color:white;padding:.65rem 1.2rem;font-size:.83rem}
+.hero-photo{position:absolute;inset:0;pointer-events:none}
+.hero-benefits{border-radius:9px;background:linear-gradient(130deg,#151719,#222426);color:#fff;padding:16px 24px;display:flex;flex-direction:column;justify-content:center}
+.hero-benefits>div{display:flex;align-items:center;gap:15px;padding:14px 0}.hero-benefits>div+div{border-top:1px solid #ffffff35}.hero-benefits b{color:var(--shop-orange);font-size:1.8rem;width:32px;text-align:center}.hero-benefits span{display:grid;gap:3px}.hero-benefits strong{font-size:.86rem;color:#ff603f}.hero-benefits small{font-size:.75rem;color:#f1f1f1}
+.category-strip{max-width:1460px;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:16px;padding-top:20px;padding-bottom:8px}
+.category-strip button{border:1px solid #ececec;border-radius:9px;overflow:hidden;background:#f7f6f5;color:#111;display:flex;flex-direction:column;align-items:center;gap:5px;padding:7px;cursor:pointer;min-width:0;transition:transform .18s,border-color .18s}
+.category-strip button:hover{transform:translateY(-3px);border-color:var(--shop-orange)}.category-strip img{width:100%;height:86px;object-fit:cover;border-radius:5px}.category-strip b{font-size:.78rem;text-align:center;padding:2px 0 5px}
+#catalogue.block{padding-top:24px}#h-cat{font-size:1.35rem!important;color:#111}#catalogue .sec-head p{font-size:.85rem;color:#666}#catalogue .tools{grid-template-columns:minmax(0,1fr) 190px 190px;gap:10px}#catalogue .tools input,#catalogue .tools select{border-radius:7px;min-height:40px;font-size:.85rem}#catalogue .tabs{gap:7px}#catalogue .tab{min-height:35px;border-radius:6px;padding:.45rem .8rem;font-size:.8rem}#catalogue .count{font-size:.8rem}
+.grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.card{border:1px solid #e5e5e5;border-radius:7px;background:#fff;padding:8px;box-shadow:none!important;gap:7px}
+.card:hover{transform:translateY(-2px);border-color:#d3d3d3}
+.tile{aspect-ratio:1.18;border-radius:5px;background:#fff}.tile .ph{object-fit:contain;padding:4px}.tile .g{width:76%;height:76%}
+.card h3{font:500 .78rem/1.35 var(--b);color:#111}.card .price{font:800 .88rem var(--b);color:#111}.card .buy{border-radius:5px;background:#20242a;color:#fff;min-height:31px;font-size:.7rem;padding:6px 8px}
+.card .stars,.stars{color:#ff812d}.flag{top:6px;left:6px;border-radius:4px;font-size:.65rem}
+.market-trust{display:none}
+@media(max-width:1100px){header.top .wrap.shop-head{grid-template-columns:220px minmax(180px,1fr) auto;gap:12px}.brand{font-size:1.25rem}.brand-copy small{font-size:.68rem}.category-strip{grid-template-columns:repeat(4,minmax(0,1fr))}.category-strip img{height:100px}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.hero-copy{width:65%;min-width:300px}}
+@media(max-width:760px){header.top .wrap.shop-head{grid-template-columns:1fr auto;gap:8px;padding:8px 14px}.brand{font-size:1.1rem}.logo{width:34px;height:34px;font-size:1.6rem}.brand-copy small{display:none}.head-search{grid-column:1/-1;grid-row:2;width:100%;height:38px}.head-actions{gap:5px}.head-link{font-size:0;max-width:30px}.head-link:after{content:"♙";font-size:1.25rem}.head-actions .theme{display:none} .shop-nav .wrap{gap:18px;min-height:40px;padding-inline:14px}.shop-nav a{font-size:.75rem}.shop-hero{grid-template-columns:1fr;padding-top:12px;gap:10px}.hero-banner{min-height:300px;background-position:center right}.hero-banner:before{background:linear-gradient(90deg,#f8f4f0 0%,#f8f4f0f5 48%,#f8f4f0a0 75%,#f8f4f000 100%)}.hero-copy{width:88%;min-width:0;padding:18px}.hero-copy h1{font-size:clamp(1.8rem,8vw,2.6rem)}.hero-copy p{font-size:.88rem}.hero-points{gap:8px;font-size:.7rem}.hero-points span+span:before{margin-right:8px}.hero-benefits{display:grid;grid-template-columns:1fr 1fr 1fr;padding:8px;gap:8px}.hero-benefits>div{padding:7px;gap:5px;align-items:flex-start}.hero-benefits>div+div{border-top:0;border-left:1px solid #ffffff35;padding-left:9px}.hero-benefits b{font-size:1.2rem;width:auto}.hero-benefits strong{font-size:.68rem}.hero-benefits small{font-size:.62rem}.category-strip{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding-top:12px}.category-strip img{height:65px}.category-strip b{font-size:.68rem}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{padding:7px}.card h3{font-size:.75rem}#catalogue.block{padding-top:20px}#catalogue .tools{grid-template-columns:1fr 1fr}#catalogue .tools input{grid-column:1/-1}#catalogue .tabs{margin-right:-14px}.head-actions .cartbtn{padding:4px}.head-actions .cartbtn span{display:none}}
+@media(min-width:761px) and (max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.category-strip{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
 </style>
 <style>
 #accountModal{position:fixed;inset:0;z-index:10000;background:#201c1acc;display:none;align-items:center;justify-content:center;padding:18px}
@@ -674,14 +712,11 @@ button,a,input,select,textarea{ -webkit-tap-highlight-color:transparent }
 </defs></svg>
 
 <div class="market-topline"><div class="wrap"><span>✦ Mode & électronique au même endroit</span><span class="market-topline-right">Abidjan, Côte d’Ivoire <b>·</b> Prix en FCFA <b>·</b> Commande sur WhatsApp</span></div></div>
-<header class="top"><div class="wrap">
-  <a class="brand" href="#accueil" aria-label="Bénie Boutique, accueil"><span class="logo" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7D27A"/><stop offset="1" stop-color="#C04F36"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="18" fill="#211D1B" stroke="#C04F36" stroke-opacity=".5" stroke-width="1.5"/><path class="trace" pathLength="1" d="M21 13V51H34C42 51 46 46.5 46 41C46 35.5 42.5 32.5 37 32C41 31 44 28 44 23C44 17 40 13 33 13ZM21 32H37" fill="none" stroke="url(#lg)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><g fill="#fff"><circle class="nd" cx="21" cy="13" r="3.2"/><circle class="nd" cx="21" cy="51" r="3.2"/><circle class="nd" cx="46" cy="41" r="3.2"/><circle class="nd" cx="44" cy="23" r="3.2"/></g></svg></span>Bénie Boutique</a>
-  <nav class="links" aria-label="Navigation principale"><a href="#catalogue">Catalogue</a><a href="#engagements">Engagements</a><a href="#contact">Contact</a></nav>
-  <button class="btn btn-line sm" id="accountOpen" type="button" style="cursor:pointer">👤 Mon compte</button>
-  <a class="btn btn-wa sm" data-wa target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
-  <button class="cartbtn" id="cartBtn" type="button" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><b id="cartN" hidden>0</b></button>
-  <button class="theme" id="theme" type="button" aria-label="Changer de thème clair ou sombre">☾</button>
-</div></header>
+<header class="top"><div class="wrap shop-head">
+  <a class="brand" href="#accueil" aria-label="Bénie Boutique, accueil"><span class="logo" aria-hidden="true">🛒</span><span class="brand-copy">Bénie <em>Boutique</em><small>Votre partenaire en électronique</small></span></a>
+  <form class="head-search" id="headSearch"><input id="headSearchInput" type="search" placeholder="Rechercher un produit, une marque..." aria-label="Rechercher un produit"><button aria-label="Lancer la recherche">⌕</button></form>
+  <div class="head-actions"><button class="head-link" id="accountOpen" type="button">♙ Connexion / Inscription</button><button class="cartbtn" id="cartBtn" type="button" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><b id="cartN" hidden>0</b><span id="headCartPrice">Panier</span></button><button class="theme" id="theme" type="button" aria-label="Changer de thème clair ou sombre">☾</button></div>
+</div><nav class="shop-nav"><div class="wrap"><a href="#catalogue">☰ Toutes les catégories</a><a class="active" href="#accueil">⌂ Accueil</a><a href="#a-la-une">♢ Promotions</a><a href="#catalogue">◷ Nouveautés</a><a href="#catalogue">✧ Meilleures ventes</a><a href="#engagements">ⓘ À propos</a><a href="#contact">✉ Contact</a></div></nav></header>
 
 <div id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
  <section class="account-card">
@@ -700,15 +735,23 @@ button,a,input,select,textarea{ -webkit-tap-highlight-color:transparent }
  </section>
 </div>
 <main id="accueil">
-  <div class="hero"><canvas id="net" aria-hidden="true"></canvas>
-  <div class="floats" aria-hidden="true"><span style="--d:0s;top:9%;right:6%"><svg><use href="#g-cpu"/></svg></span><span style="--d:-2s;top:46%;right:20%"><svg><use href="#g-wifi"/></svg></span><span style="--d:-4s;top:18%;right:30%"><svg><use href="#g-board"/></svg></span></div>
-  <div class="wrap">
-    <p class="live"><i></i>Actif 24h/24, 7j/7</p>
-    <h1>Bénie <em>Boutique</em></h1>
-    <p>Kits Arduino, Raspberry Pi, cartes ESP32 et composants électroniques pour vos projets depuis Abidjan. Remplissez votre panier : la boutique en ligne est ouverte 24h/24, 7j/7, et on vous répond sur WhatsApp.</p>
-    <div class="cta"><a class="btn btn-gold" href="#catalogue">Voir le catalogue</a><a class="btn btn-line" data-wa target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Écrire sur WhatsApp</a></div>
-    <div class="stats"><div><b id="stA" data-n="0">0</b><span>articles</span></div><div><b data-n="5">0</b><span>catégories électroniques</span></div><div><b>24h/24</b><span>commande en ligne</span></div></div>
-  </div></div>
+  <div class="shop-hero wrap">
+    <section class="hero-banner">
+      <div class="hero-copy"><h1>Tout pour vos projets <em>électroniques</em></h1><p>Arduino, ESP32, Raspberry Pi, capteurs, kits et composants.</p><div class="hero-points"><span>Qualité</span><span>Prix compétitifs</span><span>Livraison rapide</span></div><a class="btn btn-gold" href="#catalogue">Découvrir la boutique →</a></div>
+      <div class="hero-photo" role="img" aria-label="Cartes électroniques et composants"></div>
+    </section>
+    <aside class="hero-benefits"><div><b>♧</b><span><strong>Livraison rapide</strong><small>partout en Côte d’Ivoire</small></span></div><div><b>▣</b><span><strong>Paiement flexible</strong><small>Mobile Money et espèces à confirmer</small></span></div><div><b>☏</b><span><strong>Support client</strong><small>à votre écoute sur WhatsApp</small></span></div></aside>
+  </div>
+  <section class="category-strip wrap" aria-label="Catégories de produits">
+    <button data-shop-cat="arduino"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=360&h=260&q=80&fm=png" alt=""><b>Kits Arduino</b></button>
+    <button data-shop-cat="kits"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fit=crop&w=360&h=260&q=80&fm=png" alt=""><b>Kits électroniques</b></button>
+    <button data-shop-cat="rpi"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?fit=crop&w=360&h=260&q=80&fm=png" alt=""><b>Raspberry Pi</b></button>
+    <button data-shop-cat="esp32"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fit=crop&w=360&h=260&q=80&fm=png" alt=""><b>ESP32</b></button>
+    <button data-shop-cat="compo"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=360&h=260&q=80&fm=png" alt=""><b>Capteurs</b></button>
+    <button data-shop-cat="compo"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fit=crop&w=360&h=260&q=80&fm=png" alt=""><b>Composants</b></button>
+    <button data-shop-cat="esp32"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fit=crop&w=360&h=260&q=80&fm=png" alt=""><b>Modules</b></button>
+    <button data-shop-cat="compo"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?fit=crop&w=360&h=260&q=80&fm=png" alt=""><b>Accessoires</b></button>
+  </section>
 
   <div class="tick" aria-hidden="true"><div class="trk"><span>Kits Arduino</span><span>Kits électroniques</span><span>Raspberry Pi</span><span>ESP32</span><span>Composants</span></div></div>
 
@@ -1466,5 +1509,14 @@ document.addEventListener("click", function(e) {
 }, true);
 </script>
 
+
+<script>
+/* Recherche du bandeau et raccourcis catégories */
+(()=> {
+ const form=document.getElementById("headSearch"), input=document.getElementById("headSearchInput"), search=document.getElementById("q");
+ if(form&&input&&search){form.addEventListener("submit",e=>{e.preventDefault();search.value=input.value;search.dispatchEvent(new Event("input",{bubbles:true}));document.getElementById("catalogue").scrollIntoView({behavior:"smooth"});});input.addEventListener("input",()=>{search.value=input.value;search.dispatchEvent(new Event("input",{bubbles:true}));});}
+ document.querySelectorAll("[data-shop-cat]").forEach(b=>b.addEventListener("click",()=>{const tab=[...document.querySelectorAll("#tabs button")].find(t=>(t.textContent||"").toLowerCase().includes(({arduino:"arduino",kits:"kit",rpi:"raspberry",esp32:"esp32",compo:"compos"})[b.dataset.shopCat]||"---"));if(tab)tab.click();document.getElementById("catalogue").scrollIntoView({behavior:"smooth"});}));
+})();
+</script>
 </body>
 </html>
