@@ -311,32 +311,7 @@ const DEF = { // variantes et icône proposées par défaut selon la catégorie
   femme:[["S","M","L","XL"],"dress"],homme:[["S","M","L","XL"],"shirt"],enfant:[["2 ans","4 ans","6 ans","8 ans"],"kid"],
   arduino:[["Unique"],"board"],kits:[["Unique"],"box"],rpi:[["Unique"],"cpu"],esp32:[["Unique"],"wifi"],compo:[["Unique"],"bolt"]};
 const U=["Unique"], S=["S","M","L","XL"];
-const PRODUCTS = [
- {id:"f1",name:"Robe wax évasée",desc:"Coton wax, doublée, fermeture dos",price:18000,cat:"femme",sizes:S,img:"",tag:"Nouveau",stock:"ok",icon:"dress"},
- {id:"f2",name:"Ensemble pagne 2 pièces",desc:"Top ajusté et jupe longue assortie",price:28000,cat:"femme",sizes:S,img:"",tag:"Best-seller",stock:"ok",icon:"dress"},
- {id:"f3",name:"Pantalon palazzo",desc:"Taille haute, tombé ample",price:12000,cat:"femme",sizes:S,img:"",tag:"",stock:"ok",icon:"pants"},
- {id:"h1",name:"Chemise lin manches longues",desc:"Lin léger, coupe droite",price:12000,cat:"homme",sizes:S,img:"",tag:"",stock:"ok",icon:"shirt"},
- {id:"h2",name:"T-shirt coton col rond",desc:"Coton épais 180 g, 6 coloris",price:5000,cat:"homme",sizes:S,img:"",tag:"Promo",stock:"low",icon:"tee"},
- {id:"h3",name:"Sneakers blanches",desc:"Semelle confort, pointures 40 à 44",price:18000,cat:"homme",sizes:["40","41","42","43","44"],img:"",tag:"",stock:"ok",icon:"shoe"},
- {id:"e1",name:"Robe wax fillette",desc:"Coton léger, motifs colorés",price:9000,cat:"enfant",sizes:["2 ans","4 ans","6 ans","8 ans"],img:"",tag:"Nouveau",stock:"ok",icon:"dress"},
- {id:"e2",name:"Ensemble short et t-shirt",desc:"Coton doux, idéal pour l’école",price:7500,cat:"enfant",sizes:["4 ans","6 ans","8 ans","10 ans"],img:"",tag:"",stock:"ok",icon:"kid"},
- {id:"e3",name:"Sneakers enfant",desc:"Scratch facile, pointures 28 à 35",price:11000,cat:"enfant",sizes:["28","30","32","35"],img:"",tag:"Stock limité",stock:"low",icon:"shoe"},
- {id:"a1",name:"Arduino Starter Kit",desc:"UNO R3 + 170 composants et guide",price:35000,cat:"arduino",sizes:U,img:"",tag:"Best-seller",stock:"ok",icon:"box"},
- {id:"a2",name:"Arduino UNO R3",desc:"Compatible, câble USB inclus",price:9500,cat:"arduino",sizes:U,img:"",tag:"",stock:"ok",icon:"board"},
- {id:"a3",name:"Arduino Nano CH340",desc:"Format compact, broches soudées",price:5500,cat:"arduino",sizes:U,img:"",tag:"Stock limité",stock:"low",icon:"board"},
- {id:"k1",name:"Kit débutant LED et résistances",desc:"Breadboard, LED, boutons, fils",price:6500,cat:"kits",sizes:U,img:"",tag:"",stock:"ok",icon:"box"},
- {id:"k2",name:"Kit 37 capteurs",desc:"37 modules pour Arduino et ESP32",price:22000,cat:"kits",sizes:U,img:"",tag:"Nouveau",stock:"ok",icon:"box"},
- {id:"r1",name:"Raspberry Pi 4 Model B 4 Go",desc:"Quad-core, WiFi, Bluetooth, 2 sorties HDMI",price:65000,cat:"rpi",sizes:U,img:"",tag:"Best-seller",stock:"ok",icon:"cpu"},
- {id:"r2",name:"Raspberry Pi Zero 2 W",desc:"Mini carte WiFi, très faible conso",price:28000,cat:"rpi",sizes:U,img:"",tag:"",stock:"ok",icon:"cpu"},
- {id:"r3",name:"Boîtier Pi 4 avec ventilateur",desc:"Boîtier ABS, dissipateurs inclus",price:8500,cat:"rpi",sizes:U,img:"",tag:"",stock:"ok",icon:"box"},
- {id:"s1",name:"ESP32 DevKit V1",desc:"WiFi + Bluetooth, 30 broches",price:7500,cat:"esp32",sizes:U,img:"",tag:"Best-seller",stock:"ok",icon:"wifi"},
- {id:"s2",name:"ESP32-CAM",desc:"Caméra OV2640 et lecteur microSD",price:12500,cat:"esp32",sizes:U,img:"",tag:"Nouveau",stock:"ok",icon:"wifi"},
- {id:"s3",name:"ESP32 avec écran OLED 0,96\"",desc:"Carte de développement avec écran intégré",price:9500,cat:"esp32",sizes:U,img:"",tag:"",stock:"low",icon:"wifi"},
- {id:"c1",name:"Capteur DHT22",desc:"Température et humidité numérique",price:4500,cat:"compo",sizes:U,img:"",tag:"",stock:"ok",icon:"bolt"},
- {id:"c2",name:"Module relais 2 canaux 5V",desc:"Commande de charges 220 V",price:3000,cat:"compo",sizes:U,img:"",tag:"",stock:"ok",icon:"bolt"},
- {id:"c3",name:"Breadboard 830 points",desc:"Plaque d’essai sans soudure",price:2500,cat:"compo",sizes:U,img:"",tag:"Promo",stock:"ok",icon:"bolt"},
- {id:"c4",name:"Lot de 40 câbles Dupont",desc:"Mâle-mâle, 20 cm, multicolores",price:1500,cat:"compo",sizes:U,img:"",tag:"",stock:"out",icon:"bolt"}
-];
+const PRODUCTS = []; // Catalogue vide : les articles seront ajoutés depuis l'espace administrateur.
 
 /* ===================================================================== */
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -393,6 +368,11 @@ function render(){
   const [lo, hi] = pr === "all" ? [0, 1e9] : pr.split("-").map(Number);
   const L = cur().filter(p => (cat === "all" || (cat === "fav" ? favs.has(p.id) : p.cat === cat)) && p.price >= lo && p.price <= hi &&
     (!q || `${p.name} ${p.desc} ${CATS[p.cat]}`.toLowerCase().includes(q)));
+  if(!cur().length){
+    $("#grid").innerHTML = '<div class="empty" style="grid-column:1/-1;padding:2.5rem 1rem"><h3 style="margin-bottom:.6rem">Votre boutique est prête à accueillir vos produits</h3><p>Le catalogue est vide pour le moment. Connectez-vous à l’espace administrateur pour ajouter vos premiers articles.</p><a class="btn btn-gold" href="./admin.html" style="margin-top:1rem">＋ Ajouter mon premier produit</a></div>';
+    $("#count").textContent = "Aucun article publié pour le moment";
+    return;
+  }
   const so = $("#sort").value; if(so === "asc") L.sort((a, b) => a.price - b.price); if(so === "desc") L.sort((a, b) => b.price - a.price);
   $("#grid").innerHTML = L.map(card).join("") || `<div class="empty"><p>Aucun article ne correspond.</p><button type="button" class="btn btn-gold sm" id="rst" style="margin-top:.8rem">Réinitialiser les filtres</button></div>`;
   $("#count").textContent = `${L.length} article${L.length > 1 ? "s" : ""}`;
@@ -674,8 +654,8 @@ const showMng = () => $("#manage").hidden = location.hash !== "#admin"; showMng(
     const r = await fetch(`${CFG.supabaseUrl}/rest/v1/products?select=data&order=created_at.desc,id.asc`, {headers: dbH()});
     if(r.ok) s = (await r.json()).map(x => x.data);
   }catch(e){}
-  if(!s || !s.length) try{ const r = await fetch("products.json", {cache: "no-cache"}); if(r.ok) s = await r.json(); }catch(e){}  // 2. products.json
-  items = Array.isArray(s) && s.length ? s : clone(PRODUCTS);      // 3. liste PRODUCTS ci-dessus
+  // Aucun catalogue de démonstration ni fichier de secours : seuls les produits gérés dans Supabase sont affichés.
+  items = Array.isArray(s) ? s : [];
   render(); $("#stA").dataset.n = items.length; $$(".stats b[data-n]").forEach(countUp); cartN();
 })();
 </script>
