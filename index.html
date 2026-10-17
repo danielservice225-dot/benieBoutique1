@@ -93,7 +93,7 @@ section.block{padding-block:3rem}
 @media(min-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem 1.25rem}}
 .card{display:flex;flex-direction:column;min-width:0;animation:rise .55s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(min(var(--i),12)*45ms);transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s;border-radius:16px}
 .card:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(42,23,80,.18)}
-.tile{--tc:var(--tl);position:relative;overflow:hidden;aspect-ratio:1;border-radius:16px;background:var(--tc);display:grid;place-items:center}
+.tile{--tc:var(--tl);position:relative;overflow:hidden;aspect-ratio:4/3;border-radius:13px;background:var(--tc);display:grid;place-items:center}
 .t1{--tl:color-mix(in srgb,var(--go) 24%,var(--sf))}.t2{--tl:color-mix(in srgb,var(--pl) 14%,var(--sf))}.t3{--tl:color-mix(in srgb,var(--wa) 16%,var(--sf))}.t4{--tl:color-mix(in srgb,var(--rd) 12%,var(--sf))}.t5{--tl:color-mix(in srgb,#4a6fe0 16%,var(--sf))}
 .tile .g{width:62%;height:62%;color:var(--fg);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .tile .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
@@ -336,7 +336,7 @@ img{max-width:100%}
  .cb h3{font-size:.91rem;min-height:2.5em}
  .cb .d{font-size:.78rem;min-height:2.15em}
  .cb .pr{font-size:1.04rem}
- .tile{aspect-ratio:1/1}
+ .tile{aspect-ratio:4/3}
  .flag{top:6px;left:6px;font-size:.66rem;padding:5px}
  .stk{font-size:.64rem}
  .fav{top:6px;right:6px}
@@ -345,6 +345,11 @@ img{max-width:100%}
  .product-rating{gap:3px;font-size:.7rem}
  .product-rating .stars{font-size:.8rem}
  .product-review-link{font-size:.72rem}
+ .product-rating{min-height:18px;line-height:1.15}
+ .cb{padding-top:.45rem}
+ .cb .d{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .tile{aspect-ratio:4/3}
+ .product-photo{cursor:pointer}
  .hero{padding-block:clamp(2.2rem,8vw,4rem)}
  .hero h1{font-size:clamp(2.4rem,11vw,4rem)}
  .tools{grid-template-columns:minmax(0,1fr)}
@@ -673,7 +678,7 @@ function card(p, i){
   const st = p.stock || "ok", v = p.sizes && p.sizes.length ? p.sizes : U;
   const pics = Array.isArray(p.imgs) && p.imgs.length ? p.imgs : (p.img ? [p.img] : []);
   return `<article class="card" data-id="${esc(p.id)}" data-image-index="0" style="--i:${i}">
-  <div class="tile t${i % 5 + 1}">${pics.length ? `<img class="ph product-photo" src="${esc(pics[0])}" alt="${esc(p.name)}" loading="lazy">` : `<svg class="g" aria-hidden="true"><use href="#g-${esc(p.icon || "box")}"/></svg>`}
+  <div class="tile t${i % 5 + 1}">${pics.length ? `<img class="ph product-photo" src="${esc(pics[0])}" alt="Voir les avis sur ${esc(p.name)}" role="button" tabindex="0" loading="lazy" decoding="async">` : `<svg class="g" aria-hidden="true"><use href="#g-${esc(p.icon || "box")}"/></svg>`}
   ${pics.length > 1 ? `<button type="button" class="photo-nav photo-prev" data-image-step="-1" aria-label="Photo précédente">‹</button><button type="button" class="photo-nav photo-next" data-image-step="1" aria-label="Photo suivante">›</button><span class="photo-count">1 / ${pics.length}</span>` : ""}
   <button type="button" class="fav" aria-pressed="${favs.has(p.id)}" aria-label="Ajouter ${esc(p.name)} aux favoris">♥</button>${p.tag ? `<span class="flag">${esc(p.tag)}</span>` : ""}<span class="stk ${st}">${STK[st]}</span></div>
   <div class="cb"><span class="c">${esc(CATS[p.cat] || "")}</span><h3>${esc(p.name)}</h3><p class="d">${esc(p.desc)}</p><div class="product-rating" data-product-rating="${esc(p.id)}"><span class="stars">☆☆☆☆☆</span><span>Pas encore noté</span><button type="button" class="product-review-link" data-product-reviews>Écrire un avis</button></div><p class="pr">${fmt(p.price)}</p>
@@ -689,7 +694,7 @@ function renderSpotlights(){
   if(!featured.length){ grid.innerHTML = ""; return; }
   grid.innerHTML = featured.map(p => {
     const photo = (Array.isArray(p.imgs) && p.imgs.length ? p.imgs[0] : p.img)
-      ? '<img src="' + esc((Array.isArray(p.imgs) && p.imgs.length ? p.imgs[0] : p.img)) + '" alt="' + esc(p.name) + '" loading="lazy">'
+      ? '<img src="' + esc((Array.isArray(p.imgs) && p.imgs.length ? p.imgs[0] : p.img)) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async">'
       : '<span aria-hidden="true">✦</span>';
     const tag = String(p.tag || "");
     return '<article class="spotlight-item"><div class="spotlight-photo">' + photo + '</div><div class="spotlight-info"><span class="spotlight-tag">' + esc(tag === "Promo" ? "✦ Promotion" : tag === "Nouveau" ? "Nouveauté" : "Populaire") + '</span><h3>' + esc(p.name) + '</h3><strong class="spotlight-price">' + fmt(p.price) + '</strong><button class="spotlight-open" type="button" data-spotlight-id="' + esc(p.id) + '">Voir l’article →</button></div></article>';
@@ -740,6 +745,7 @@ $("#grid").onclick = e => {
   const p = cur().find(x => x.id === c.dataset.id); if(!p) return;
   const imageStep = e.target.closest("[data-image-step]");
   if(imageStep){const pics=Array.isArray(p.imgs)&&p.imgs.length?p.imgs:(p.img?[p.img]:[]);if(pics.length>1){const n=(Number(c.dataset.imageIndex||0)+Number(imageStep.dataset.imageStep)+pics.length)%pics.length;c.dataset.imageIndex=String(n);const photo=c.querySelector(".product-photo");if(photo)photo.src=pics[n];const count=c.querySelector(".photo-count");if(count)count.textContent=(n+1)+" / "+pics.length;}return;}
+  if(e.target.closest(".product-photo")){ openProductReviews(p); return; }
   if(e.target.closest("[data-product-reviews]")){ openProductReviews(p); return; }
   const fv = e.target.closest(".fav");
   if(fv){ favs.has(p.id) ? favs.delete(p.id) : favs.add(p.id); saveFav(); fv.setAttribute("aria-pressed", favs.has(p.id)); toast(favs.has(p.id) ? "Ajouté aux favoris." : "Retiré des favoris."); if(cat === "fav") render(); return; }
@@ -785,13 +791,13 @@ $("#contactForm").onsubmit = e => {
    Connexion e-mail + mot de passe (Supabase Auth) ; Publier écrit dans la base de données.
    Exporter = sauvegarde products.json (facultatif).
    ===================================================================== */
-const toJpeg = f => new Promise((ok, ko) => {           // photo → JPEG ≤ 720 px, qualité 0,82
+const toPng = f => new Promise((ok, ko) => {           // photo → PNG ≤ 720 px
   const r = new FileReader(); r.onerror = ko;
   r.onload = () => { const i = new Image(); i.onerror = ko;
     i.onload = () => { const s = Math.min(1, 720 / Math.max(i.width, i.height)), c = document.createElement("canvas");
       c.width = Math.round(i.width * s); c.height = Math.round(i.height * s);
-      const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height); x.drawImage(i, 0, 0, c.width, c.height);
-      ok(c.toDataURL("image/jpeg", .82)); };
+      const x = c.getContext("2d"); x.clearRect(0, 0, c.width, c.height); x.drawImage(i, 0, 0, c.width, c.height);
+      ok(c.toDataURL("image/png")); };
     i.src = r.result; };
   r.readAsDataURL(f);
 });
@@ -873,7 +879,7 @@ function editor(id){
   f.preset.onchange = () => { if(f.preset.value) f.sizes.value = PV[f.preset.value].join(", "); };
   if(!p) f.cat.onchange = () => { f.sizes.value = DEF[f.cat.value][0].join(", "); f.icon.value = DEF[f.cat.value][1]; };
   f.file.onchange = () => { const file = f.file.files[0]; if(!file) return;
-    toJpeg(file).then(u => { photo = u; pv.src = u; pv.hidden = false; }, () => er.textContent = "Image illisible. Essayez un fichier JPG ou PNG."); };
+    toPng(file).then(u => { photo = u; pv.src = u; pv.hidden = false; }, () => er.textContent = "Image illisible. Essayez un fichier JPG ou PNG."); };
   f.onsubmit = e => {
     e.preventDefault();
     const price = parseInt(f.price.value, 10);
@@ -984,6 +990,7 @@ function openCart(){
 }
 $("#cartBtn").onclick = openCart;
 $("#sort").onchange = render;
+$("#grid").addEventListener("keydown", e => { if((e.key === "Enter" || e.key === " ") && e.target.matches(".product-photo")){ e.preventDefault(); const c=e.target.closest(".card"), p=c && cur().find(x=>x.id===c.dataset.id); if(p) openProductReviews(p); } });
 $("#grid").addEventListener("click", e => { if(e.target.closest("#rst")){ q = ""; $("#q").value = ""; pr = "all"; $("#pr").value = "all"; $("#sort").value = "rel"; setCat("all"); render(); } });
 $("#share").onclick = async () => { const d = {title: CFG.shop, text: "Découvrez Bénie Boutique : mode et électronique à Abidjan.", url: location.href};
   try{ if(navigator.share) await navigator.share(d); else { await navigator.clipboard.writeText(d.url); toast("Lien copié."); } }catch(e){} };
