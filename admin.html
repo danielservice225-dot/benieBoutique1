@@ -267,6 +267,20 @@ img{filter:none}
 #productModal{background:rgba(0,0,0,.48)!important}
 #toast{background:#111!important;color:#fff!important}
 
+
+/* Palette monochrome renforcée : neutralise les anciens accents bleus */
+:root{color-scheme:light}
+body{background:#F7F7F5!important;color:#171717!important}
+[class*="hero"],[id*="hero"],[class*="banner"],[id*="banner"],
+[class*="promo"],[id*="promo"],[class*="gradient"],[id*="gradient"]{
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+  color:#171717!important;
+  border-color:#E5E5E0!important;
+}
+[class*="hero"] h1,[class*="hero"] h2,[class*="banner"] h1,[class*="banner"] h2,
+[class*="promo"] h1,[class*="promo"] h2{color:#171717!important}
+a:not(.btn):not(.button){text-decoration-color:#777!important}
 </style>
 </head>
 <body>
