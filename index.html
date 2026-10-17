@@ -579,6 +579,14 @@ html,body{background:#FAF8F5!important;color:#201C1A!important}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,:focus-visible{outline-color:#C04F36!important}
 .product-review-link{color:#873321!important}
 </style>
+<style>
+#accountModal{position:fixed;inset:0;z-index:10000;background:#201c1acc;display:none;align-items:center;justify-content:center;padding:18px}
+#accountModal.open{display:flex}.account-card{width:min(100%,480px);max-height:90vh;overflow:auto;background:var(--sf,#fff);color:var(--fg,#201c1a);border:1px solid var(--ln,#e5ddd7);border-radius:22px;padding:24px;box-shadow:0 24px 80px #0003}
+.account-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.account-head h2{font-size:1.5rem}.account-close{border:1px solid var(--ln);background:transparent;color:inherit;border-radius:12px;width:40px;height:40px;font-size:24px;cursor:pointer}
+.account-tabs{display:flex;gap:8px;margin-bottom:16px}.account-tabs button{flex:1;border:1px solid var(--ln);background:transparent;color:inherit;padding:11px;border-radius:12px;cursor:pointer;font-weight:700}.account-tabs button.active{background:var(--pl);color:var(--pf)}
+.account-form{display:grid;gap:12px}.account-form label{font-size:.9rem;font-weight:700;display:grid;gap:6px}.account-form input{width:100%;padding:12px 13px;border:1px solid var(--ln);border-radius:12px;background:var(--bg);color:var(--fg);font:inherit}.account-form .btn{justify-content:center;width:100%;min-height:46px}.account-message{font-size:.9rem;line-height:1.5;padding:10px 12px;border-radius:12px;background:var(--bg);margin-top:12px;overflow-wrap:anywhere}.account-message:empty{display:none}.account-user{border:1px solid var(--ln);border-radius:14px;padding:14px;margin:12px 0}.account-user p{margin:4px 0}.account-small{font-size:.85rem;color:var(--mu)}
+@media(max-width:620px){#accountOpen{font-size:.8rem;padding:9px}.account-card{padding:18px}}
+</style>
 </head>
 <body>
 <div id="shopAd" aria-hidden="true">
@@ -628,11 +636,28 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <header class="top"><div class="wrap">
   <a class="brand" href="#accueil" aria-label="Bénie Boutique, accueil"><span class="logo" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7D27A"/><stop offset="1" stop-color="#C04F36"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="18" fill="#211D1B" stroke="#C04F36" stroke-opacity=".5" stroke-width="1.5"/><path class="trace" pathLength="1" d="M21 13V51H34C42 51 46 46.5 46 41C46 35.5 42.5 32.5 37 32C41 31 44 28 44 23C44 17 40 13 33 13ZM21 32H37" fill="none" stroke="url(#lg)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><g fill="#fff"><circle class="nd" cx="21" cy="13" r="3.2"/><circle class="nd" cx="21" cy="51" r="3.2"/><circle class="nd" cx="46" cy="41" r="3.2"/><circle class="nd" cx="44" cy="23" r="3.2"/></g></svg></span>Bénie Boutique</a>
   <nav class="links" aria-label="Navigation principale"><a href="#catalogue">Catalogue</a><a href="#engagements">Engagements</a><a href="#contact">Contact</a></nav>
+  <button class="btn btn-line sm" id="accountOpen" type="button" style="cursor:pointer">👤 Mon compte</button>
   <a class="btn btn-wa sm" data-wa target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
   <button class="cartbtn" id="cartBtn" type="button" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><b id="cartN" hidden>0</b></button>
   <button class="theme" id="theme" type="button" aria-label="Changer de thème clair ou sombre">☾</button>
 </div></header>
 
+<div id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+ <section class="account-card">
+  <div class="account-head"><div><p class="account-small">BÉNIE BOUTIQUE · ESPACE CLIENT</p><h2 id="accountTitle">Bienvenue</h2></div><button class="account-close" id="accountClose" type="button" aria-label="Fermer">×</button></div>
+  <div class="account-tabs" id="accountTabs"><button type="button" class="active" data-account-mode="login">Connexion</button><button type="button" data-account-mode="signup">Créer un compte</button></div>
+  <form class="account-form" id="customerAuthForm">
+   <label id="customerNameWrap" hidden>Nom complet<input id="customerName" autocomplete="name" maxlength="100" placeholder="Votre nom et prénom"></label>
+   <label id="customerPhoneWrap" hidden>Téléphone / WhatsApp<input id="customerPhone" autocomplete="tel" maxlength="30" placeholder="+225…"></label>
+   <label>Adresse e-mail<input id="customerEmail" type="email" autocomplete="email" required maxlength="254" placeholder="vous@exemple.com"></label>
+   <label>Mot de passe<input id="customerPassword" type="password" autocomplete="current-password" minlength="8" required placeholder="8 caractères minimum"></label>
+   <button class="btn btn-gold" id="customerSubmit" type="submit">Se connecter</button>
+  </form>
+  <div class="account-message" id="customerAuthMessage" role="status" aria-live="polite"></div>
+  <div id="customerAccount" hidden></div>
+  <p class="account-small" style="margin-top:14px">Vos informations sont protégées. Ne partagez jamais votre mot de passe.</p>
+ </section>
+</div>
 <main id="accueil">
   <div class="hero"><canvas id="net" aria-hidden="true"></canvas>
   <div class="floats" aria-hidden="true"><span style="--d:0s;top:9%;right:6%"><svg><use href="#g-cpu"/></svg></span><span style="--d:-2s;top:46%;right:20%"><svg><use href="#g-wifi"/></svg></span><span style="--d:-4s;top:18%;right:30%"><svg><use href="#g-board"/></svg></span></div>
@@ -1313,6 +1338,67 @@ setTimeout(hideIntro, 8000); // filet de sécurité si le chargement du catalogu
   if(Array.isArray(s)) s.filter(p => !DEMO_PRODUCT_NAMES.has(String(p?.name || "").trim().toLocaleLowerCase("fr"))).forEach(p => merged.set(String(p.id), p));
   items = [...merged.values()];
   render(); hideIntro(); $("#stA").dataset.n = items.filter(isElectronicProduct).length; $(".stats b[data-n]").forEach(countUp); cartN();
+})();
+</script>
+<script>
+/* Espace client sécurisé via Supabase Auth. Aucun mot de passe n'est stocké dans la boutique. */
+(()=>{
+ const cfg={url:CFG.supabaseUrl,key:CFG.supabaseKey};
+ const $c=id=>document.getElementById(id);
+ let mode="login",customer=null,customerToken="";
+ const modal=$c("accountModal"),form=$c("customerAuthForm"),message=$c("customerAuthMessage"),tabs=$c("accountTabs"),account=$c("customerAccount");
+ const showMessage=(s)=>{message.textContent=s||"";};
+ function renderMode(next){
+  mode=next;customer=null;account.hidden=true;form.hidden=false;tabs.hidden=false;showMessage("");
+  tabs.querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.accountMode===mode));
+  $c("customerNameWrap").hidden=mode!=="signup";$c("customerPhoneWrap").hidden=mode!=="signup";
+  $c("customerPassword").autocomplete=mode==="signup"?"new-password":"current-password";
+  $c("customerSubmit").textContent=mode==="signup"?"Créer mon compte":"Se connecter";
+  $c("accountTitle").textContent=mode==="signup"?"Créer votre compte":"Bienvenue";
+ }
+ function openAccount(){modal.classList.add("open");document.body.style.overflow="hidden";if(customer)renderCustomer();else renderMode("login");}
+ function closeAccount(){modal.classList.remove("open");document.body.style.overflow="";}
+ function renderCustomer(){
+  form.hidden=true;tabs.hidden=true;account.hidden=false;
+  $c("accountTitle").textContent="Mon compte";
+  account.innerHTML='<div class="account-user"><p><strong>Connecté(e)</strong></p><p>'+escapeHTML(customer?.full_name||customer?.email||"Client")+'</p><p class="account-small">'+escapeHTML(customer?.email||"")+'</p><p class="account-small">'+escapeHTML(customer?.phone||"")+'</p></div><button type="button" class="btn btn-line" id="customerSignOut" style="width:100%;justify-content:center">Se déconnecter</button>';
+  $c("customerSignOut").onclick=async()=>{try{await fetch(cfg.url+"/auth/v1/logout",{method:"POST",headers:{apikey:cfg.key,Authorization:"Bearer "+customerToken}});}catch{}customer=null;customerToken="";renderMode("login");showMessage("Vous êtes déconnecté(e).");};
+ }
+ function escapeHTML(v){return String(v||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+ async function request(path,body){
+  const r=await fetch(cfg.url+path,{method:"POST",headers:{apikey:cfg.key,"Content-Type":"application/json"},body:JSON.stringify(body)});
+  let d={};try{d=await r.json()}catch{}
+  if(!r.ok){let m=d.msg||d.message||d.error_description||"Une erreur est survenue. Réessayez.";if(/already registered/i.test(m))m="Cette adresse e-mail possède déjà un compte. Connectez-vous.";if(/invalid login credentials/i.test(m))m="E-mail ou mot de passe incorrect.";throw new Error(m);}
+  return d;
+ }
+ async function loadProfile(){
+  try{
+   const r=await fetch(cfg.url+"/rest/v1/customer_profiles?select=full_name,email,phone&user_id=eq."+encodeURIComponent(customer.id),{headers:{apikey:cfg.key,Authorization:"Bearer "+customerToken}});
+   if(r.ok){const rows=await r.json();if(rows[0])customer={...customer,...rows[0]};}
+  }catch{}
+ }
+ $c("accountOpen").addEventListener("click",openAccount);
+ $c("accountClose").addEventListener("click",closeAccount);
+ modal.addEventListener("click",e=>{if(e.target===modal)closeAccount()});
+ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAccount()});
+ tabs.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>renderMode(b.dataset.accountMode)));
+ form.addEventListener("submit",async e=>{
+  e.preventDefault();const btn=$c("customerSubmit");btn.disabled=true;showMessage("Traitement en cours…");
+  try{
+   const email=$c("customerEmail").value.trim(),password=$c("customerPassword").value;
+   if(mode==="signup"){
+    const name=$c("customerName").value.trim(),phone=$c("customerPhone").value.trim();
+    if(name.length<2)throw new Error("Saisissez votre nom complet.");
+    const d=await request("/auth/v1/signup",{email,password,data:{full_name:name,phone}});
+    if(d.access_token){customerToken=d.access_token;customer=d.user;await loadProfile();renderCustomer();showMessage("Compte créé avec succès.");}
+    else{form.reset();showMessage("Compte créé. Vérifiez votre boîte e-mail pour confirmer l'adresse avant de vous connecter.");}
+   }else{
+    const d=await request("/auth/v1/token?grant_type=password",{email,password});
+    customerToken=d.access_token;customer=d.user;await loadProfile();renderCustomer();showMessage("Connexion réussie.");
+   }
+  }catch(err){showMessage(err.message||"Impossible de continuer.");}
+  finally{btn.disabled=false;btn.textContent=mode==="signup"?"Créer mon compte":"Se connecter";}
+ });
 })();
 </script>
 </body>
