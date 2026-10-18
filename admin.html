@@ -346,6 +346,44 @@ html,body{max-width:100%;overflow-x:hidden}
 
 /* Sécurité d'affichage : l'espace administrateur reste caché avant connexion */
 #app[hidden],#app.shell[hidden]{display:none!important}
+
+/* ===== Nouvelle identité Bénie Boutique : noir, violet et or — remplace les anciens thèmes bleus ===== */
+:root{
+ --bg:#F6F3FA;--panel:rgba(255,255,255,.94);--ink:#251A35;--muted:#7E748D;
+ --line:#E8E0F0;--purple:#6D3DB8;--gold:#D7AD54;--green:#258363;--red:#BE4657;
+ --shadow:0 12px 34px rgba(48,25,76,.08);
+}
+html{background:#F6F3FA}
+body{background:radial-gradient(ellipse at 90% 0%,rgba(225,210,247,.5),transparent 38%),linear-gradient(135deg,#FAF8FC,#F2EDF8);color:var(--ink)}
+aside{background:linear-gradient(180deg,#21152F,#302043);color:#F9F5FF;border-right:0;box-shadow:10px 0 32px rgba(38,19,58,.10)}
+.brand{color:#fff}.brand small{color:#C4B5D8}.logo{background:linear-gradient(145deg,#E7C978,#C89A3D);color:#281A3A;box-shadow:0 6px 18px #D7AD5430}
+.nav-label{color:#A997BD}.nav button{color:#D2C5E1}
+.nav button:hover,.nav button.active{background:#49315F;color:#fff}
+.nav button.active{box-shadow:inset 3px 0 var(--gold)}
+.side-link{color:#D2C5E1}.profile{border-color:#59436C}.profile small{color:#C4B5D8}.avatar{background:#4B3561;color:#F2D58F}
+.topbar{background:rgba(250,248,252,.88);border-bottom:1px solid #E8E0F0}
+.topbar h1{color:#281B39}.eyebrow{color:#81738F}
+.btn-primary{background:linear-gradient(135deg,#7545BE,#59318F);color:#fff;box-shadow:0 7px 18px rgba(92,49,143,.2)}
+.btn-primary:hover{background:#4E287F;box-shadow:0 10px 24px rgba(92,49,143,.26)}
+.btn-light{background:#F0E8F8;color:#5B348C;border:1px solid #E5D9F0}
+.welcome{background:linear-gradient(115deg,#2A1A3C,#5A367D 68%,#7953A1);border:1px solid #ffffff24;box-shadow:0 16px 34px rgba(55,28,83,.16)}
+.welcome p{color:#E2D7EF}.welcome .tag{background:#ffffff16;color:#F6D991;border:1px solid #ffffff20}
+.stat,.card{background:rgba(255,255,255,.92);border-color:#E8E0F0;box-shadow:0 8px 28px rgba(48,25,76,.055)}
+.stat:hover,.card:hover{border-color:#D9C8EB;box-shadow:0 18px 42px rgba(48,25,76,.10)}
+.stat-icon{background:#F0E8F8;color:#7045A6}.stat strong{background:linear-gradient(100deg,#291A3B,#7545BE);-webkit-background-clip:text;background-clip:text;color:transparent}
+.quick button{background:#FBF9FD;border-color:#E8E0F0;color:#2A1C3B}
+.quick button:hover{background:#F4ECFA;border-color:#D5C1E9}
+input,select,textarea,.search input,.field input,.field textarea,.field select{background:#fff!important;border-color:#E4DAED!important;color:#2A1C3B!important}
+input:focus,select:focus,textarea:focus{border-color:#9B78C5!important;box-shadow:0 0 0 3px rgba(109,61,184,.13)!important}
+th{color:#786A89;background:#F8F5FB}td{border-color:#F0EAF5}tbody tr:hover td{background:#FCFAFE}
+.thumb,.stat-icon{background:#F0E8F8;color:#6D3DB8}
+.badge{background:#E8F6EF;color:#23724F}.badge.low,.badge.pending{background:#FFF4D9;color:#946512}.badge.out,.badge.cancelled{background:#FDECEF;color:#B52C3C}
+.icon-btn{color:#633A98}.icon-btn:hover,.icon-btn.edit-btn:hover{background:#F0E8F8;border-color:#D8C4EB}
+.login-screen{background:radial-gradient(circle at 80% 10%,#68428D 0,#2B1B3D 43%,#180F22 100%)}
+.login-card .brand{color:#291B3B}.login-card .logo{background:linear-gradient(145deg,#E7C978,#C89A3D);color:#281A3A}
+.toast{background:#2B1B3D;border:1px solid #4D3562}
+@media(max-width:760px){aside{background:linear-gradient(180deg,#21152F,#302043);border-bottom:1px solid #59436C}.nav button{color:#D2C5E1}.nav button:hover,.nav button.active{background:#49315F;color:#fff}.nav button.active{box-shadow:inset 0 -2px var(--gold)}.topbar{background:rgba(250,248,252,.94)}}
+
 </style>
 </head>
 <body>
